@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Saatlik Oda Rezervasyonu - TourQuaz Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4a22;
+            --primary-hover: #e03d19;
+            --secondary-color: #28a745;
+            --secondary-hover: #218838;
+            --bg-color: #f4f6f9;
+            --text-main: #1a1a1a;
+            --text-muted: #666;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 0;
+            color: var(--text-main);
+        }
+
+        /* Üst Menü / Navbar Simülasyonu */
+        .navbar {
+            background: var(--card-bg);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        .logo span { color: #333; }
+
+        /* ANA İKİLİ SÜTUN DÜZENİ */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 40px;
+        }
+
+        /* ================= SOL SÜTUN STİLLERİ ================= */
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .main-gallery {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+        .main-gallery img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            backdrop-filter: blur(5px);
+        }
+
+        .content-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        }
+        .content-card h1 {
+            margin-top: 0;
+            font-size: 26px;
+            margin-bottom: 15px;
+        }
+        .content-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 15px;
+            color: #444;
+        }
+        .feature-item i {
+            color: var(--primary-color);
+            font-size: 20px;
+            width: 25px;
+        }
+
+        .promo-banner {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: white;
+            padding: 25px;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+        .promo-text h3 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
+        .promo-text p { margin: 0; font-size: 14px; color: #ccc; }
+        .promo-btn {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .how-it-works {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+        .step-card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .step-card i { font-size: 28px; color: var(--primary-color); margin-bottom: 10px; }
+        .step-card h4 { margin: 5px 0; font-size: 15px; }
+        .step-card p { margin: 0; font-size: 12px; color: var(--text-muted); }
+
+
+        /* ================= SAĞ SÜTUN STİLLERİ (FORM) ================= */
+        .right-column {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+        }
+        .booking-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+            padding: 30px;
+            box-sizing: border-box;
+        }
+        .booking-card h2 {
+            font-size: 20px;
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #999;
+            text-transform: uppercase;
+            margin: 20px 0 10px 0;
+            letter-spacing: 0.5px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 12px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 12px 14px 12px 40px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+        .input-group i {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #a0a0a0;
+        }
+
+        .time-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+        }
+        .time-option {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #e0e0e0;
+            padding: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .time-option input { display: none; }
+        .time-option:has(input:checked) {
+            border-color: var(--primary-color);
+            background-color: #fff5f2;
+            color: var(--primary-color);
+        }
+
+        .stepper-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .stepper-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            padding: 2px 6px;
+            background: #fff;
+        }
+        .stepper-btn {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            width: 28px;
+            height: 28px;
+            color: var(--primary-color);
+        }
+        .stepper-value { font-weight: 600; min-width: 24px; text-align: center; }
+
+        .service-option {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        .service-left { display: flex; align-items: center; gap: 8px; }
+        .service-left input { accent-color: var(--primary-color); width: 16px; height: 16px; }
+
+        .price-summary-box {
+            background: #fdfaf9;
+            border: 1px dashed var(--primary-color);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 25px;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .price-row.total {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            border-top: 1px solid #eec;
+            padding-top: 8px;
+            margin-bottom: 0;
+        }
+
+        /* YENİ AKSİYON BUTONLARI */
+        .action-buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .btn-pay {
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        .btn-pay-hotel {
+            background-color: transparent;
+            border: 2px solid #ccc;
+            color: #333;
+        }
+        .btn-pay-hotel:hover {
+            border-color: #333;
+            background-color: #f9f9f9;
+        }
+        .btn-pay-online {
+            background-color: var(--secondary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+        }
+        .btn-pay-online:hover {
+            background-color: var(--secondary-hover);
+        }
+
+        @media (max-width: 992px) {
+            .container { grid-template-columns: 1fr; }
+            .right-column { position: relative; top: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">TourQuaz<span>Travel</span></div>
+    <div style="font-size: 14px; color: var(--text-muted);"><i class="fa-solid fa-phone"></i> +(90) 212 999 96 42</div>
+</div>
+
+<div class="container">
+    
+    <div class="left-column">
+        <div class="main-gallery">
+            <span class="gallery-badge"><i class="fa-solid fa-camera"></i> Premium Oda Konsepti</span>
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80" alt="Hourly Bed Premium">
+        </div>
+
+        <div class="content-card">
+            <h1>Premium Saatlik Oda Konsepti</h1>
+            <p>Yolculuğunuzu veya günün yorgunluğunu, yaşam tarzınıza özel premium VIP oda hizmetlerimizle zirveye taşıyın. TourQuaz kalitesiyle tam gizlilik ve konfor odaklı bir deneyim sizi bekliyor.</p>
+            
+            <div class="features-grid">
+                <div class="feature-item"><i class="fa-solid fa-wifi"></i> Ultra Hızlı Wi-Fi Altyapısı</div>
+                <div class="feature-item"><i class="fa-solid fa-tv"></i> Smart TV (Netflix & YouTube)</div>
+                <div class="feature-item"><i class="fa-solid fa-user-shield"></i> 100% Güvenli ve İzole Gizlilik</div>
+                <div class="feature-item"><i class="fa-solid fa-mug-hot"></i> Kahve & Çay İstasyonu</div>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <div class="step-card">
+                <i class="fa-solid fa-clock-pointer"></i>
+                <h4>1. Saatini Seç</h4>
+                <p>Giriş yapacağın saati ve kalacağın süreyi belirle.</p>
+            </div>
+            <div class="step-card">
+                <i class="fa-solid fa-credit-card"></i>
+                <h4>2. Ödemeni Yönet</h4>
+                <p>Güvenle online öde veya otelde ödemeyi seç.</p>
+            </div>
+            <div class="step-card">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <h4>3. Onay Maili Al</h4>
+                <p>Detaylar ve giriş bilgileri anında mailine gelsin.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-column">
+        <div class="booking-card">
+            <h2>Saatlik Odanızı Planlayın</h2>
+            
+            <form id="bookingForm">
+                <div class="section-title">Müşteri Bilgileri</div>
+                <div class="input-group">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" id="fullname" placeholder="Adınız Soyadınız" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="email" placeholder="E-posta Adresiniz" required>
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="phone" placeholder="Telefon Numaranız" required>
+                </div>
+
+                <div class="section-title">Rezervasyon Detayları</div>
+                <div class="input-group">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <input type="date" id="date" required>
+                </div>
+
+                <div class="section-title">Giriş Saati</div>
+                <div class="time-grid">
+                    <label class="time-option"><input type="radio" name="time" value="12:00" checked onchange="calculateTotal()">12:00</label>
+                    <label class="time-option"><input type="radio" name="time" value="13:00" onchange="calculateTotal()">13:00</label>
+                    <label class="time-option"><input type="radio" name="time" value="14:00" onchange="calculateTotal()">14:00</label>
+                    <label class="time-option"><input type="radio" name="time" value="15:00" onchange="calculateTotal()">15:00</label>
+                </div>
+
+                <div class="stepper-group" style="margin-top: 15px;">
+                    <span>Kaç Saat Konaklama:</span>
+                    <div class="stepper-controls">
+                        <button type="button" class="stepper-btn" onclick="step('duration', -1)">-</button>
+                        <span id="duration" class="stepper-value">1</span>
+                        <button type="button" class="stepper-btn" onclick="step('duration', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="stepper-group">
+                    <span>Kişi Sayısı:</span>
+                    <div class="stepper-controls">
+                        <button type="button" class="stepper-btn" onclick="step('guests', -1)">-</button>
+                        <span id="guests" class="stepper-value">1</span>
+                        <button type="button" class="stepper-btn" onclick="step('guests', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="section-title">Ekstra Servisler</div>
+                <div class="service-option">
+                    <label class="service-left">
+                        <input type="checkbox" name="addons" value="Özel Süslenmiş Oda" data-price="100" onchange="calculateTotal()"> 
+                        <span>Özel Süslenmiş Oda</span>
+                    </label>
+                    <span>$100.00</span>
+                </div>
+
+                <div class="price-summary-box">
+                    <div class="price-row">
+                        <span>Oda Bedeli (<span id="summary-hours">1</span> Saat):</span>
+                        <span>$<span id="summary-room-price">50.00</span></span>
+                    </div>
+                    <div class="price-row">
+                        <span>Ekstra Servisler:</span>
+                        <span>$<span id="summary-addons-price">0.00</span></span>
+                    </div>
+                    <div class="price-row total">
+                        <span>Toplam Tutar:</span>
+                        <span>$<span id="summary-total-price">50.00</span></span>
+                    </div>
+                </div>
+
+                <div class="action-buttons-container">
+                    <button type="button" class="btn-pay btn-pay-online" onclick="handleBooking('online')">
+                        <i class="fa-solid fa-credit-card"></i> Şimdi Online Öde
+                    </button>
+                    <button type="button" class="btn-pay btn-pay-hotel" onclick="handleBooking('hotel')">
+                        <i class="fa-solid fa-hotel"></i> Otelde Öde (Rezervasyon Yap)
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const HOURLY_RATE = 50;
+
+    function step(id, val) {
+        let el = document.getElementById(id);
+        let cur = parseInt(el.innerText) + val;
+        if(cur >= 1) {
+            el.innerText = cur;
+            calculateTotal();
+        }
+    }
+
+    function calculateTotal() {
+        const hours = parseInt(document.getElementById('duration').innerText);
+        const roomTotal = hours * HOURLY_RATE;
+        document.getElementById('summary-hours').innerText = hours;
+        document.getElementById('summary-room-price').innerText = roomTotal.toFixed(2);
+
+        let addonsTotal = 0;
+        document.querySelectorAll('input[name="addons"]:checked').forEach(cb => {
+            addonsTotal += parseFloat(cb.getAttribute('data-price'));
+        });
+        document.getElementById('summary-addons-price').innerText = addonsTotal.toFixed(2);
+
+        const finalTotal = roomTotal + addonsTotal;
+        document.getElementById('summary-total-price').innerText = finalTotal.toFixed(2);
+    }
+
+    // Seçime göre yönlendirmeyi yöneten akıllı fonksiyon
+    async function handleBooking(paymentMethod) {
+        const form = document.getElementById('bookingForm');
+        
+        // Form alanlarının doluluğunu kontrol ediyoruz (HTML validasyonu tetiklemek için)
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const addons = [];
+        document.querySelectorAll('input[name="addons"]:checked').forEach(cb => addons.push(cb.value));
+
+        const formData = {
+            fullname: document.getElementById('fullname').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            date: document.getElementById('date').value,
+            time: document.querySelector('input[name="time"]:checked').value,
+            duration: document.getElementById('duration').innerText,
+            guests: document.getElementById('guests').innerText,
+            addons: addons.join(', ') || 'Yok',
+            totalPrice: document.getElementById('summary-total-price').innerText,
+            paymentMethod: paymentMethod // 'online' veya 'hotel'
+        };
+
+        // Arka yüze kayıt bilgilerini gönderiyoruz (Örn: Node.js mail sistemi)
+        try {
+            const response = await fetch('http://localhost:3000/api/rezervasyon', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(formData)
+            });
+
+            if (response.ok) {
+                if (paymentMethod === 'hotel') {
+                    // SEÇENEK A: OTELDE ÖDEME SEÇİLDİ
+                    alert('Rezervasyonunuz başarıyla oluşturuldu! Otelde ödeme yapabilirsiniz. Bilgiler e-posta adresinize gönderildi.');
+                    window.location.href = "/rezervasyon-onay.html"; // Otelde ödeme onay sayfası
+                } else if (paymentMethod === 'online') {
+                    // SEÇENEK B: ŞİMDİ ONLINE ÖDEME SEÇİLDİ
+                    alert('Rezervasyon detaylarınız kaydedildi. Şimdi ödeme sayfasına yönlendiriliyorsunuz...');
+                    // Ödeme tutarını ve kullanıcı bilgisini ödeme sayfasına URL parametresi olarak taşıyabilirsiniz
+                    window.location.href = `/odeme.html?total=${formData.totalPrice}&email=${formData.email}`; 
+                }
+            } else {
+                alert('İşlem sırasında bir sorun oluştu.');
+            }
+        } catch (error) {
+            console.error('Hata:', error);
+            alert('Arka yüz bağlantısı kurulamadı fakat mantık çalışıyor.');
+        }
+    }
+
+    calculateTotal();
+</script>
+</body>
+</html>
