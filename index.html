@@ -327,7 +327,7 @@
 
 <div class="fix">
          <div class="tp-hero-area p-relative z-index-2 d-flex align-items-center" 
-              style="background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('/assets/img/hero/three/luxury-hotel-bg.jpg') no-repeat center center / cover; min-height: 85vh; padding: 80px 0;">
+              style="background: linear-gradient(rgba(15, 23, 42, 0.55), rgba(15, 23, 42, 0.55)), url('/assets/img/hero/three/luxury-hotel-bg.jpg') no-repeat center center / cover; min-height: 85vh; padding: 80px 10;">
             
             <img class="tp-hero-3-left-shape" src="/assets/img/hero/three/left-shape.png" alt="">
             <img class="tp-hero-3-right-shape" src="/assets/img/hero/three/right-shape.png" alt="">
@@ -355,146 +355,94 @@
 
  <form action="#">
    <div class="tp-booking-wrap tp-marker-tab p-relative">
-      <div class="tp-booking-location tp-booking-col-1 p-relative" style="display: flex; align-items: center; background: #ffffff; border-radius: 30px; padding: 0 20px; height: 35px; width: 100%; max-width: 360px; margin: 0 auto;">
-         <div class="tp-booking-location-input tp-booking-toggle p-relative">
-            <span class="tp-booking-input-icon">
- <svg width="16" height="16" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-         <path d="M11.7 6.22727C11.7 10.6818 6.1 14.5 6.1 14.5C6.1 14.5 0.5 10.6818 0.5 6.22727C0.5 4.70831 1.09 3.25155 2.1402 2.17748C3.19041 1.10341 4.61479 0.5 6.1 0.5" stroke="#d9531e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-         <path d="M6.09714 8.13583C7.12807 8.13583 7.9638 7.28124 7.9638 6.22705C7.9638 5.17286 7.12807 4.31827 6.09714 4.31827C5.0662 4.31827 4.23047 5.17286 4.23047 6.22705C4.23047 7.28124 5.0662 8.13583 6.09714 8.13583Z" stroke="#d9531e" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>           </span>
-<input class="tp-input hourly-orange-placeholder" type="text" placeholder="Oda Ara" style="color: #e93e3e !important; font-weight: 500; font-size: 16px !important; border: none !important; background: transparent !important; padding: 7 !important; width: 65%; height: 50%;">                                 </div>
-                                 <div class="tp-booking-location-list tp-booking-toggle-active">
-                                    <div class="tp-booking-location-inner">
-                                       <span class="tp-booking-location-suggested"></span>
+      <div class="tp-booking-location tp-booking-col-1 p-relative" style="display: flex; align-items: center; background: #ffffff; border-radius: 30px; padding: 0 20px; height: 46px; width: 100%; max-width: 420px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+         
+         <div class="tp-booking-location-input tp-booking-toggle p-relative" style="display: flex; align-items: center; width: 100%; height: 100%;">
+            
+            <span class="tp-booking-input-icon" style="display: inline-flex; align-items: center; margin-right: 12px;">
+               <svg width="15" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M11.7 6.22727C11.7 10.6818 6.1 14.5 6.1 14.5C6.1 14.5 0.5 10.6818 0.5 6.22727C0.5 4.70831 1.09 3.25155 2.1402 2.17748C3.19041 1.10341 4.61479 0.5 6.1 0.5C7.58521 0.5 9.00959 1.10341 10.0598 2.17748C11.11 3.25155 11.7 4.70831 11.7 6.22727Z" stroke="#ff385c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M6.09714 8.13583C7.12807 8.13583 7.9638 7.28124 7.9638 6.22705C7.9638 5.17286 7.12807 4.31827 6.09714 4.31827C5.0662 4.31827 4.23047 5.17286 4.23047 6.22705C4.23047 7.28124 5.0662 8.13583 6.09714 8.13583Z" stroke="#ff385c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+               </svg>
+            </span>
 
-                                             <div class="tp-booking-location-icon">    
-                                             </div>
-                                             <div class="tp-booking-location-content">
-                                                
+            <input class="tp-input" type="text" placeholder="        Otel veya Bölge Ara" style="color: #0f172a !important; font-weight: 700 !important; font-size: 15px !important; border: none !important; background: transparent !important; width: 100%; height: 100%; outline: none;">
+         
+         </div>
 
-                                                
-                                             </div>
+         <div class="tp-booking-location-list tp-booking-toggle-active">
+            <div class="tp-booking-location-inner">
+               <span class="tp-booking-location-suggested">Popüler Saatlik Otel Bölgeleri</span>
+               
+               <ul style="list-style: none; padding: 0; margin: 0;">
+                  
+                  <li>
+                     <a href="./taksim-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
+                           <img src="/../../assets/img/booking-form/02.png" alt="booking" onerror="this.style.display='none'">
+                        </div>
+                        <div class="tp-booking-location-content" style="margin-left: 12px;">
+                           <span style="font-weight: 600; display: block;">Taksim & Şişli Bölgesi</span>
+                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul Avrupa Yakası</p>
+                        </div>
+                     </a>
+                  </li>
 
-   <a href="./taksim-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L9 6V8H15V6L12 2Z" fill="#ff385c"/>
-            <path d="M8 9H16V13H8V9Z" fill="#ff385c" opacity="0.8"/>
-            <path d="M7 14H17V22H7V14Z" fill="#ff385c"/>
-            <circle cx="12" cy="11" r="1" fill="#width" stroke="white" stroke-width="0.5"/>
-            <path d="M9 16H11V18H9V16ZM13 16H15V18H13V16Z" fill="white"/>
-         </svg>
-      </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; display: block;">Taksim & Şişli Bölgesi</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul</p>
-      </div>
-   </a>
-</li>
+                  <li>
+                     <a href="./kadikoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
+                           <img src="/../../assets/img/booking-form/03.png" alt="booking" onerror="this.style.display='none'">
+                        </div>
+                        <div class="tp-booking-location-content" style="margin-left: 12px;">
+                           <span style="font-weight: 600; display: block;">Kadıköy & Üsküdar Bölgesi</span>
+                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul Anadolu Yakası</p>
+                        </div>
+                     </a>
+                  </li>
 
-<li>
-   <a href="./kadikoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 20V10H6V6H18V10H22V20H2V20Z" fill="#ff385c"/>
-            <path d="M9 10H15V13H9V10Z" fill="white" opacity="0.9"/>
-            <path d="M5 13H7V16H5V13ZM17 13H19V16H17V13ZM11 15H13V18H11V15Z" fill="white"/>
-            <path d="M1 21H23V22H1V21Z" fill="#141B34"/>
-         </svg>
-      </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; display: block;">Kadıköy & Üsküdar Bölgesi</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul</p>
-      </div>
-   </a>
-</li>
+                  <li>
+                     <a href="./besiktas-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
+                           <img src="/../../assets/img/booking-form/04.png" alt="booking" onerror="this.style.display='none'">
+                        </div>
+                        <div class="tp-booking-location-content" style="margin-left: 12px;">
+                           <span style="font-weight: 600; display: block;">Beşiktaş & Boğaz Hattı</span>
+                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;">Lüks Transit Odalar</p>
+                        </div>
+                     </a>
+                  </li>
 
-<li>
-   <a href="./besiktas-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 2H14V5H10V2Z" fill="#ff385c"/>
-            <path d="M8 6H16V11H8V6Z" fill="#ff385c" opacity="0.8"/>
-            <path d="M6 12H18V22H6V12Z" fill="#ff385c"/>
-            <circle cx="12" cy="8.5" r="1.5" fill="white"/>
-            <path d="M9 14H11V17H9V14ZM13 14H15V17H13V14Z" fill="white"/>
-         </svg>
-      </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; display: block;">Beşiktaş & Boğaz Hattı Bölgesi</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul</p>
-      </div>
-   </a>
-</li>
+                  <li>
+                     <a href="./bakirkoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
+                           <img src="/../../assets/img/booking-form/05.png" alt="booking" onerror="this.style.display='none'">
+                        </div>
+                        <div class="tp-booking-location-content" style="margin-left: 12px;">
+                           <span style="font-weight: 600; display: block;">Bakırköy & Yenibosna</span>
+                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;">Havalimanına Yakın Oteller</p>
+                        </div>
+                     </a>
+                  </li>
 
-<li>
-   <a href="./uskudar-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 4L10 9H14L12 4Z" fill="#ff385c"/>
-            <path d="M7 10H17V15H7V10Z" fill="#ff385c" opacity="0.9"/>
-            <path d="M3 16H21V20H3V16Z" fill="#ff385c"/>
-            <path d="M1 21H23V22H1V21Z" fill="#141B34"/>
-            <circle cx="12" cy="12.5" r="1" fill="white"/>
-         </svg>
-      </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; display: block;">Ümraniye & Kartal Bölgesi</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul</p>
-      </div>
-   </a>
-</li>
+                  <li>
+                     <a href="./uskudar-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
+                           <img src="/../../assets/img/booking-form/06.png" alt="booking" onerror="this.style.display='none'">
+                        </div>
+                        <div class="tp-booking-location-content" style="margin-left: 12px;">
+                           <span style="font-weight: 600; display: block;">Ümraniye & Kartal</span>
+                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;">Anadolu Yakası Merkezleri</p>
+                        </div>
+                     </a>
+                  </li>
 
-<li>
-   <a href="./bakirkoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 3L4 15H12V3Z" fill="#ff385c"/>
-            <path d="M14 6L20 15H14V6Z" fill="#ff385c" opacity="0.8"/>
-            <path d="M2 17H22V19H2V17Z" fill="#141B34"/>
-            <path d="M4 20C7 21.5 17 21.5 20 20" stroke="#ff385c" stroke-width="1.5"/>
-         </svg>
-      </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; block;">Bakırköy & Yenibosna Bölgesi</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İstanbul</p>
-      </div>
-   </a>
-</li>
+               </ul>
+            </div>
+         </div>
 
-<li>
-   <a href="./ankara-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 4H22V7H2V4Z" fill="#ff385c"/>
-            <path d="M3 8H5V18H3V8ZM8 8H10V18H8V8ZM14 8H16V18H14V8ZM19 8H21V18H19V8Z" fill="#ff385c" opacity="0.8"/>
-            <path d="M1 19H23V21H1V19Z" fill="#141B34"/>
-         </svg>
       </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; display: block;">Ankara Merkez</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">Ankara</p>
-      </div>
-   </a>
-</li>
-
-<li>
-   <a href="./izmir-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-      <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M11 2H13V5H11V2Z" fill="#ff385c"/>
-            <path d="M9 6H15V14H9V6Z" fill="#ff385c" opacity="0.8"/>
-            <path d="M5 15H19V22H5V15Z" fill="#ff385c"/>
-            <circle cx="12" cy="9.5" r="1.5" fill="white"/>
-            <path d="M2 21H22V22H2V21Z" fill="#141B34"/>
-         </svg>
-      </div>
-      <div class="tp-booking-location-content" style="margin-left: 12px;">
-         <span style="font-weight: 600; display: block;">İzmir / Alsancak / Karşıyaka</span>
-         <p style="margin: 0; font-size: 13px; color: #6a6a6a;">İzmir</p>
-      </div>
-   </a>
-</li>                                    </div>
+   </div>
+</form></li>                                    </div>
                                  </div>
                               </div>
                            </form>
@@ -536,7 +484,7 @@
                            <span class="tp-destination-3-shadow shadow-two"></span>
                            <div class="swiper-wrapper">
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <span class="tp-destination-3-badge">Trending</span>
                                     <div class="tp-destination-3-icon">
                                        <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -547,7 +495,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M16.5588 10.9353H15.6921V10.0613H16.5588V10.9353ZM14.8182 10.9353H13.9442V10.0613H14.8182V10.9353ZM13.0703 10.9353H12.1963V10.0613H13.0703V10.9353Z" fill="currentColor" />
@@ -558,7 +506,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <g clip-path="url(#clip0_1067_296)">
@@ -576,7 +524,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M13.402 26C29.219 22.1 20.3614 6.5 9.60585 0C8.34098 4.55 6.44261 5.85 2.64643 10.4C-2.37961 16.4241 0.115826 23.4 7.07519 26C6.02075 24.7 3.29946 21.971 5.17647 18.2C5.82353 16.9 7.11765 15.6 6.47059 13C7.73595 13.65 10.3529 14.3 11 17.55C12.0544 16.25 13.1488 13.52 12.1366 10.4C20.0588 16.25 16.8235 22.1 13.402 26Z" fill="currentColor" />
@@ -586,7 +534,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <span class="tp-destination-3-badge">Trending</span>
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -597,7 +545,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M17.6288 5.32012H20.9911C21.7583 5.32012 22.3826 4.69588 22.3826 3.92863C22.3826 3.20252 21.8235 2.60458 21.1132 2.54248C21.003 1.64534 20.2363 0.94838 19.3099 0.94838C18.3835 0.94838 17.6168 1.64534 17.5067 2.54248C16.7964 2.60458 16.2373 3.20257 16.2373 3.92868C16.2373 4.69593 16.8615 5.32012 17.6288 5.32012ZM17.6288 3.29885H17.874C18.0843 3.29885 18.2548 3.12838 18.2548 2.918V2.7652C18.2548 2.18341 18.7281 1.71009 19.3099 1.71009C19.8918 1.71009 20.3651 2.18341 20.3651 2.7652V2.918C20.3651 3.12838 20.5356 3.29885 20.7459 3.29885H20.9911C21.3384 3.29885 21.6209 3.58135 21.6209 3.92863C21.6209 4.27587 21.3384 4.55836 20.9911 4.55836H17.6288C17.2816 4.55836 16.9991 4.27587 16.9991 3.92858C16.999 3.5814 17.2816 3.29885 17.6288 3.29885Z" fill="currentColor" />
@@ -613,7 +561,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M24.3362 23.6789H22.0431V13.7383H22.4145C22.9144 13.7383 23.3211 13.3317 23.3211 12.8317V11.8836C23.3211 11.6375 23.2191 11.3988 23.0412 11.2286L19.3042 7.65314C19.3622 7.59109 19.4095 7.51771 19.4427 7.43524C19.5493 7.16935 19.4845 6.86953 19.2775 6.67149L17.4425 4.91578C17.5385 4.75607 17.5946 4.57676 17.603 4.39217C17.6179 4.06595 17.4903 3.75634 17.2437 3.52036L13.9515 0.3705C13.7054 0.135027 13.3588 0 13.0005 0C12.6422 0 12.2956 0.135027 12.0495 0.370551L10.5402 1.81462C10.3883 1.9599 10.383 2.20086 10.5283 2.35275C10.6736 2.50458 10.9145 2.50991 11.0664 2.36463L12.5758 0.920512C12.6816 0.819254 12.8364 0.761211 13.0005 0.761211C13.1646 0.761211 13.3195 0.819254 13.4252 0.920512L16.7174 4.07042C16.8028 4.15213 16.8473 4.25405 16.8426 4.35739C16.8377 4.46459 16.781 4.56661 16.6829 4.64455C16.451 4.82904 16.0777 4.81528 15.868 4.61449L13.2636 2.12276C13.1164 1.98194 12.8845 1.98194 12.7373 2.12276L10.133 4.61449C10.0272 4.71575 9.87232 4.77384 9.70799 4.77384C9.56133 4.77384 9.42285 4.72794 9.31804 4.64461C9.21998 4.56661 9.16326 4.46464 9.15838 4.35739C9.15366 4.25405 9.19809 4.15213 9.28356 4.07037L9.78284 3.59267C9.93473 3.44739 9.94006 3.20643 9.79472 3.05454C9.64944 2.90266 9.40848 2.89732 9.25659 3.04266L8.75731 3.52036C8.51067 3.75634 8.38306 4.06595 8.39799 4.39217C8.40641 4.57676 8.46253 4.75607 8.5585 4.91578L6.72352 6.67144C6.51649 6.86948 6.45164 7.1693 6.55838 7.43519C6.59149 7.51766 6.63882 7.59104 6.69686 7.65309L2.95982 11.2286C2.78198 11.3988 2.68002 11.6375 2.68002 11.8836V12.8317C2.68002 13.3316 3.08667 13.7383 3.58661 13.7383H3.94721V23.6788H1.6648C1.31893 23.6788 1.0376 23.9602 1.0376 24.3061V25.3728C1.0376 25.7186 1.31898 25.9999 1.6648 25.9999H24.3362C24.6821 25.9999 24.9635 25.7186 24.9635 25.3728V24.3061C24.9635 23.9603 24.6821 23.6789 24.3362 23.6789ZM9.1367 5.41618C9.31342 5.49382 9.50847 5.53511 9.70804 5.53511C10.0665 5.53511 10.4132 5.40008 10.6593 5.16456L13.0005 2.92454L15.3417 5.1645C15.5998 5.41145 15.9453 5.53673 16.2924 5.53673C16.4879 5.53673 16.6837 5.49656 16.8646 5.41643L18.6366 7.11171H7.36454L9.1367 5.41618ZM3.58656 12.9771C3.50643 12.9771 3.44123 12.9119 3.44123 12.8318V11.8837C3.44123 11.8442 3.45758 11.8059 3.48612 11.7787L7.56827 7.87302H18.4329L22.515 11.7787C22.5436 11.806 22.5599 11.8443 22.5599 11.8837V12.8318C22.5599 12.9119 22.4947 12.9771 22.4146 12.9771H3.58656V12.9771ZM21.2818 13.7383V23.6788H19.6111V13.7383H21.2818ZM17.0004 22.0522H16.7868V21.0465C16.7868 20.704 16.5082 20.4254 16.1657 20.4254H16.1632V18.2384C16.1632 18.0283 15.9928 17.8578 15.7826 17.8578C15.5724 17.8578 15.402 18.0283 15.402 18.2384V20.4254H13.3954V13.7706H15.402V16.4942C15.402 16.7043 15.5724 16.8748 15.7826 16.8748C15.9928 16.8748 16.1632 16.7043 16.1632 16.4942V13.7383H18.8499V23.6788H17.6216V22.6732C17.6216 22.3308 17.343 22.0522 17.0004 22.0522ZM9.14071 22.8134H9.59485H16.4063H16.8604V23.6789H9.14071V22.8134ZM9.00061 22.0522C8.65809 22.0522 8.37945 22.3308 8.37945 22.6733V23.6789H7.14029V13.7383H9.86638V20.4254H9.83535C9.49283 20.4254 9.21419 20.704 9.21419 21.0465V22.0522H9.00061ZM16.0256 21.1866V22.0522H9.9754V21.1866H16.0256ZM10.6276 20.4254V13.7706H12.6342V20.4254H10.6276V20.4254ZM6.37908 13.7383V23.6788H4.70837V13.7383H6.37908ZM24.2023 25.2388H1.79881V24.4401H24.2023V25.2388Z" fill="currentColor" />
@@ -630,7 +578,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M3.4668 11.8697H6.0668V7.58775H3.4668V11.8697ZM4.33346 8.44413H5.20013V9.30051H4.33346V8.44413ZM4.33346 10.1569H5.20013V11.0133H4.33346V10.1569Z" fill="currentColor" />
@@ -660,7 +608,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="31" height="26" viewBox="0 0 31 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M4.48226 4.48162H5.37859V3.5853H6.27491V2.68897H5.37859V1.79265H4.48226V2.68897H3.58594V3.5853H4.48226V4.48162Z" fill="currentColor" />
@@ -678,7 +626,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M28.5895 22.9282H27.2661V21.0466C27.2661 20.9946 27.2559 20.943 27.236 20.8949C27.2161 20.8468 27.1869 20.8031 27.1501 20.7663C27.1133 20.7295 27.0696 20.7003 27.0215 20.6804C26.9734 20.6605 26.9219 20.6503 26.8698 20.6503H25.8438V10.1142C25.8438 10.0091 25.802 9.90832 25.7277 9.834C25.6534 9.75968 25.5526 9.71793 25.4475 9.71793C24.888 9.71537 24.3357 9.59176 23.8285 9.35558C23.3213 9.11941 22.8713 8.77626 22.5093 8.34971L21.9533 7.70047V2.64676C21.9533 2.59471 21.9431 2.54317 21.9232 2.49507C21.9033 2.44698 21.8741 2.40328 21.8373 2.36648C21.8005 2.32967 21.7568 2.30048 21.7087 2.28058C21.6606 2.26067 21.6091 2.25044 21.557 2.25047H20.0267V0.39629C20.0267 0.291187 19.9849 0.190389 19.9106 0.116071C19.8363 0.0417519 19.7355 0 19.6304 0H9.35516C9.25007 5.99967e-05 9.14931 0.0418312 9.075 0.116137C9.0007 0.190443 8.95893 0.291206 8.95887 0.39629V2.25047H7.42873C7.37669 2.25044 7.32514 2.26067 7.27705 2.28058C7.22895 2.30048 7.18525 2.32967 7.14845 2.36648C7.11164 2.40328 7.08246 2.44698 7.06255 2.49507C7.04265 2.54317 7.03242 2.59471 7.03245 2.64676V7.70047L6.47651 8.34971C6.11455 8.77617 5.6646 9.11927 5.15755 9.35544C4.65049 9.59161 4.09834 9.71527 3.53898 9.71793C3.43388 9.71793 3.33308 9.75968 3.25876 9.834C3.18444 9.90832 3.14269 10.0091 3.14269 10.1142V20.6503H2.11596C2.06391 20.6503 2.01237 20.6605 1.96427 20.6804C1.91618 20.7003 1.87248 20.7295 1.83568 20.7663C1.79887 20.8031 1.76968 20.8468 1.74978 20.8949C1.72987 20.943 1.71964 20.9946 1.71967 21.0466V22.9282H0.396291C0.344154 22.9282 0.29253 22.9385 0.244376 22.9585C0.196222 22.9784 0.152485 23.0077 0.115671 23.0447C0.0788574 23.0816 0.0496905 23.1254 0.0298418 23.1736C0.00999306 23.2218 -0.000147345 23.2735 1.61766e-06 23.3256V25.6037C1.61766e-06 25.7088 0.0417534 25.8096 0.116072 25.8839C0.190391 25.9582 0.291189 26 0.396291 26H28.5895C28.6946 26 28.7954 25.9582 28.8697 25.8839C28.944 25.8096 28.9858 25.7088 28.9858 25.6037V23.3256C28.9859 23.2735 28.9758 23.2218 28.9559 23.1736C28.9361 23.1254 28.9069 23.0816 28.8701 23.0447C28.8333 23.0077 28.7895 22.9784 28.7414 22.9585C28.6932 22.9385 28.6416 22.9282 28.5895 22.9282ZM25.0512 10.4933V20.6503H21.9533V8.91742C22.7453 9.82097 23.8545 10.3852 25.0512 10.4933ZM19.5067 20.6503V13.9517C19.5067 12.6219 18.9785 11.3466 18.0382 10.4063C17.0979 9.46605 15.8226 8.9378 14.4929 8.9378C13.1631 8.9378 11.8878 9.46605 10.9475 10.4063C10.0073 11.3466 9.47902 12.6219 9.47902 13.9517V20.6503H7.82593V6.79467H21.1616V20.6503H19.5067ZM16.9025 20.6503H12.0832V13.9517C12.0832 13.3126 12.3371 12.6997 12.789 12.2478C13.2409 11.7959 13.8538 11.542 14.4929 11.542C15.132 11.542 15.7449 11.7959 16.1968 12.2478C16.6487 12.6997 16.9025 13.3126 16.9025 13.9517V20.6503ZM14.4929 10.7494C13.6439 10.7504 12.8299 11.0881 12.2296 11.6884C11.6293 12.2887 11.2916 13.1027 11.2906 13.9517V20.6503H10.2716V13.9517C10.2716 12.8321 10.7163 11.7584 11.508 10.9668C12.2996 10.1751 13.3733 9.73038 14.4929 9.73038C15.6124 9.73038 16.6861 10.1751 17.4778 10.9668C18.2694 11.7584 18.7142 12.8321 18.7142 13.9517V20.6503H17.6951V13.9517C17.6942 13.1027 17.3565 12.2887 16.7562 11.6884C16.1558 11.0881 15.3419 10.7504 14.4929 10.7494ZM9.75145 0.793712H19.2341V2.25161H9.75145V0.793712ZM7.82502 3.04418H21.1607V6.00209H7.82502V3.04418ZM3.93459 10.4944C5.13124 10.3864 6.24045 9.8221 7.03245 8.91856V20.6503H3.93459V10.4944ZM2.51225 21.444H26.4735V22.9293H2.51225V21.444ZM28.1932 25.2063H0.792581V23.7208H28.1932V25.2063Z" fill="currentColor" />
@@ -700,7 +648,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <span class="tp-destination-3-badge">Trending</span>
                                     <div class="tp-destination-3-icon">
                                        <svg width="36" height="26" viewBox="0 0 36 26" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -721,7 +669,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M24.3362 23.6789H22.0431V13.7383H22.4145C22.9144 13.7383 23.3211 13.3317 23.3211 12.8317V11.8836C23.3211 11.6375 23.2191 11.3988 23.0412 11.2286L19.3042 7.65314C19.3622 7.59109 19.4095 7.51771 19.4427 7.43524C19.5493 7.16935 19.4845 6.86953 19.2775 6.67149L17.4425 4.91578C17.5385 4.75607 17.5946 4.57676 17.603 4.39217C17.6179 4.06595 17.4903 3.75634 17.2437 3.52036L13.9515 0.3705C13.7054 0.135027 13.3588 0 13.0005 0C12.6422 0 12.2956 0.135027 12.0495 0.370551L10.5402 1.81462C10.3883 1.9599 10.383 2.20086 10.5283 2.35275C10.6736 2.50458 10.9145 2.50991 11.0664 2.36463L12.5758 0.920512C12.6816 0.819254 12.8364 0.761211 13.0005 0.761211C13.1646 0.761211 13.3195 0.819254 13.4252 0.920512L16.7174 4.07042C16.8028 4.15213 16.8473 4.25405 16.8426 4.35739C16.8377 4.46459 16.781 4.56661 16.6829 4.64455C16.451 4.82904 16.0777 4.81528 15.868 4.61449L13.2636 2.12276C13.1164 1.98194 12.8845 1.98194 12.7373 2.12276L10.133 4.61449C10.0272 4.71575 9.87232 4.77384 9.70799 4.77384C9.56133 4.77384 9.42285 4.72794 9.31804 4.64461C9.21998 4.56661 9.16326 4.46464 9.15838 4.35739C9.15366 4.25405 9.19809 4.15213 9.28356 4.07037L9.78284 3.59267C9.93473 3.44739 9.94006 3.20643 9.79472 3.05454C9.64944 2.90266 9.40848 2.89732 9.25659 3.04266L8.75731 3.52036C8.51067 3.75634 8.38306 4.06595 8.39799 4.39217C8.40641 4.57676 8.46253 4.75607 8.5585 4.91578L6.72352 6.67144C6.51649 6.86948 6.45164 7.1693 6.55838 7.43519C6.59149 7.51766 6.63882 7.59104 6.69686 7.65309L2.95982 11.2286C2.78198 11.3988 2.68002 11.6375 2.68002 11.8836V12.8317C2.68002 13.3316 3.08667 13.7383 3.58661 13.7383H3.94721V23.6788H1.6648C1.31893 23.6788 1.0376 23.9602 1.0376 24.3061V25.3728C1.0376 25.7186 1.31898 25.9999 1.6648 25.9999H24.3362C24.6821 25.9999 24.9635 25.7186 24.9635 25.3728V24.3061C24.9635 23.9603 24.6821 23.6789 24.3362 23.6789ZM9.1367 5.41618C9.31342 5.49382 9.50847 5.53511 9.70804 5.53511C10.0665 5.53511 10.4132 5.40008 10.6593 5.16456L13.0005 2.92454L15.3417 5.1645C15.5998 5.41145 15.9453 5.53673 16.2924 5.53673C16.4879 5.53673 16.6837 5.49656 16.8646 5.41643L18.6366 7.11171H7.36454L9.1367 5.41618ZM3.58656 12.9771C3.50643 12.9771 3.44123 12.9119 3.44123 12.8318V11.8837C3.44123 11.8442 3.45758 11.8059 3.48612 11.7787L7.56827 7.87302H18.4329L22.515 11.7787C22.5436 11.806 22.5599 11.8443 22.5599 11.8837V12.8318C22.5599 12.9119 22.4947 12.9771 22.4146 12.9771H3.58656V12.9771ZM21.2818 13.7383V23.6788H19.6111V13.7383H21.2818ZM17.0004 22.0522H16.7868V21.0465C16.7868 20.704 16.5082 20.4254 16.1657 20.4254H16.1632V18.2384C16.1632 18.0283 15.9928 17.8578 15.7826 17.8578C15.5724 17.8578 15.402 18.0283 15.402 18.2384V20.4254H13.3954V13.7706H15.402V16.4942C15.402 16.7043 15.5724 16.8748 15.7826 16.8748C15.9928 16.8748 16.1632 16.7043 16.1632 16.4942V13.7383H18.8499V23.6788H17.6216V22.6732C17.6216 22.3308 17.343 22.0522 17.0004 22.0522ZM9.14071 22.8134H9.59485H16.4063H16.8604V23.6789H9.14071V22.8134ZM9.00061 22.0522C8.65809 22.0522 8.37945 22.3308 8.37945 22.6733V23.6789H7.14029V13.7383H9.86638V20.4254H9.83535C9.49283 20.4254 9.21419 20.704 9.21419 21.0465V22.0522H9.00061ZM16.0256 21.1866V22.0522H9.9754V21.1866H16.0256ZM10.6276 20.4254V13.7706H12.6342V20.4254H10.6276V20.4254ZM6.37908 13.7383V23.6788H4.70837V13.7383H6.37908ZM24.2023 25.2388H1.79881V24.4401H24.2023V25.2388Z" fill="currentColor" />
@@ -738,7 +686,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M3.4668 11.8697H6.0668V7.58775H3.4668V11.8697ZM4.33346 8.44413H5.20013V9.30051H4.33346V8.44413ZM4.33346 10.1569H5.20013V11.0133H4.33346V10.1569Z" fill="currentColor" />
@@ -768,7 +716,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="31" height="26" viewBox="0 0 31 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M4.48226 4.48162H5.37859V3.5853H6.27491V2.68897H5.37859V1.79265H4.48226V2.68897H3.58594V3.5853H4.48226V4.48162Z" fill="currentColor" />
@@ -786,7 +734,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="29" height="26" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M28.5895 22.9282H27.2661V21.0466C27.2661 20.9946 27.2559 20.943 27.236 20.8949C27.2161 20.8468 27.1869 20.8031 27.1501 20.7663C27.1133 20.7295 27.0696 20.7003 27.0215 20.6804C26.9734 20.6605 26.9219 20.6503 26.8698 20.6503H25.8438V10.1142C25.8438 10.0091 25.802 9.90832 25.7277 9.834C25.6534 9.75968 25.5526 9.71793 25.4475 9.71793C24.888 9.71537 24.3357 9.59176 23.8285 9.35558C23.3213 9.11941 22.8713 8.77626 22.5093 8.34971L21.9533 7.70047V2.64676C21.9533 2.59471 21.9431 2.54317 21.9232 2.49507C21.9033 2.44698 21.8741 2.40328 21.8373 2.36648C21.8005 2.32967 21.7568 2.30048 21.7087 2.28058C21.6606 2.26067 21.6091 2.25044 21.557 2.25047H20.0267V0.39629C20.0267 0.291187 19.9849 0.190389 19.9106 0.116071C19.8363 0.0417519 19.7355 0 19.6304 0H9.35516C9.25007 5.99967e-05 9.14931 0.0418312 9.075 0.116137C9.0007 0.190443 8.95893 0.291206 8.95887 0.39629V2.25047H7.42873C7.37669 2.25044 7.32514 2.26067 7.27705 2.28058C7.22895 2.30048 7.18525 2.32967 7.14845 2.36648C7.11164 2.40328 7.08246 2.44698 7.06255 2.49507C7.04265 2.54317 7.03242 2.59471 7.03245 2.64676V7.70047L6.47651 8.34971C6.11455 8.77617 5.6646 9.11927 5.15755 9.35544C4.65049 9.59161 4.09834 9.71527 3.53898 9.71793C3.43388 9.71793 3.33308 9.75968 3.25876 9.834C3.18444 9.90832 3.14269 10.0091 3.14269 10.1142V20.6503H2.11596C2.06391 20.6503 2.01237 20.6605 1.96427 20.6804C1.91618 20.7003 1.87248 20.7295 1.83568 20.7663C1.79887 20.8031 1.76968 20.8468 1.74978 20.8949C1.72987 20.943 1.71964 20.9946 1.71967 21.0466V22.9282H0.396291C0.344154 22.9282 0.29253 22.9385 0.244376 22.9585C0.196222 22.9784 0.152485 23.0077 0.115671 23.0447C0.0788574 23.0816 0.0496905 23.1254 0.0298418 23.1736C0.00999306 23.2218 -0.000147345 23.2735 1.61766e-06 23.3256V25.6037C1.61766e-06 25.7088 0.0417534 25.8096 0.116072 25.8839C0.190391 25.9582 0.291189 26 0.396291 26H28.5895C28.6946 26 28.7954 25.9582 28.8697 25.8839C28.944 25.8096 28.9858 25.7088 28.9858 25.6037V23.3256C28.9859 23.2735 28.9758 23.2218 28.9559 23.1736C28.9361 23.1254 28.9069 23.0816 28.8701 23.0447C28.8333 23.0077 28.7895 22.9784 28.7414 22.9585C28.6932 22.9385 28.6416 22.9282 28.5895 22.9282ZM25.0512 10.4933V20.6503H21.9533V8.91742C22.7453 9.82097 23.8545 10.3852 25.0512 10.4933ZM19.5067 20.6503V13.9517C19.5067 12.6219 18.9785 11.3466 18.0382 10.4063C17.0979 9.46605 15.8226 8.9378 14.4929 8.9378C13.1631 8.9378 11.8878 9.46605 10.9475 10.4063C10.0073 11.3466 9.47902 12.6219 9.47902 13.9517V20.6503H7.82593V6.79467H21.1616V20.6503H19.5067ZM16.9025 20.6503H12.0832V13.9517C12.0832 13.3126 12.3371 12.6997 12.789 12.2478C13.2409 11.7959 13.8538 11.542 14.4929 11.542C15.132 11.542 15.7449 11.7959 16.1968 12.2478C16.6487 12.6997 16.9025 13.3126 16.9025 13.9517V20.6503ZM14.4929 10.7494C13.6439 10.7504 12.8299 11.0881 12.2296 11.6884C11.6293 12.2887 11.2916 13.1027 11.2906 13.9517V20.6503H10.2716V13.9517C10.2716 12.8321 10.7163 11.7584 11.508 10.9668C12.2996 10.1751 13.3733 9.73038 14.4929 9.73038C15.6124 9.73038 16.6861 10.1751 17.4778 10.9668C18.2694 11.7584 18.7142 12.8321 18.7142 13.9517V20.6503H17.6951V13.9517C17.6942 13.1027 17.3565 12.2887 16.7562 11.6884C16.1558 11.0881 15.3419 10.7504 14.4929 10.7494ZM9.75145 0.793712H19.2341V2.25161H9.75145V0.793712ZM7.82502 3.04418H21.1607V6.00209H7.82502V3.04418ZM3.93459 10.4944C5.13124 10.3864 6.24045 9.8221 7.03245 8.91856V20.6503H3.93459V10.4944ZM2.51225 21.444H26.4735V22.9293H2.51225V21.444ZM28.1932 25.2063H0.792581V23.7208H28.1932V25.2063Z" fill="currentColor" />
@@ -808,7 +756,7 @@
                                  </a>
                               </div>
                               <div class="swiper-slide">
-                                 <a href="./hotel-page.html" class="tp-destination-3-item p-relative text-center d-inline-block">
+                                 <a href="./index.html" class="tp-destination-3-item p-relative text-center d-inline-block">
                                     <div class="tp-destination-3-icon">
                                        <svg width="36" height="26" viewBox="0 0 36 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                                           <path d="M33.1797 17.9411C32.8506 17.9411 32.5485 18.0328 32.2788 18.1784C32.2734 18.1784 32.2681 18.1784 32.2627 18.1838C31.1083 18.7664 30.0349 19.7643 29.0909 20.649C28.2925 21.3934 27.5427 22.1 27.0788 22.1863C25.644 22.4614 22.251 21.7062 19.4676 20.7407C19.473 20.7137 19.4838 20.6921 19.4838 20.6598V14.7963H26.8253C26.9116 14.7963 26.9979 14.7531 27.0465 14.6776C27.095 14.6021 27.1058 14.5104 27.0734 14.4295C25.6656 10.7452 25.6656 7.00166 27.0734 3.30664C27.1058 3.22573 27.095 3.12863 27.0465 3.05851C26.9979 2.98299 26.9116 2.93983 26.8253 2.93983H19.4838V1.00871C19.4838 0.453113 19.0307 0 18.4751 0C17.9141 0 17.461 0.453113 17.461 1.00871V2.93983H11.1983C11.0851 2.93983 10.988 3.00996 10.9448 3.11245C9.48838 6.93154 9.48838 10.8046 10.9448 14.6183C10.9826 14.7207 11.0851 14.7909 11.1983 14.7909H17.461V19.9531C11.7108 17.5095 8.73859 14.6183 6.54855 12.4822C5.46971 11.4303 4.53652 10.5241 3.53859 9.91992C3.22033 9.32656 2.60539 8.9166 1.88257 8.9166C0.846888 8.9166 0 9.76348 0 10.7992C0 11.8349 0.846888 12.6764 1.88257 12.6764C2.33568 12.6764 2.74564 12.5091 3.07469 12.2394C3.94315 13.6473 4.48797 15.4058 5.05975 17.2614C6.26805 21.183 7.5195 25.234 12.11 26H26.6959C26.7282 26 26.7606 25.9946 26.7929 25.9838C28.0282 25.5145 29.0801 24.1498 30.1967 22.7095C30.6606 22.1108 31.1461 21.4959 31.6531 20.9187C31.993 21.3934 32.5486 21.7062 33.1797 21.7062C34.2154 21.7062 35.0622 20.8647 35.0622 19.829C35.0622 18.788 34.2154 17.9411 33.1797 17.9411ZM15.2925 14.2568C13.971 10.6859 13.971 7.061 15.2925 3.47925H18.6261C17.3477 7.061 17.3477 10.6805 18.6261 14.2568H15.2925ZM19.2033 14.2568C17.8817 10.6859 17.8817 7.061 19.2033 3.48465H22.5369C21.2585 7.06639 21.2585 10.6859 22.5369 14.2622C22.5369 14.2568 19.2033 14.2568 19.2033 14.2568ZM26.4369 14.2568H23.1087C21.7871 10.6859 21.7871 7.061 23.1087 3.47925H26.4369C25.1639 7.061 25.1639 10.6859 26.4369 14.2568ZM18.0004 1.00871C18.0004 0.749793 18.2162 0.539419 18.4751 0.539419C18.734 0.539419 18.9444 0.749793 18.9444 1.00871V2.93983H18.0004V1.00871ZM11.3871 3.47925H14.7261C13.4477 7.061 13.4477 10.6805 14.7261 14.2568H11.3871C10.0656 10.6859 10.0656 7.061 11.3871 3.47925ZM18.0004 20.0934V14.7963H18.9444V20.5519C18.7232 20.471 18.0867 20.2174 17.9842 20.1743C17.9896 20.1473 18.0004 20.1203 18.0004 20.0934ZM1.88257 12.1369C1.14357 12.1369 0.539419 11.5382 0.539419 10.7992C0.539419 10.0602 1.14357 9.45602 1.88257 9.45602C2.42199 9.45602 2.88589 9.77967 3.09627 10.2382C3.10166 10.249 3.10705 10.2651 3.11784 10.2759C3.18797 10.4378 3.22573 10.6158 3.22573 10.7992C3.22573 11.5382 2.62158 12.1369 1.88257 12.1369ZM29.7705 22.3751C28.7187 23.7398 27.7208 25.029 26.6473 25.4606H12.1531C7.93486 24.7539 6.73735 20.8647 5.57759 17.0996C5.00581 15.2386 4.40705 13.3237 3.45228 11.8295C3.64647 11.5328 3.76515 11.1822 3.76515 10.7992C3.76515 10.7722 3.75975 10.7452 3.75436 10.7129C4.53112 11.2685 5.30249 12.0183 6.17096 12.8651C8.50125 15.1361 11.6892 18.2485 18.0921 20.8C20.2876 21.6739 24.112 22.7797 26.3506 22.7797C26.6635 22.7797 26.9386 22.7581 27.1813 22.7095C27.8017 22.5909 28.5353 21.9058 29.4631 21.0373C30.051 20.4871 30.6822 19.8938 31.351 19.3975C31.3187 19.5324 31.3025 19.6726 31.3025 19.8183C31.3025 20.0178 31.3403 20.2012 31.3996 20.3846C30.817 21.0266 30.283 21.7062 29.7705 22.3751ZM33.1797 21.1614C32.4407 21.1614 31.8365 20.5627 31.8365 19.8237C31.8365 19.0846 32.4407 18.4805 33.1797 18.4805C33.9187 18.4805 34.5228 19.0846 34.5228 19.8237C34.5228 20.5627 33.9187 21.1614 33.1797 21.1614Z" fill="currentColor" />
@@ -930,7 +878,7 @@
                </div>
                <span class="tp-tour-review-score tp-ff-inter">( 4.7 / 5 )</span>
             </div>
-            <h3 class="tp-tour-title fw-500 mb-10"><a href="./hotel-page.html">Golden City Istanbul Hotel</a></h3>
+            <h3 class="tp-tour-title fw-500 mb-10"><a href="./golden-city-istanbul.html">Golden City Istanbul Hotel</a></h3>
             <div class="tp-tour-info">
                <span>
                   <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -955,7 +903,7 @@
                            <div class="tp-tour-price">
                               <div class="tp-tour-top-price">
                                  <span class="tp-tour-prefix"></span>
-<span class="tp-tour-old-price price-tag" data-usd="115">$115</span>                              </div>
+<span class="tp-tour-old-price price-tag" data-usd="115">€115</span>                              </div>
                               <div class="tp-tour-bottom-price">
 <span class="tp-tour-new-price fw-700 price-tag" data-usd="49">$49</span>                                 <span class="tp-tour-suffix">/ 6 Saat</span>
                               </div>
@@ -1059,9 +1007,9 @@
                            <div class="tp-tour-price">
                               <div class="tp-tour-top-price">
                                  <span class="tp-tour-prefix"></span>
-<span class="tp-tour-old-price price-tag" data-usd="115">$115</span>                              </div>
+<span class="tp-tour-old-price price-tag" data-usd="115">€115</span>                              </div>
                               <div class="tp-tour-bottom-price">
-<span class="tp-tour-new-price fw-700 price-tag" data-usd="59">$59</span>                                 <span class="tp-tour-suffix">/ 6 Saat</span>
+<span class="tp-tour-new-price fw-700 price-tag" data-usd="59">€59</span>                                 <span class="tp-tour-suffix">/ 6 Saat</span>
                               </div>
                            </div>
                            <div class="tp-tour-btn">
@@ -1163,7 +1111,7 @@
                                  <span class="tp-tour-prefix"></span>
                               </div>
                               <div class="tp-tour-bottom-price">
-<span class="tp-tour-new-price fw-700 price-tag" data-usd="39">$39</span>                                 <span class="tp-tour-suffix">/ 3 Saat</span>
+<span class="tp-tour-new-price fw-700 price-tag" data-usd="39">€39</span>                                 <span class="tp-tour-suffix">/ 3 Saat</span>
                               </div>
                            </div>
                            <div class="tp-tour-btn">
@@ -1265,7 +1213,7 @@
                                  <span class="tp-tour-prefix"></span>
                               </div>
                               <div class="tp-tour-bottom-price">
-<span class="tp-tour-new-price fw-700 price-tag" data-usd="25">$25</span>                                 <span class="tp-tour-suffix">/ 3 Saat</span>
+<span class="tp-tour-new-price fw-700 price-tag" data-usd="25">€25</span>                                 <span class="tp-tour-suffix">/ 3 Saat</span>
                               </div>
                            </div>
                            <div class="tp-tour-btn">
@@ -1394,7 +1342,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
 </a></a>
                               </div>
                            </div>
@@ -1509,7 +1457,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -1623,7 +1571,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -1699,7 +1647,7 @@
                </div>
                <span class="tp-tour-review-score tp-ff-inter">( 4.7 / 5 )</span>
             </div>
-            <h3 class="tp-tour-title fw-500 mb-10"><a href="./hotel-page.html">Capri by Fraser Barcelona</a></h3>
+            <h3 class="tp-tour-title fw-500 mb-10"><a href="./index.html">Capri by Fraser Barcelona</a></h3>
             <div class="tp-tour-info">
                <span>
                   <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1738,7 +1686,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -1853,7 +1801,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -1968,7 +1916,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -2044,7 +1992,7 @@
                </div>
                <span class="tp-tour-review-score tp-ff-inter">( 4.6 / 5 )</span>
             </div>
-            <h3 class="tp-tour-title fw-500 mb-10"><a href="./hotel-page.html">Four Points by Sheraton Barcelona</a></h3>
+            <h3 class="tp-tour-title fw-500 mb-10"><a href="./index.html">Four Points by Sheraton Barcelona</a></h3>
             <div class="tp-tour-info">
                <span>
                   <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2083,7 +2031,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -2197,7 +2145,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -2311,7 +2259,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -2425,7 +2373,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                </div>
             </div>
@@ -2522,7 +2470,7 @@
                                  <span class="tp-tour-prefix"></span>
                               </div>
                               <div class="tp-tour-bottom-price">
-<span class="tp-tour-new-price fw-700 price-tag" data-usd="25">$25</span>                                 <span class="tp-tour-suffix">/ 3 Saat</span>
+<span class="tp-tour-new-price fw-700 price-tag" data-usd="25">€25</span>                                 <span class="tp-tour-suffix">/ 3 Saat</span>
                               </div>
                            </div>
                            <div class="tp-tour-btn">
@@ -2601,7 +2549,7 @@
                </div>
                <span class="tp-tour-review-score tp-ff-inter">( 4.8 / 5 )</span>
             </div>
-            <h3 class="tp-tour-title fw-500 mb-10"><a href="./hotel-page.html">Hotel Mercure Madrid Centro</a></h3>
+            <h3 class="tp-tour-title fw-500 mb-10"><a href="./index.html">Hotel Mercure Madrid Centro</a></h3>
             <div class="tp-tour-info">
                <span>
                   <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2640,7 +2588,7 @@
                </div>
                <div class="tp-tour-btn">
                   <a href="./" class="tp-btn w-100 text-center" style="line-height: 0.9; padding: 10px 12px; white-space: nowrap; display: block;">
-                     Select Room!<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Pay Safely at Hotel</span>
+                     Odanı Seç<br><span style="font-size: 8px; font-weight: 500; opacity: 0.9;">Şimdi ayrı, Otelde Öde!</span>
                   </a>
                               </div>
                            </div>

@@ -439,21 +439,21 @@
                         <input type="checkbox" name="addons" value="Özel Süslenmiş Oda" data-price="100" onchange="calculateTotal()"> 
                         <span>Özel Süslenmiş Oda</span>
                     </label>
-                    <span>$100.00</span>
+                    <span>€100.00</span>
                 </div>
 
                 <div class="price-summary-box">
                     <div class="price-row">
                         <span>Oda Bedeli (<span id="summary-hours">1</span> Saat):</span>
-                        <span>$<span id="summary-room-price">50.00</span></span>
+                        <span>€<span id="summary-room-price">50.00</span></span>
                     </div>
                     <div class="price-row">
                         <span>Ekstra Servisler:</span>
-                        <span>$<span id="summary-addons-price">0.00</span></span>
+                        <span>€<span id="summary-addons-price">0.00</span></span>
                     </div>
                     <div class="price-row total">
                         <span>Toplam Tutar:</span>
-                        <span>$<span id="summary-total-price">50.00</span></span>
+                        <span>€<span id="summary-total-price">50.00</span></span>
                     </div>
                 </div>
 
@@ -542,7 +542,7 @@
                     // SEÇENEK B: ŞİMDİ ONLINE ÖDEME SEÇİLDİ
                     alert('Rezervasyon detaylarınız kaydedildi. Şimdi ödeme sayfasına yönlendiriliyorsunuz...');
                     // Ödeme tutarını ve kullanıcı bilgisini ödeme sayfasına URL parametresi olarak taşıyabilirsiniz
-                    window.location.href = `/odeme.html?total=${formData.totalPrice}&email=${formData.email}`; 
+                    window.location.href = `/odeme.html?total=€{formData.totalPrice}&email=€{formData.email}`; 
                 }
             } else {
                 alert('İşlem sırasında bir sorun oluştu.');
