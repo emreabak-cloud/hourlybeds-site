@@ -14350,3 +14350,156 @@ a[href*="cart"],
     font-weight: 500;
     opacity: 0.85;
 }
+/* Mobil Taşma Kesin Çözüm Paketi */
+@media (max-width: 767px) {
+  /* 1. Kartın kendisinin dışarı taşmasını engelle */
+  .tp-tour-item, .tp-tour-content {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+
+  /* 2. Footer alanını flex'ten çıkartıp düz blok yap, yan yana gelmeye zorlanmasınlar */
+  .tp-tour-footer {
+    display: block !important;
+    width: 100% !important;
+  }
+
+  /* 3. Fiyat alanını rahatlat */
+  .tp-tour-price {
+    display: block !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+  }
+
+  /* 4. TAŞMANIN ASIL SEBEBİ OLABİLECEK BUTON VE YAZI */
+  .tp-tour-btn {
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+  }
+
+  .tp-tour-btn a {
+    display: block !important;
+    width: 100% !important;
+    white-space: normal !important;    /* Satırın kırılmasını zorunlu kılar */
+    word-break: break-word !important; /* Kelime çok uzunsa alt satıra böler */
+    text-align: center !important;
+    padding: 10px 5px !important;      /* İç boşluğu azalt ki sığsın */
+    box-sizing: border-box !important;
+  }
+}
+@media (max-width: 767px) {
+  /* 1. Paylaştığın alanın en dış kapsayıcısını ekrandan taşmaya karşı kilitle */
+  .tp-tour-area, .tp-tour-area .container {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* 2. Bootstrap row'larının mobildeki sinsi -15px taşmasını sıfırla */
+  .tp-tour-area .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* 3. İkonlar ve yanındaki metinler (3,6,9,12 ve Saatlik Kullanım) yan yana sığmıyor olabilir */
+  .tp-tour-info {
+    display: flex !important;
+    flex-direction: column !important; /* İkonları alt alta sırala ki yan yana sıkışıp kartı ittirmesinler */
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  .tp-tour-info span {
+    white-space: normal !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  /* 4. Skor kısmındaki ( 4.7 / 5 ) alanını rahatlat */
+  .tp-tour-meta {
+    flex-wrap: wrap !important;
+    gap: 5px !important;
+  }
+}
+@media (max-width: 767px) {
+  /* 1. Sayfa genelinde mikro esnemeleri engellemek için body seviyesinde önlem */
+  html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+  }
+
+  /* 2. Row ve Col elementlerinin padding/margin dengesizliğini sıfırla */
+  .tp-tour-area .row, 
+  .tp-tour-area [class*="col-"] {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding-left: 10px !important;  /* Ekranın kenarlarına yapışmasın diye güvenli boşluk */
+    padding-right: 10px !important;
+    max-width: 100% !important;
+  }
+
+  /* 3. Kartın kendi genişliğini ekran sınırına eşitle */
+  .tp-tour-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    box-sizing: border-box !important;
+  }
+}
+@media (max-width: 991px) {
+  /* Kartın dışındaki tüm sinsi taşmaları ve dikey kayan yazıları mobilde tamamen gizler */
+  .tp-tour-area {
+    overflow: hidden !important;
+  }
+  
+  /* Eğer o dikey yazının özel bir sınıfı varsa onu devre dışı bırakalım */
+  .tp-tour-area [class*="text"], 
+  .tp-tour-area [class*="title"], 
+  .tp-tour-area span {
+    max-width: 100% !important;
+  }
+}
+@media (max-width: 767px) {
+  /* Bu alandaki tüm sütunları mobilde alt alta gelmeye zorlar */
+  .tp-tour-area .row > [class*="col-"] {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
+  /* Kartların içindeki her şeyin kutu modeline sığmasını sağlar */
+  .tp-tour-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+}
+/* Markalar Alanı Kesilme ve Çakışma Çözümü */
+.tp-brands-area {
+    display: block !important;
+    clear: both !important; /* Üstteki elemanların aşağı sarkmasını engeller */
+    margin-top: 30px !important; /* Üstteki counter kutusu ile arasına güvenli mesafe açar */
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.tp-brands-three {
+    height: auto !important;
+    min-height: 120px !important; /* Kırmızı arka planın dikeyde daralmasını kesin olarak engeller */
+    display: flex !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+/* Üstteki counter (sayaç) kutusunun taşmasını engelleme */
+.tp-counter-count-item, 
+div[class*="counter"] {
+    margin-bottom: 20px !important;
+    height: auto !important; /* Sabit yükseklik varsa iptal eder */
+}
