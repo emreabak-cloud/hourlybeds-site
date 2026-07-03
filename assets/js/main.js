@@ -585,20 +585,18 @@ setTimeout(function() {
     }
 
     // Vercel ve klasör yapısıyla tam uyumlu rota hedefleri
-    const enTarget = baseName === 'index' ? '/index.html' : `/${baseName}.html`;
-    const trTarget = baseName === 'index' ? '/tr/index.html' : `/tr/${baseName.toLowerCase()}-tr.html`;
+    const enTarget = baseName === 'index' ? 'en/index.html' : `/en/${baseName}.html`;
+    const trTarget = baseName === 'index' ? '/index.html' : `/tr/${baseName.toLowerCase()}.html`;
     const ruTarget = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName.toLowerCase()}-ru.html`;
     const arTarget = baseName === 'index' ? '/ar/index.html' : `/ar/${baseName.toLowerCase()}-ar.html`;
 
     // Aktif dil kontrolü (Kısaltma ve Tam İsimler)
-    let currentLangShort = 'EN';
-    let currentLangFull = 'English';
+    let currentLangShort = 'TR';
+    let currentLangFull = 'Türkçe';
     if (pageName.toLowerCase().includes('-tr.html') || path.toLowerCase().includes('/tr/')) {
         currentLangShort = 'TR'; currentLangFull = 'Türkçe';
     } else if (pageName.toLowerCase().includes('-ru.html') || path.toLowerCase().includes('/ru/')) {
-        currentLangShort = 'RU'; currentLangFull = 'Русский';
-    } else if (pageName.toLowerCase().includes('-ar.html') || path.toLowerCase().includes('/ar/')) {
-        currentLangShort = 'AR'; currentLangFull = 'العربية';
+
     }
 
     // 1. ADIM: EVRENSEL MOBİL MENÜ ENTEGRASYONU (TÜM DİLLERDE ÇALIŞIR)
@@ -636,8 +634,6 @@ setTimeout(function() {
                 <div style="display: flex; gap: 8px; flex-wrap: wrap;">
                     <a href="${enTarget}" class="tq-m-link ${currentLangShort === 'EN' ? 'active' : ''}" style="padding: 6px 14px; background: #f5f5f5; border-radius: 4px; font-size: 12px; font-weight: bold; text-decoration: none !important; color: #222222 !important; display: inline-block; transition: all 0.2s;">EN</a>
                     <a href="${trTarget}" class="tq-m-link ${currentLangShort === 'TR' ? 'active' : ''}" style="padding: 6px 14px; background: #f5f5f5; border-radius: 4px; font-size: 12px; font-weight: bold; text-decoration: none !important; color: #222222 !important; display: inline-block; transition: all 0.2s;">TR</a>
-                    <a href="${ruTarget}" class="tq-m-link ${currentLangShort === 'RU' ? 'active' : ''}" style="padding: 6px 14px; background: #f5f5f5; border-radius: 4px; font-size: 12px; font-weight: bold; text-decoration: none !important; color: #222222 !important; display: inline-block; transition: all 0.2s;">RU</a>
-                    <a href="${arTarget}" class="tq-m-link ${currentLangShort === 'AR' ? 'active' : ''}" style="padding: 6px 14px; background: #f5f5f5; border-radius: 4px; font-size: 12px; font-weight: bold; text-decoration: none !important; color: #222222 !important; display: inline-block; transition: all 0.2s;">AR</a>
                 </div>
             </div>
             <style>
@@ -674,8 +670,8 @@ setTimeout(function() {
             if (currentLangShort !== 'EN' && link.closest('ul')) {
                 if (
                     (currentLangShort === 'TR' && (txt === 'turkish' || txt === 'türkçe' || txt === 'tr')) ||
-                    (currentLangShort === 'RU' && (txt === 'russian' || txt === 'русский' || txt === 'ru')) ||
-                    (currentLangShort === 'AR' && (txt === 'arabic' || txt === 'العربية' || txt === 'ar'))
+                    (currentLangShort === '' && (txt === '' || txt === '' || txt === 'ru')) ||
+                    (currentLangShort === '' && (txt === '' || txt === '' || txt === 'ar'))
                 ) {
                     link.textContent = 'English';
                     link.setAttribute('href', enTarget);
@@ -692,10 +688,10 @@ setTimeout(function() {
             } else if (txt === 'türkçe' || txt === 'turkce' || txt === 'turkish' || txt === 'tr') {
                 link.setAttribute('href', trTarget);
                 link.onclick = function(e) { e.preventDefault(); window.location.href = trTarget; };
-            } else if (txt === 'русский' || txt === 'russian' || txt === 'ru') {
+            } else if (txt === '' || txt === '' || txt === '') {
                 link.setAttribute('href', ruTarget);
                 link.onclick = function(e) { e.preventDefault(); window.location.href = ruTarget; };
-            } else if (txt === 'العربية' || txt === 'arabic' || txt === 'ar') {
+            } else if (txt === '' || txt === '' || txt === '') {
                 link.setAttribute('href', arTarget);
                 link.onclick = function(e) { e.preventDefault(); window.location.href = arTarget; };
             }
@@ -722,11 +718,11 @@ setTimeout(function() {
 
 function switchLanguage(lang) {
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    let baseName = currentPath.toLowerCase().replace('-tr', '').replace('-ru', '').replace('-ar', '').replace('.html', '');
+    let baseName = currentPath.toLowerCase().replace('-en', '').replace('-ru', '').replace('-ar', '').replace('.html', '');
     if (baseName === '' || baseName === '/') baseName = 'index';
 
-    if (lang === 'TR' || lang === 'tr') {
-        window.location.href = baseName === 'index' ? '/tr/index.html' : `/tr/${baseName}.html`;
+    if (lang === 'EN' || lang === 'en') {
+        window.location.href = baseName === 'index' ? 'en/index.html' : `/tr/${baseName}.html`;
     } else if (lang === 'RU' || lang === 'ru') {
         window.location.href = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName}.html`;
     } else if (lang === 'AR' || lang === 'ar') {
@@ -750,18 +746,18 @@ function switchLanguage(lang) {
         baseName = 'index';
     }
 
-    const enTarget = baseName === 'index' ? '/index.html' : `/${baseName}.html`;
-    const trTarget = baseName === 'index' ? '/tr/index.html' : `/tr/${baseName.toLowerCase()}.html`;
+    const trTarget = baseName === 'index' ? '/index.html' : `/${baseName}.html`;
+    const enTarget = baseName === 'index' ? '/en/index.html' : `/en/${baseName.toLowerCase()}.html`;
     const ruTarget = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName.toLowerCase()}.html`;
     const arTarget = baseName === 'index' ? '/ar/index-ar.html' : `/ar/${baseName.toLowerCase()}.html`;
 
-    let currentLangShort = 'EN';
-    let currentLangFull = 'English';
-    let isTr = pageName.toLowerCase().includes('.html') || path.toLowerCase().includes('/tr/');
+    let currentLangShort = 'TR';
+    let currentLangFull = 'Türkçe';
+    let isEn = pageName.toLowerCase().includes('.html') || path.toLowerCase().includes('/en/');
     let isRu = pageName.toLowerCase().includes('.html') || path.toLowerCase().includes('/ru/');
     let isAr = pageName.toLowerCase().includes('.html') || path.toLowerCase().includes('/ar/');
 
-    if (isTr) { currentLangShort = 'TR'; currentLangFull = 'Türkçe'; }
+    if (isTr) { currentLangShort = 'EN'; currentLangFull = 'English'; }
     else if (isRu) { currentLangShort = 'RU'; currentLangFull = 'Русский'; }
     else if (isAr) { currentLangShort = 'AR'; currentLangFull = 'العربية'; }
 
@@ -769,10 +765,10 @@ function switchLanguage(lang) {
     let menuItems = [];
     if (isTr) {
         menuItems = [
-            { text: 'Rotalarımız', href: '/tr/destinations.html' },
-            { text: 'Popüler Turlarımız', href: '/tr/best-tours.html' },
-            { text: 'Blog', href: '/tr/blog.html' },
-            { text: 'Vip Transfer', href: '/tr/vip-transfer.html' }
+            { text: '', href: '/tr/destinations.html' },
+            { text: '', href: '/tr/best-tours.html' },
+            { text: '', href: '/tr/blog.html' },
+            { text: '', href: '/tr/vip-transfer.html' }
         ];
     } else if (isRu) {
         menuItems = [
@@ -790,10 +786,10 @@ function switchLanguage(lang) {
         ];
         } else {
             menuItems = [
-                { text: 'İstanbul City Tours', href: '/istanbul-city-tours' },
-                { text: 'Best Tours', href: '/best-tours.html' },
-                { text: 'Blog', href: '/blog.html' },
-                { text: 'Vip Transfer', href: '/vip-transfer.html' }
+                { text: '', href: '/istanbul-city-tours' },
+                { text: '', href: '/best-tours.html' },
+                { text: '', href: '/blog.html' },
+                { text: '', href: '/vip-transfer.html' }
             ];
         }
 
@@ -892,7 +888,7 @@ function switchLanguage(lang) {
                 }
             }
             if (currentLangShort !== 'EN' && link.closest('ul')) {
-                if ((currentLangShort === 'TR' && (txt === 'turkish' || txt === 'türkçe' || txt === 'tr')) || (currentLangShort === 'RU' && (txt === 'russian' || txt === 'русский' || txt === 'ru')) || (currentLangShort === 'AR' && (txt === 'arabic' || txt === 'العربية' || txt === 'ar'))) {
+                if ((currentLangShort === 'TR' && (txt === 'turkish' || txt === 'türkçe' || txt === 'tr')) || (currentLangShort === '' && (txt === '' || txt === '' || txt === '')) || (currentLangShort === '' && (txt === '' || txt === '' || txt === ''))) {
                     link.textContent = 'English'; link.setAttribute('href', enTarget);
                     link.onclick = function(e) { e.preventDefault(); window.location.href = enTarget; }; return;
                 }
@@ -900,8 +896,8 @@ function switchLanguage(lang) {
             if (link.onclick) return;
             if (txt === 'english' || txt === 'en') { link.setAttribute('href', enTarget); link.onclick = function(e) { e.preventDefault(); window.location.href = enTarget; }; } 
             else if (txt === 'türkçe' || txt === 'turkce' || txt === 'turkish' || txt === 'tr') { link.setAttribute('href', trTarget); link.onclick = function(e) { e.preventDefault(); window.location.href = trTarget; }; } 
-            else if (txt === 'русский' || txt === 'russian' || txt === 'ru') { link.setAttribute('href', ruTarget); link.onclick = function(e) { e.preventDefault(); window.location.href = ruTarget; }; } 
-            else if (txt === 'العربية' || txt === 'arabic' || txt === 'ar') { link.setAttribute('href', arTarget); link.onclick = function(e) { e.preventDefault(); window.location.href = arTarget; }; }
+            else if (txt === '' || txt === '' || txt === '') { link.setAttribute('href', ruTarget); link.onclick = function(e) { e.preventDefault(); window.location.href = ruTarget; }; } 
+            else if (txt === '' || txt === '' || txt === '') { link.setAttribute('href', arTarget); link.onclick = function(e) { e.preventDefault(); window.location.href = arTarget; }; }
         });
     }
 
@@ -914,9 +910,9 @@ function switchLanguage(lang) {
 
 function switchLanguage(lang) {
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    let baseName = currentPath.toLowerCase().replace('-tr', '').replace('-ru', '').replace('-ar', '').replace('.html', '');
+    let baseName = currentPath.toLowerCase().replace('-en', '').replace('-ru', '').replace('-ar', '').replace('.html', '');
     if (baseName === '' || baseName === '/') baseName = 'index';
-    if (lang === 'TR' || lang === 'tr') { window.location.href = baseName === 'index' ? '/tr/index-tr.html' : `/tr/${baseName}-tr.html`; } 
+    if (lang === 'EN' || lang === 'en') { window.location.href = baseName === 'index' ? 'index.html' : `/en/${baseName}.html`; } 
     else if (lang === 'RU' || lang === 'ru') { window.location.href = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName}-ru.html`; } 
     else if (lang === 'AR' || lang === 'ar') { window.location.href = baseName === 'index' ? '/ar/index-ar.html' : `/ar/${baseName}-ar.html`; } 
     else { window.location.href = baseName === 'index' ? '/index.html' : `/${baseName}.html`; }
