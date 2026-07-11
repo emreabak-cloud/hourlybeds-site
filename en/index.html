@@ -3025,19 +3025,16 @@ Discover the System            </a>
     }
 }
 </style>
-<div class="tq-custom-lang-box" onclick="event.preventDefault(); event.stopPropagation(); smartSwitchLanguage('TR');" 
+<div class="tq-custom-lang-box tq-desktop-only-lang" onclick="event.preventDefault(); event.stopPropagation(); smartSwitchLanguage('TR');" 
      style="
         position: absolute; 
-        top: 14px;       /* 🛠️ YUKARIDAN MESAFE: Çizgilere göre yukarı-aşağı elinle ayarla kanka */
-        right: 13px;     /* 🛠️ SAĞDAN MESAFE: Çizgilere göre sağa-sola elinle ayarla kanka */
+        top: 14px;       /* 🛠️ YUKARIDAN MESAFE */
+        right: 13px;     /* 🛠️ SAĞDAN MESAFE */
         width: 40px; 
         height: 40px; 
         background: #ffffff; 
         border: 1.5px solid #ff4a22; 
         border-radius: 50%; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
         box-shadow: 0 3px 10px rgba(0,0,0,0.15); 
         cursor: pointer; 
         z-index: 999999;
@@ -3046,7 +3043,25 @@ Discover the System            </a>
      "
      onmouseover="this.style.transform='scale(1.1)';" 
      onmouseout="this.style.transform='scale(1)';">
-<img src="https://flagcdn.com/w80/tr.png" alt="Türkçe" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+   <img src="https://flagcdn.com/w80/tr.png" alt="Türkçe" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+</div>
+
+<style>
+    /* Masaüstünde (Geniş ekranlarda) esnek kutu düzenini zorla aktif ediyoruz */
+    .tq-desktop-only-lang {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+    }
+    
+    /* Sadece 768px ve altındaki mobil/tablet ekranlarda tamamen yok et 📱❌ */
+    @media (max-width: 768px) {
+        .tq-desktop-only-lang {
+            display: none !important;
+        }
+    }
+
+</style>
 
 </div></div>
 <!-- ========================================== -->

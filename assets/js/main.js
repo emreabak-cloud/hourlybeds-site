@@ -1005,21 +1005,32 @@ $(window).on('load', fixMobileOffcanvasFinal);
 setTimeout(fixMobileOffcanvasFinal, 1200);
 /* --- HOURLYBEDS AKILLI DİL VE SAYFA KORUMA SİSTEMİ --- */
 function smartSwitchLanguage(targetLang) {
-    // 1. Ziyaretçinin şu an bulunduğu tam sayfa adını alıyoruz (Örn: otel-sonuc.html)
+    // 1. Mevcut tam yolu alıyoruz (Örn: /en/otel-sonuc veya /en/otel-sonuc.html)
     let currentPath = window.location.pathname;
+    
+    // Sondaki sayfa ismini temizce ayıklayalım kanka
     let pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
     
-    // Eğer ana sayfadaysa ve URL'de dosya adı yazmıyorsa index.html kabul et kanka
-    if (pageName === '' || pageName === '/') {
+    // Eğer İngilizce klasörünün direkt içindeyse veya boşsa index.html yapalım
+    if (pageName === '' || pageName === '/' || pageName === 'en') {
         pageName = 'index.html';
     }
+    
+    // 🚀 CANLI SUNUCU ZIRHI: Eğer tarayıcı .html kısmını gizlediyse ve pageName'de .html yoksa zorla ekle kanka!
+    if (!pageName.includes('.')) {
+        pageName = pageName + '.html';
+    }
 
-    // 2. Yönlendirme mantığını kök dizine (/) bağlı olarak kuruyoruz ki klasörler çakışmasın
+    // 2. Yönlendirme Kontrolü
     if (targetLang === 'EN') {
-        // İngilizceye geçerken: Mevcut sayfa adının başına /en/ koyuyoruz
-        window.location.href = '/en/' + pageName;
+        // Eğer zaten /en/ altındaysak tekrar ekleme yapmasın kanka
+        if (currentPath.startsWith('/en/')) {
+            window.location.href = '/en/' + pageName;
+        } else {
+            window.location.href = '/en/' + pageName;
+        }
     } else if (targetLang === 'TR') {
-        // Türkçeye geçerken: /en/ klasöründen sıyrılıp direkt kök dizindeki aynı sayfaya gidiyoruz
+        // Türkçeye geçerken: /en/ yapısından tamamen kurtulup kökteki .html dosyasına vuruyoruz
         window.location.href = '/' + pageName;
     }
 }
