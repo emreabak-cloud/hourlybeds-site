@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezervasyonunuz Onaylandı! - TourQuaz Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4a22;
+            --primary-hover: #e03d19;
+            --success-color: #28a745;
+            --bg-color: #f1f5f9;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0; padding: 0; color: var(--text-main);
+        }
+
+        .navbar {
+            background: var(--card-bg); padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 22px; font-weight: 700; color: var(--primary-color); }
+        .logo span { color: #333; }
+
+        .layout-container {
+            max-width: 1200px; margin: 40px auto; padding: 0 20px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 35px;
+        }
+
+        .card {
+            background: var(--card-bg); border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04); padding: 35px; box-sizing: border-box;
+        }
+
+        /* ================= SOL TARAF STİLLERİ ================= */
+        .left-column { display: flex; flex-direction: column; gap: 25px; }
+        .room-preview-image { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
+        .room-title { font-size: 22px; font-weight: 700; margin: 0; }
+        .hotel-location {
+            font-size: 14px; color: var(--text-muted); line-height: 1.5;
+            background: #f8fafc; padding: 15px; border-radius: 10px; border: 1px solid #e2e8f0;
+        }
+        .features-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13.5px; color: #475569; }
+        .feature-tag { display: flex; align-items: center; gap: 8px; }
+        .feature-tag i { color: var(--success-color); }
+
+        /* ================= SAĞ TARAF STİLLERİ ================= */
+        .success-header { text-align: center; margin-bottom: 25px; }
+        .success-badge { color: var(--success-color); font-size: 48px; margin-bottom: 10px; }
+        .success-header h1 { font-size: 24px; margin: 0; }
+
+        .receipt-box { border: 1px solid #e2e8f0; border-radius: 12px; background-color: #fafafa; overflow: hidden; margin-bottom: 20px; }
+        .receipt-title { background: #e2e8f0; padding: 12px 20px; font-weight: 600; font-size: 13.5px; display: flex; justify-content: space-between; }
+        .receipt-body { padding: 20px; }
+        
+        .detail-row { display: flex; justify-content: space-between; font-size: 14px; padding: 11px 0; border-bottom: 1px solid #f1f5f9; }
+        .detail-row:last-child { border-bottom: none; }
+        .detail-row .label { color: var(--text-muted); font-weight: 500; }
+        .detail-row .value { color: var(--text-main); font-weight: 600; }
+
+        /* Bildirim Şeridi (E-posta & WhatsApp) */
+        .notification-info-box {
+            background-color: #f0fdf4; border: 1px solid #bbf7d0;
+            border-radius: 8px; padding: 12px 15px; font-size: 13px;
+            color: #166534; display: flex; align-items: center; gap: 10px; margin-bottom: 15px;
+        }
+
+        .notice-box { background: #fff9f3; border-left: 4px solid var(--primary-color); padding: 12px 15px; font-size: 12.5px; color: #5c433b; line-height: 1.5; }
+
+        .btn-container { text-align: center; margin-top: 25px; }
+        .btn-home {
+            background-color: var(--primary-color); color: white; text-decoration: none;
+            padding: 14px 35px; border-radius: 30px; font-size: 15px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(255, 74, 34, 0.2);
+        }
+
+        @media (max-width: 868px) { .layout-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <div class="logo">TourQuaz<span>Travel</span></div>
+    <div style="font-size: 14px; color: var(--text-muted);"><i class="fa-solid fa-phone"></i> +(90) 212 999 96 42</div>
+</div>
+
+<div class="layout-container">
+    
+    <div class="card left-column">
+        <img class="room-preview-image" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80" alt="VIP Premium Oda">
+        <div>
+            <div class="room-title">TourQuaz VIP Premium Oda</div>
+            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5; margin-top: 5px;">Rezervasyonunu yaptığınız bu konsept odamız tam izole, ses yalıtımlı ve üst düzey lüks materyallerle döşenmiştir.</p>
+        </div>
+        <div>
+            <strong style="font-size: 14px; display: block; margin-bottom: 10px;">Odaya Dahil Hizmetler:</strong>
+            <div class="features-list">
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Ultra Hızlı Wi-Fi</div>
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Smart TV & Netflix</div>
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Buklet Seti & Havlular</div>
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> İkram Çay & Kahve</div>
+            </div>
+        </div>
+        <div class="hotel-location">
+            <strong style="color: var(--primary-color); font-size: 14px;"><i class="fa-solid fa-location-dot"></i> Otel Adres Bilgisi:</strong>
+            <span style="display: block; margin-top: 6px; font-size: 13px; color: #334155;">
+                TourQuaz Center Hotel & Luxury Suites<br>
+                Barbaros Bulvarı, No: 142, Beşiktaş / İstanbul
+            </span>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="success-header">
+            <div class="success-badge"><i class="fa-solid fa-circle-check"></i></div>
+            <h1>Rezervasyon Talebi Alındı!</h1>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Sayın <strong id="cust-name">Misafirimiz</strong>, talebiniz acentemize başarıyla iletilmiştir.</p>
+        </div>
+
+        <div class="receipt-box">
+            <div class="receipt-title">
+                <span>🎫 Giriş Belgesi (Voucher)</span>
+                <span style="color: var(--success-color); font-weight: bold;">Durum: Onaylandı</span>
+            </div>
+            <div class="receipt-body">
+                <div class="detail-row"><span class="label">Hizmet Tipi:</span> <span class="value">Saatlik Konaklama (Hourly Bed)</span></div>
+                <div class="detail-row"><span class="label">Planlanan Giriş Saati:</span> <span class="value" id="res-time">Belirtilmedi</span></div>
+                <div class="detail-row"><span class="label">Toplam Konaklama Süresi:</span> <span class="value" style="color: var(--primary-color);"><span id="res-duration">1</span> Saat</span></div>
+                <div class="detail-row"><span class="label">Ödeme Tercihi:</span> <span class="value">Otel Resepsiyonunda Ödeme</span></div>
+                <div class="detail-row" style="font-size: 16px; border-top: 1px dashed #cbd5e1; padding-top: 15px; margin-top: 5px;">
+                    <span class="label" style="color: var(--text-main); font-weight: 700;">Resepsiyonda Ödenecek:</span> 
+                    <span class="value" style="color: var(--primary-color); font-size: 18px;">€<span id="res-amount">0.00</span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification-info-box">
+            <i class="fa-solid fa-bell-circle-badge" style="font-size: 20px; color: var(--success-color)"></i>
+            <span>Rezervasyon kodunuz ve giriş detaylarınız sistemimiz tarafından **E-posta** ve **WhatsApp** üzerinden telefonunuza anlık olarak iletilmiştir.</span>
+        </div>
+
+        <div class="notice-box">
+            <strong style="color: var(--primary-color); display: block; margin-bottom: 3px;"><i class="fa-solid fa-circle-info"></i> Önemli Not:</strong>
+            Otelde ödeme kayıtlarında oda garantisi sağlanabilmesi için lütfen seçtiğiniz giriş saatinden en geç 15 dakika önce resepsiyonda olunuz.
+        </div>
+
+        <div class="btn-container">
+            <a href="https://www.tourquaztravel.com" class="btn-home"><i class="fa-solid fa-house"></i> Ana Sayfaya Dön</a>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    // Bir önceki form sayfasından gelen tüm parametreleri dinamik yakalıyoruz
+    const urlParams = new URLSearchParams(window.location.search);
+    document.getElementById('res-amount').innerText = urlParams.get('total') || '0.00';
+    document.getElementById('cust-name').innerText = urlParams.get('name') || 'Misafirimiz';
+    document.getElementById('res-time').innerText = urlParams.get('time') || 'Belirtilen Saatte';
+    // Süre bilgisini URL'den çekip ekrana yazdırıyoruz
+    document.getElementById('res-duration').innerText = urlParams.get('duration') || '1';
+</script>
+</body>
+</html>

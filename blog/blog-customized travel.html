@@ -65,7 +65,7 @@
    <div class="tp-offcanvas">
       <div class="tp-offcanvas-header mb-30">
          <div class="tp-offcanvas-logo">
-            <a href="index.html"><img data-width="108" src="/../../assets/img/logo/logo.png" alt=""></a>
+            <a href="/index.html"><img data-width="108" src="/../../assets/img/logo/logo.png" alt=""></a>
          </div>
          <div class="tp-offcanvas-close">
             <button class="tp-offcanvas-close-button"><i class="fal fa-times"></i></button>
@@ -128,7 +128,7 @@
                <div class="col-xl-7 col-6">
                   <div class="tp-header-left d-flex align-items-center">
                      <div class="tp-header-logo mr-60">
-                        <a href="index.html">
+                        <a href="/index.html">
                            <img width="115" src="/../../assets/img/logo/logo.png" alt="">
                         </a>
                      </div>
@@ -136,7 +136,7 @@
                         <nav class="tp-mobile-menu-active">
                            <ul>
 <li class="has-dropdown">
-                                       <a href="index.html">Ana Sayfa</a>
+                                       <a href="/index.html">Ana Sayfa</a>
                                        <ul class="menu">
                                        </ul>
                                     </li>
@@ -332,33 +332,30 @@
                      </div>
                   </div>
                </div>
-               <div class="col-xl-5 col-6">
+                  <div class="col-xl-5 col-6">
                   <div class="tp-header-option d-flex align-items-center justify-content-end">
                      <div class="tp-header-search p-relative d-none d-xl-block">
                         <form action="#">
                            <div class="tp-header-typing-wrap">
                               <span class="typed-text"></span>
                               <div class="typed-strings d-none">
-                                 <span>Moscow</span>
-                                 <span>İstanbul</span>
-                                 <span>Tbilisi</span>
-                                 <span>Baku</span>
-                                 <span>St. Petersburgh</span>
-                                 <span>Kashmir</span>
-                              </div>
+<span>İstanbul</span>
+                                 <span>İzmir</span>
+                                 <span>IST Havalimanı</span>
+                                 <span>SAW Havalimanı</span>
+                                 <span>Ankara</span>
+                                 <span>Antalya</span>                              </div>
                            </div>
-                           <input class="tp-input" type="text" placeholder="Saatlik Odaları Bul...">
                            <button class="tp-header-search-btn" type="submit">
-                              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M5.64267 10.7857C8.48288 10.7857 10.7853 8.48318 10.7853 5.64286C10.7853 2.80254 8.48288 0.5 5.64267 0.5C2.80245 0.5 0.5 2.80254 0.5 5.64286C0.5 8.48318 2.80245 10.7857 5.64267 10.7857Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                                 <path d="M12.5 12.5L9.92871 9.92857" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                              </svg>
+ 
                            </button>
                         </form>
                      </div>
-                     <div class="tp-header-İletişim ml-10 d-none d-sm-block">
-                        <a href="tel:+902129999642"> +(90) 212 999 9 642</a>
+                     <div class="tp-header-contact ml-10 d-none d-sm-block">
+<a href="./tel:">+90 212 9999642</a>
                      </div>
+                     
+                     <!-- DİNAMİK USER DROPDOWN (FIREBASE BAĞLANTILI) -->
                      <div class="tp-header-top-menu-item tp-header-login ml-10 d-none d-xl-block">
                         <span class="tp-header-login-btn" id="tp-header-login-btn">
                            <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -366,15 +363,18 @@
                               <path d="M6.84473 0.149597C8.94337 0.149833 10.6426 1.84973 10.6426 3.94843C10.6423 6.04692 8.94322 7.74604 6.84473 7.74628C4.74603 7.74628 3.04613 6.04707 3.0459 3.94843C3.0459 1.84958 4.74588 0.149597 6.84473 0.149597ZM6.84473 1.18573C5.32757 1.18573 4.08203 2.43127 4.08203 3.94843C4.08227 5.46538 5.32772 6.71014 6.84473 6.71014C8.36154 6.7099 9.60621 5.46524 9.60645 3.94843C9.60645 2.43141 8.36169 1.18597 6.84473 1.18573Z" fill="currentColor" stroke="currentColor" stroke-width="0.3" />
                            </svg>
                         </span>
-                        <ul>
+                        
+                        <!-- Burası Oturum Durumuna Göre Alttaki Scriptle Otomatik Değişecek Kanka -->
+                        <ul id="tq-user-menu-list">
                            <li>
-                              <a href=""><i class="icon far fa-Kişi"></i> Login</a>
+                              <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
                            </li>
                            <li>
-                              <a href=""> <i class="icon fas fa-Kişi-plus"></i> Register</a>
+                              <a href="./register.html"> <i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
                            </li>
                         </ul>
                      </div>
+                     
                      <div class="tp-header-toogle-wrapper d-xl-none ml-10">
                         <button class="tp-header-toogle">
                            <span></span>
@@ -385,8 +385,7 @@
                </div>
             </div>
          </div>
-      </div>
-      <!-- header-area-end -->
+      </div>      <!-- header-area-end -->
 
    </header>
 
@@ -690,7 +689,7 @@
 
       <!-- Logo -->
       <div class="tp-header-logo">
-         <a href="index.html">
+         <a href="/index.html">
             <img width="105" src="/../../assets/img/logo/logo.png" alt="">
          </a>
       </div>
@@ -876,13 +875,13 @@
 
       <div class="tourquaz-fixed-lang" style="position: absolute; top: 54px; right: 50px; z-index: 999999;">
       
-      <button type="button" class="tq-fixed-btn" style="background: #ffffff; color: #ff2525; border: none; padding: 5px 24px; font-weight: 600; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; display: flex; align-items: center; gap: 8px;">
-          Language <span style="font-size: 13px;">▼</span>
-      </button>
+<button type="button" class="tq-fixed-btn" style="display: none !important; background: #ffffff; color: #ff2525; border: none; padding: 5px 24px; font-weight: 600; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; align-items: center; gap: 8px;">
+    Language <span style="font-size: 13px;">▼</span>
+</button>
       
       <ul class="tq-fixed-dropdown">
          <li><a href="en/index.html">English</a></li>
-         <li><a href="index.html">Türkçe</a></li>
+         <li><a href="/index.html">Türkçe</a></li>
          <li><a href=""></a></li>
          <li><a href=""></a></li>
       </ul>
@@ -925,6 +924,135 @@
          }
       </style>
    </div>
+<style>
+/* Sadece bilgisayar ekranlarındayken çalışan nokta atışı koordinat temizliği */
+@media (min-width: 992px) {
+    
+    /* 1. Header alanına sonradan CSS ile çizdirilen tüm kaçak çizgileri uçuruyoruz */
+    header::before, header::after,
+    .tp-header-area::before, .tp-header-area::after,
+    .header-sticky::before, .header-sticky::after,
+    .tp-header-bottom::before, .tp-header-bottom::after,
+    .tp-logo-area::before, .tp-logo-area::after,
+    .tp-logo-link::before, .tp-logo-link::after {
+        display: none !important;
+        content: none !important; /* CSS çizgilerini kökten yok eder kanka 🎯 */
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    /* 2. Sağ üst köşede havada asılı kalabilecek her türlü sahte ikonu/grafiği kapsama alanı */
+    .tp-header-bottom .col-xl-3::before,
+    .tp-header-bottom .col-xl-3::after,
+    div[class*="col-"]::before,
+    div[class*="col-"]::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /* 3. Yan taraftan taşan o mükerrer mobil menü alanı (Garantide kalmaya devam ediyor) */
+    .tp-offcanvas-area,
+    div[class*="offcanvas"],
+    div[class*="mobile-menu"],
+    .tq-mobile-menu-wrapper,
+    aside[class*="sidebar"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+    }
+}
+</style>
+<style>
+    /* Masaüstünde normal düzen, mobilde kesin engelleme */
+    .tq-desktop-only-lang {
+        display: flex !important;
+    }
+    @media (max-width: 768px) {
+        .tq-desktop-only-lang {
+            display: none !important; /* Üzerindeki satır içi kodu bıçak gibi keser 📱❌ */
+        }
+    }
+</style>
+
+<div class="tq-custom-lang-box tq-desktop-only-lang" onclick="event.preventDefault(); event.stopPropagation(); smartSwitchLanguage('EN');" 
+     style="
+        position: absolute; 
+        top: 14px;       /* 🛠️ YUKARIDAN MESAFE: Çizgilere göre yukarı-aşağı elinle ayarla kanka */
+        right: 13px;     /* 🛠️ SAĞDAN MESAFE: Çizgilere göre sağa-sola elinle ayarla kanka */
+        width: 40px; 
+        height: 40px; 
+        background: #ffffff; 
+        border: 1.5px solid #ff4a22; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-size: 16px; 
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15); 
+        cursor: pointer; 
+        z-index: 999999;
+     "
+     onmouseover="this.style.transform='scale(1.08)';" 
+     onmouseout="this.style.transform='scale(1)';">
+<img src="https://flagcdn.com/w80/gb.png" alt="English" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+</div>
+<!-- ========================================== -->
+<!-- 1. HOURLYBEDS FIREBASE & USER MOTORU (TÜM SAYFALARA) -->
+<!-- ========================================== -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<script>
+  // Firebase Konsolundan (image_dc2283.png) aldığımız sana özel config bilgileri kanka
+const firebaseConfig = {
+  apiKey: "AIzaSyAmvSKcGKfWdHcNzNehhjFyYAOYtV9kf-8",
+  authDomain: "hourlybeds-auth.firebaseapp.com",
+  projectId: "hourlybeds-auth",
+  storageBucket: "hourlybeds-auth.firebasestorage.app",
+  messagingSenderId: "749804052407",
+  appId: "1:749804052407:web:4d54b45cffaa345c8e5232",
+  measurementId: "G-S1FSGV7R7W"
+};
+
+  // Motoru Başlat
+  if (!firebase.apps.length) {
+     firebase.initializeApp(firebaseConfig);
+  }
+  const auth = firebase.auth();
+
+  // Üst menüdeki (header) profil ikonunu giriş durumuna göre kontrol eden akıllı mekanizma
+  auth.onAuthStateChanged((user) => {
+      const menuList = document.getElementById('tq-user-menu-list');
+      if (!menuList) return;
+
+      if (user) {
+          // Müşteri giriş yaptıysa: Menüde e-postasını ve Çıkış Yap butonunu göster
+          menuList.innerHTML = `
+             <li style="padding: 8px 15px; font-size: 12px; color: #718096; border-bottom: 1px solid #edf2f7; word-break: break-all;">
+                <i class="far fa-user-circle"></i> ${user.email}
+             </li>
+             <li>
+                <a href="javascript:void(0);" onclick="auth.signOut().then(() => { alert('Çıkış yapıldı!'); window.location.reload(); })">
+                   <i class="icon fas fa-sign-out-alt" style="color: #ff4a22;"></i> Güvenli Çıkış
+                </a>
+             </li>
+          `;
+      } else {
+          // Müşteri ziyaretçiyse: Giriş Yap ve Kayıt Ol linklerini göster
+          menuList.innerHTML = `
+             <li>
+                <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
+             </li>
+             <li>
+                <a href="./register.html"> <i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+             </li>
+          `;
+      }
+  });
+</script>
+<!-- ========================================== -->
 </body>
 
 </html>

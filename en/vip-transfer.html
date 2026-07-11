@@ -469,10 +469,7 @@
                            </div>
                            <input class="tp-input" type="text" placeholder="Search for">
                            <button class="tp-header-search-btn" type="submit">
-                              <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                 <path d="M5.64267 10.7857C8.48288 10.7857 10.7853 8.48318 10.7853 5.64286C10.7853 2.80254 8.48288 0.5 5.64267 0.5C2.80245 0.5 0.5 2.80254 0.5 5.64286C0.5 8.48318 2.80245 10.7857 5.64267 10.7857Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                                 <path d="M12.5 12.5L9.92871 9.92857" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
-                              </svg>
+ 
                            </button>
                         </form>
                      </div>
@@ -2419,9 +2416,9 @@
 
       <div class="tourquaz-fixed-lang" style="position: absolute; top: 54px; right: 50px; z-index: 999999;">
       
-      <button type="button" class="tq-fixed-btn" style="background: #ffffff; color: #ff2525; border: none; padding: 5px 24px; font-weight: 600; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; display: flex; align-items: center; gap: 8px;">
-          Language <span style="font-size: 13px;">▼</span>
-      </button>
+<button type="button" class="tq-fixed-btn" style="display: none !important; background: #ffffff; color: #ff2525; border: none; padding: 5px 24px; font-weight: 600; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; align-items: center; gap: 8px;">
+    Language <span style="font-size: 13px;">▼</span>
+</button>
       
       <ul class="tq-fixed-dropdown">
          <li><a href="en/index.html">English</a></li>
@@ -2468,6 +2465,125 @@
          }
       </style>
    </div>
+<style>
+/* Sadece bilgisayar ekranlarındayken çalışan nokta atışı koordinat temizliği */
+@media (min-width: 992px) {
+    
+    /* 1. Header alanına sonradan CSS ile çizdirilen tüm kaçak çizgileri uçuruyoruz */
+    header::before, header::after,
+    .tp-header-area::before, .tp-header-area::after,
+    .header-sticky::before, .header-sticky::after,
+    .tp-header-bottom::before, .tp-header-bottom::after,
+    .tp-logo-area::before, .tp-logo-area::after,
+    .tp-logo-link::before, .tp-logo-link::after {
+        display: none !important;
+        content: none !important; /* CSS çizgilerini kökten yok eder kanka 🎯 */
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    /* 2. Sağ üst köşede havada asılı kalabilecek her türlü sahte ikonu/grafiği kapsama alanı */
+    .tp-header-bottom .col-xl-3::before,
+    .tp-header-bottom .col-xl-3::after,
+    div[class*="col-"]::before,
+    div[class*="col-"]::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /* 3. Yan taraftan taşan o mükerrer mobil menü alanı (Garantide kalmaya devam ediyor) */
+    .tp-offcanvas-area,
+    div[class*="offcanvas"],
+    div[class*="mobile-menu"],
+    .tq-mobile-menu-wrapper,
+    aside[class*="sidebar"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+    }
+}
+</style>
+<div class="tq-custom-lang-box" onclick="event.preventDefault(); event.stopPropagation(); smartSwitchLanguage('TR');" 
+     style="
+        position: absolute; 
+        top: 14px;       /* 🛠️ YUKARIDAN MESAFE: Çizgilere göre yukarı-aşağı elinle ayarla kanka */
+        right: 13px;     /* 🛠️ SAĞDAN MESAFE: Çizgilere göre sağa-sola elinle ayarla kanka */
+        width: 40px; 
+        height: 40px; 
+        background: #ffffff; 
+        border: 1.5px solid #ff4a22; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15); 
+        cursor: pointer; 
+        z-index: 999999;
+        overflow: hidden;
+        transition: transform 0.2s;
+     "
+     onmouseover="this.style.transform='scale(1.1)';" 
+     onmouseout="this.style.transform='scale(1)';">
+<img src="https://flagcdn.com/w80/tr.png" alt="Türkçe" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+
+</div></div>
+<!-- ========================================== -->
+<!-- 1. HOURLYBEDS FIREBASE & USER MOTORU (TÜM SAYFALARA) -->
+<!-- ========================================== -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<script>
+  // Firebase Konsolundan (image_dc2283.png) aldığımız sana özel config bilgileri kanka
+const firebaseConfig = {
+  apiKey: "AIzaSyAmvSKcGKfWdHcNzNehhjFyYAOYtV9kf-8",
+  authDomain: "hourlybeds-auth.firebaseapp.com",
+  projectId: "hourlybeds-auth",
+  storageBucket: "hourlybeds-auth.firebasestorage.app",
+  messagingSenderId: "749804052407",
+  appId: "1:749804052407:web:4d54b45cffaa345c8e5232",
+  measurementId: "G-S1FSGV7R7W"
+};
+
+  // Motoru Başlat
+  if (!firebase.apps.length) {
+     firebase.initializeApp(firebaseConfig);
+  }
+  const auth = firebase.auth();
+
+  // Üst menüdeki (header) profil ikonunu giriş durumuna göre kontrol eden akıllı mekanizma
+  auth.onAuthStateChanged((user) => {
+      const menuList = document.getElementById('tq-user-menu-list');
+      if (!menuList) return;
+
+      if (user) {
+          // Müşteri giriş yaptıysa: Menüde e-postasını ve Çıkış Yap butonunu göster
+          menuList.innerHTML = `
+             <li style="padding: 8px 15px; font-size: 12px; color: #718096; border-bottom: 1px solid #edf2f7; word-break: break-all;">
+                <i class="far fa-user-circle"></i> ${user.email}
+             </li>
+             <li>
+                <a href="javascript:void(0);" onclick="auth.signOut().then(() => { alert('Çıkış yapıldı!'); window.location.reload(); })">
+                   <i class="icon fas fa-sign-out-alt" style="color: #ff4a22;"></i> Güvenli Çıkış
+                </a>
+             </li>
+          `;
+      } else {
+          // Müşteri ziyaretçiyse: Giriş Yap ve Kayıt Ol linklerini göster
+          menuList.innerHTML = `
+             <li>
+                <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
+             </li>
+             <li>
+                <a href="./register.html"> <i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+             </li>
+          `;
+      }
+  });
+</script>
+<!-- ========================================== -->
 </body>
 
 </html>

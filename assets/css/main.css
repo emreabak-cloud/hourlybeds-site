@@ -14503,3 +14503,71 @@ div[class*="counter"] {
     margin-bottom: 20px !important;
     height: auto !important; /* Sabit yükseklik varsa iptal eder */
 }
+/* ================= HOURLYBEDS KART BOYUT SABİTLEYİCİ MOTOR ================= */
+
+/* 1. Tüm otel kartları ve promo kartı istenen ölçülere kilitlenir kanka */
+.tq-global-slider-wrapper .tp-hotel-card,
+.tq-global-slider-wrapper .placeholder-promo-card .tp-hotel-card {
+    width: 310px !important;
+    height: 350px !important;
+    min-width: 310px !important;
+    max-width: 310px !important;
+    min-height: 350px !important;
+    max-height: 350px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    overflow: hidden !important;
+}
+
+/* 2. Resim alanı 280px yüksekliğe göre daha kibar dursun diye 120px'e çekildi */
+.tq-global-slider-wrapper .tp-hotel-img-box,
+.tq-global-slider-wrapper .tp-hotel-img-box img {
+    width: 100% !important;
+    height: 200px !important;
+    object-fit: cover !important;
+}
+
+/* 3. İçerik alanındaki dikey paddingler kart daraldığı için optimize edildi kanka */
+.tq-global-slider-wrapper .tp-hotel-info {
+    padding: 8px 12px 0 12px !important;
+}
+
+/* 4. Otel adı 280px yükseklikte taşmasın diye maksimum 1 satıra kilitlendi */
+.tq-global-slider-wrapper .tp-hotel-name {
+    font-size: 15px !important;
+    font-weight: 600 !important;
+    margin: 2px 0 !important;
+    min-height: auto !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 1 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+}
+
+/* 5. Alt kısımdaki fiyat alanı tabana tam sıfırlanır */
+.tq-global-slider-wrapper .tp-hotel-price {
+    padding: 0 12px 10px 12px !important;
+}
+/* ========================================================================= */
+<style>
+/* Kaydırma bandını serbest bırakıyoruz kanka */
+.tq-hotel-scroll-container {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    width: 100% !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-snap-type: none !important; /* İnatçı fırlatma özelliğini iptal ettik */
+}
+
+/* Kartların esnemesini önleyip yan yana jilet gibi dizilmelerini garantiliyoruz */
+.tp-hotel-card-wrapper {
+    flex: 0 0 auto !important;
+    width: 320px !important;
+    scroll-snap-align: none !important; /* Kilidi kaldırdık */
+}
+</style>
+

@@ -1,0 +1,1315 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+<head>
+       <style>
+/* Sadece mobil ve tablet ekranlarda kartları genişlet ve ortala */
+@media (max-width: 768px) {
+    .tp-hotel-card-wrapper {
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center !important;
+    }
+    .tp-hotel-card {
+        width: 380px !important; /* Mobildeki yeni genişliğin */
+        max-width: 92vw !important;
+    }
+}
+</style>
+<style>
+/* Sadece mobil ve tablet ekranlarda çalışacak ayar */
+@media (max-width: 768px) {
+    #hotel-grid {
+        display: flex !important;
+        flex-direction: column !important; /* Kartları alt alta diz */
+        align-items: center !important;    /* Kartları yatayda tam ortala */
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+        padding: 0 !important;
+    }
+
+    /* Kartları sarmalayan tıklanabilir link elementini ortala */
+    .tp-hotel-card-wrapper {
+        display: flex !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    /* Kartın kendisi */
+    .tp-hotel-card {
+        width: 340px !important; 
+        max-width: 90vw !important; /* Ekrandan taşmasın */
+        margin: 0 auto !important;  /* Sağdan soldan otomatik ortala */
+    }
+}
+</style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HBPRSG7FSH"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HBPRSG7FSH');
+</script>
+   <meta charset="utf-8">
+   <meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>İstanbul Saatlik Oteller ve Transit Odalar | HourlyBeds</title>
+   <meta name="description" content="En seçkin saatlik otelleri ve lüks transit süitleri HourlyBeds'te keşfedin. İstanbul yakınında 3, 6 veya 9 saatlik ses yalıtımlı odaları kolayca kiralayın; konforla dinlenin ve tazelenin.">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   <!-- Place favicon.ico in the root directory -->
+   <link rel="shortcut icon" type="image/x-icon" href="/../../assets/img/logo/favicon.png">
+
+   <!-- CSS here -->
+   <link rel="stylesheet" href="/assets/css/bootstrap.css">
+   <link rel="stylesheet" href="/assets/css/swiper-bundle.css">
+   <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+   <link rel="stylesheet" href="/assets/css/font-awesome-pro.css">
+   <link rel="stylesheet" href="/assets/css/daterangepicker.css">
+   <link rel="stylesheet" href="/assets/css/range-slider.css">
+   <link rel="stylesheet" href="/assets/css/animate.css">
+   <link rel="stylesheet" href="/assets/css/spacing.css">
+   <link rel="stylesheet" href="/assets/css/main.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+</head>
+
+<body>
+   <!--[if lte IE 9]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+      <![endif]-->
+
+   <!-- preloader-here start -->
+<div id="loading">
+      <div class="loader">
+         <div class="tp-hourly-clock-wrap">
+            <div class="tp-hourly-clock-face">
+               <div class="tp-hourly-hand hour-hand"></div>
+               <div class="tp-hourly-hand minute-hand"></div>
+            </div>
+            <div class="tp-hourly-bed-icon">
+               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 20V9C2 7.89543 2.89543 7 4 7H10C11.1046 7 12 7.89543 12 9V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M12 13H20C21.1046 13 22 13.8954 22 15V20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                  <path d="M6 11C6.55228 11 7 10.5523 7 10C7 9.44772 6.55228 9 6 9C5.44772 9 5 9.44772 5 10C5 10.5523 5.44772 11 6 11Z" fill="currentColor"/>
+                  <path d="M2 16H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+               </svg>
+            </div>
+         </div>
+         <span class="tp-hourly-loader-text">HourlyBeds</span>
+      </div>
+   </div>
+   <!-- preloader-here end -->
+
+   <!-- back to top start -->
+   <div class="back-to-top-wrapper">
+      <button id="back_to_top" type="button" class="back-to-top-btn">
+         <svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M11 6L6 1L1 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+         </svg>
+      </button>
+   </div>
+   <!-- back to top end -->
+
+   <!-- tp-offcanvas start -->
+  <div class="tp-offcanvas">
+      <div class="tp-offcanvas-header mb-30">
+         <div class="tp-offcanvas-logo">
+            <a href="/en/index.html"><img data-width="108" src="/../../assets/img/logo/logo.png" alt="HourlyBeds"></a>
+         </div>
+         <div class="tp-offcanvas-close">
+            <button class="tp-offcanvas-close-button"><i class="fal fa-times"></i></button>
+         </div>
+      </div>
+      <div class="tp-header-search p-relative mb-30">
+         <form action="#">
+            <input class="tp-input" type="text" placeholder="Find hourly rooms...">
+            <button class="tp-header-search-btn" type="submit">
+               <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.64267 10.7857C8.48288 10.7857 10.7853 8.48318 10.7853 5.64286C10.7853 2.80254 8.48288 0.5 5.64267 0.5C2.80245 0.5 0.5 2.80254 0.5 5.64286C0.5 8.48318 2.80245 10.7857 5.64267 10.7857Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+                  <path d="M12.5 12.5L9.92871 9.92857" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+               </svg>
+            </button>
+         </form>
+      </div>
+      <div class="tp-offcanvas-menu mb-0">
+         <nav> 
+         </nav>
+      </div>
+      <div class="tp-offcanvas-content mb-0">
+         <a href="/en/otel-sonuc-airport.html" style="font-size: 15px !important; font-weight: 700 !important; color: #111111 !important; text-decoration: none; display: block; padding: 12px 0 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">Airport Transit Hotels</a>
+         
+         <a href="/en/otel-sonuc-is-premium-suit.html" style="font-size: 15px !important; font-weight: 700 !important; color: #111111 !important; text-decoration: none; display: block; padding: 12px 0 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.15);">
+            Premium Hourly Suites
+         </a>      
+         
+         <a href="/en/otel-sonuc.html" style="font-size: 15px !important; font-weight: 700 !important; color: #111111 !important; text-decoration: none; display: block; padding: 12px 0 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">Day Use Packages</a>
+         
+         <a href="/en/otel-sonuc.html" style="font-size: 15px !important; font-weight: 700 !important; color: #111111 !important; text-decoration: none; display: block; padding: 12px 0 !important; border-bottom: 1px solid rgba(0, 0, 0, 0.05);">Smart Short Stay Deals</a>      <br>  
+         <h3 class="tp-offcanvas-title"> </h3>
+         <div class="tp-offcanvas-info mb-50">
+            <h3 class="tp-offcanvas-title"></h3>
+            <ul>
+            </ul>
+         </div>
+
+         <div class="tp-header-top-menu-item tp-header-top-currency ml-30">
+            <span class="tp-header-top-currency-toggle" id="tp-header-top-currency-toggle">
+         </div>
+
+         <div class="tp-header-social">
+         </div>
+
+      </div>
+</div>
+<div class="tp-offcanvas-overlay"></div>
+   <!-- tp-offcanvas end -->
+
+ 
+ <header class="tp-header-height">
+
+      <!-- header-area-start -->
+ <div id="header-sticky" class="tp-header-area tp-header-lg-ptb tp-header-border tp-header-blur">
+         <div class="container">
+            <div class="row align-items-center">
+               <div class="col-xl-7 col-6">
+                  <div class="tp-header-left d-flex align-items-center">
+                     <div class="tp-header-logo mr-60">
+                        <a href="/en/index.html">
+                           <img width="115" src="/assets/img/logo/logo.png" alt="HourlyBeds">
+                        </a>
+                     </div>
+                     <div class="tp-main-menu tp-menu-dropdown d-none d-xl-block">
+                        <nav class="tp-mobile-menu-active">
+                           <ul>
+                              <li class="active">
+                                 <a href="/en/index.html">Home</a>
+                              </li>
+<li class="has-dropdown">
+   <a href="#">Locations</a>
+   <div class="sub-menu tp-megamenu-wrapper" style="width: 100%; max-width: 900px; padding: 25px !important;">
+      <div class="row">
+         
+         <div class="col-xl-4">
+            <div class="tp-megamenu-list">
+               <ul>
+                  <li style="margin-bottom: 15px;">
+                     <a href="/en/otel-sonuc.html" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                        <div class="tp-megamenu-list-thumb" style="width: 36px; height: 36px; background: rgba(255, 74, 34, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="tp-megamenu-list-content" style="text-align: left;">
+                           <span class="tp-megamenu-list-subtitle" style="font-size: 11px; color: #718096; display: block; line-height: 1.2;">Hourly Hotels</span>
+                           <span class="tp-megamenu-list-title" style="font-size: 14px; font-weight: 600; color: #1a1a1a; display: block; line-height: 1.3;">Istanbul</span>
+                        </div>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="/en/otel-sonuc.html?bolge=izmir" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                        <div class="tp-megamenu-list-thumb" style="width: 36px; height: 36px; background: rgba(255, 74, 34, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="tp-megamenu-list-content" style="text-align: left;">
+                           <span class="tp-megamenu-list-subtitle" style="font-size: 11px; color: #718096; display: block; line-height: 1.2;">Hourly Hotels</span>
+                           <span class="tp-megamenu-list-title" style="font-size: 14px; font-weight: 600; color: #1a1a1a; display: block; line-height: 1.3;">Izmir</span>
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="col-xl-4">
+            <div class="tp-megamenu-list">
+               <ul>
+                  <li style="margin-bottom: 15px;">
+                     <a href="/en/otel-sonuc.html?bolge=ist-airport" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                        <div class="tp-megamenu-list-thumb" style="width: 36px; height: 36px; background: rgba(255, 74, 34, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 2 22M2 2h20v20"/></svg>
+                        </div>
+                        <div class="tp-megamenu-list-content" style="text-align: left;">
+                           <span class="tp-megamenu-list-subtitle" style="font-size: 11px; color: #718096; display: block; line-height: 1.2;">Transit Pods</span>
+                           <span class="tp-megamenu-list-title" style="font-size: 14px; font-weight: 600; color: #1a1a1a; display: block; line-height: 1.3;">Airports</span>
+                        </div>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="/en/otel-sonuc.html?bolge=ankara" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                        <div class="tp-megamenu-list-thumb" style="width: 36px; height: 36px; background: rgba(255, 74, 34, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="tp-megamenu-list-content" style="text-align: left;">
+                           <span class="tp-megamenu-list-subtitle" style="font-size: 11px; color: #718096; display: block; line-height: 1.2;">Hourly Hotels</span>
+                           <span class="tp-megamenu-list-title" style="font-size: 14px; font-weight: 600; color: #1a1a1a; display: block; line-height: 1.3;">Ankara</span>
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="col-xl-4">
+            <div class="tp-megamenu-list">
+               <ul>
+                  <li style="margin-bottom: 15px;">
+                     <a href="/en/hotel-searh-london.html?bolge=all" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                        <div class="tp-megamenu-list-thumb" style="width: 36px; height: 36px; background: rgba(0, 91, 150, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#005b96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                        </div>
+                        <div class="tp-megamenu-list-content" style="text-align: left;">
+                           <span class="tp-megamenu-list-subtitle" style="font-size: 11px; color: #718096; display: block; line-height: 1.2;">United Kingdom</span>
+                           <span class="tp-megamenu-list-title" style="font-size: 14px; font-weight: 600; color: #1a1a1a; display: block; line-height: 1.3;">London (LHR)</span>
+                        </div>
+                     </a>
+                  </li>
+                  <li>
+                     <a href="/en/hotel-searh-manchester.html" class="d-flex align-items-center gap-3" style="text-decoration: none;">
+                        <div class="tp-megamenu-list-thumb" style="width: 36px; height: 36px; background: rgba(0, 91, 150, 0.08); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#005b96" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                        </div>
+                        <div class="tp-megamenu-list-content" style="text-align: left;">
+                           <span class="tp-megamenu-list-subtitle" style="font-size: 11px; color: #718096; display: block; line-height: 1.2;">United Kingdom</span>
+                           <span class="tp-megamenu-list-title" style="font-size: 14px; font-weight: 600; color: #1a1a1a; display: block; line-height: 1.3;">Manchester (MAN)</span>
+                        </div>
+                     </a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+
+      </div>
+   </div>
+</li>
+                              <li class="has-dropdown">
+                                 <a href="/en/otel-sonuc.html">Our Popular Rooms</a>
+                                 <ul class="sub-menu">
+                                    <li><a href="/en/otel-sonuc.html">Premium Hourly Rooms</a></li>
+                                    <li><a href="/en/otel-sonuc-vip-jakuzili-suit.html">VIP Jacuzzi Suites</a></li>
+                                    <li><a href="/en/otel-sonuc-ses-yalitimli-ozel-odalar.html">100% Soundproof Rooms</a></li>
+                                    <li><a href="/en/otel-sonuc-is-premium-suit.html">Business Suites</a></li>
+                                 </ul>
+                              </li>
+                              <li>
+                                 <a href="/en/vip-transfer.html">VIP Transfer</a>
+                              </li>
+
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+                  <div class="col-xl-5 col-6">
+                  <div class="tp-header-option d-flex align-items-center justify-content-end">
+                     <div class="tp-header-search p-relative d-none d-xl-block">
+                        <form action="#">
+                           <div class="tp-header-typing-wrap">
+                              <span class="typed-text"></span>
+                              <div class="typed-strings d-none">
+<span>İstanbul</span>
+                                 <span>İzmir</span>
+                                 <span>IST Havalimanı</span>
+                                 <span>SAW Havalimanı</span>
+                                 <span>Ankara</span>
+                                 <span>Antalya</span>                              </div>
+                           </div>
+                           <button class="tp-header-search-btn" type="submit">
+ 
+                           </button>
+                        </form>
+                     </div>
+                     <div class="tp-header-contact ml-10 d-none d-sm-block">
+<a href="./tel:">+90 212 9999642</a>
+                     </div>
+                     
+                     <!-- DİNAMİK USER DROPDOWN (FIREBASE BAĞLANTILI) -->
+                     <div class="tp-header-top-menu-item tp-header-login ml-10 d-none d-xl-block">
+                        <span class="tp-header-login-btn" id="tp-header-login-btn">
+                           <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M6.84473 8.18158C10.3622 8.18158 13.3237 10.6105 13.5391 13.7441L13.5361 13.8535C13.5034 14.097 13.2968 14.2697 13.0654 14.289L13.0645 14.29C12.7649 14.313 12.5416 14.0808 12.5195 13.8163V13.8144C12.3342 11.2383 9.85653 9.20209 6.84473 9.20209C3.81703 9.20222 1.34055 11.2545 1.1709 13.83V13.832C1.15142 14.0657 0.978315 14.2535 0.763672 14.2968L0.668945 14.3056H0.625V14.3046C0.335307 14.282 0.128516 14.0353 0.151367 13.7597C0.366927 10.6106 3.32725 8.18171 6.84473 8.18158Z" fill="currentColor" stroke="currentColor" stroke-width="0.3" />
+                              <path d="M6.84473 0.149597C8.94337 0.149833 10.6426 1.84973 10.6426 3.94843C10.6423 6.04692 8.94322 7.74604 6.84473 7.74628C4.74603 7.74628 3.04613 6.04707 3.0459 3.94843C3.0459 1.84958 4.74588 0.149597 6.84473 0.149597ZM6.84473 1.18573C5.32757 1.18573 4.08203 2.43127 4.08203 3.94843C4.08227 5.46538 5.32772 6.71014 6.84473 6.71014C8.36154 6.7099 9.60621 5.46524 9.60645 3.94843C9.60645 2.43141 8.36169 1.18597 6.84473 1.18573Z" fill="currentColor" stroke="currentColor" stroke-width="0.3" />
+                           </svg>
+                        </span>
+                        
+                        <!-- Burası Oturum Durumuna Göre Alttaki Scriptle Otomatik Değişecek Kanka -->
+                        <ul id="tq-user-menu-list">
+                           <li>
+                              <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
+                           </li>
+                           <li>
+                              <a href="./register.html"> <i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+                           </li>
+                        </ul>
+                     </div>
+                     
+                     <div class="tp-header-toogle-wrapper d-xl-none ml-10">
+                        <button class="tp-header-toogle">
+                           <span></span>
+                           <span></span>
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>      <!-- header-area-end -->
+
+   </header>
+   <main>
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otel Sonuçları</title>
+    <link rel="stylesheet" href="assets/css/otel-stil.css">
+    </head>
+<body>
+
+<!-- YATAY KAYAN YENİ NESİL KATEGORİ VE İLÇE BUTONLARI -->
+<div class="tp-horizontal-scroll-wrapper" style="margin-top: 20px; width: 100%; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; padding: 10px 5px;">
+   <div class="tp-horizontal-scroll-container" style="display: inline-flex; gap: 8px; padding-left: 10px; padding-right: 10px;">
+      <!-- Ana Bölgeler -->
+      <a href="?bolge=all" class="tp-scroll-item" data-target="all" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Tümü</a>
+      <a href="?bolge=ist-avrupa" class="tp-scroll-item" data-target="ist-avrupa" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">İstanbul Avrupa</a>
+      <a href="?bolge=ist-anadolu" class="tp-scroll-item" data-target="ist-anadolu" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">İstanbul Anadolu</a>
+      <a href="?bolge=ist-airport" class="tp-scroll-item" data-target="ist-airport" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">İstanbul Airport</a>
+      <a href="?bolge=izmir" class="tp-scroll-item" data-target="izmir" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">İzmir</a>
+      <a href="?bolge=ankara" class="tp-scroll-item" data-target="ankara" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Ankara</a>
+      
+      <!-- Yeni Eklenen Popüler İlçeler -->
+      <a href="?bolge=besiktas" class="tp-scroll-item" data-target="besiktas" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Beşiktaş</a>
+      <a href="?bolge=bakirkoy" class="tp-scroll-item" data-target="bakirkoy" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Bakırköy</a>
+      <a href="?bolge=kadikoy" class="tp-scroll-item" data-target="kadikoy" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Kadıköy</a>
+      
+      <!-- Yeni Eklenen Özel Konsept Odalar -->
+      <a href="?bolge=premium-vip" class="tp-scroll-item" data-target="premium-vip" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Premium Saatlik VIP Jakuzili Süitler</a>
+      <a href="?bolge=ses-yalitimli" class="tp-scroll-item" data-target="ses-yalitimli" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">%100 Ses Yalıtımlı Odalar</a>
+      <a href="?bolge=business-suit" class="tp-scroll-item" data-target="business-suit" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Business Süitler</a>
+   </div>
+</div>
+
+ <div style="max-width: 1200px; margin: 40px auto; padding: 0 15px;">
+   <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;" id="hotel-grid">
+      
+      <!-- ================= İSTANBUL ANADOLU OTELLERİ ================= -->
+      <a href="
+tr/216-bosphorus.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu " style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdeec64a1.jpg?tr=w-300,h-200" alt="216 Bosphorus" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Bosphorus Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Üsküdar, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-comfort-inn-suites.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites29d2af8c.jpg?tr=w-300,h-200" alt="216 Comfort" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Comfort Inn Suites</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">42,00€</span></div></div>
+        <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">3 Saat</span>
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">6 Saat</span>
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">9 Saat</span>
+                          <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">24 Saat</span>
+
+            </div>
+         </div>
+      </a>
+      <a href="
+tr/216-eagle-palace.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites8d3dc3a8.jpg?tr=w-300,h-200" alt="216 Eagle Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Eagle Palace</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Kartal, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">44,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-fb-suites.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu kadikoy premium-vip" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdde1ec48.jpg?tr=w-300,h-200" alt="216 FB Suites" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 FB Suites</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Kadıköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-palace.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites0e1cf619.jpg?tr=w-300,h-200" alt="216 Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Palace Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">43,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-prestige-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nishpalaceexclusivesuitesa0a5ce56.jpg?tr=w-300,h-200" alt="216 Prestige" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Prestige Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ümraniye, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">46,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-ruby-suite.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu premium-vip jakuzili" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites431d8827.jpg?tr=w-300,h-200" alt="216 Ruby" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Ruby Suite</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">42,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-silver.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites022ea485.jpg?tr=w-300,h-200" alt="216 Silver" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Silver Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Maltepe, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">41,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/216-style-suite.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu ses-yalitimli" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites30464a48.jpg?tr=w-300,h-200" alt="216 Style" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">216 Style Suite</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">43,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/and-center-suit.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu kadikoy" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdde1ec48.jpg?tr=w-300,h-200" alt="And Center" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">And Center Suit</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Kadıköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/best-hotel-pendik.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdeec64a1.jpg?tr=w-300,h-200" alt="Best Hotel Pendik" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Best Hotel Pendik</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Pendik, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">39,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/crowne-plaza-istanbul-oryapark.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites29d2af8c.jpg?tr=w-300,h-200" alt="Crowne Plaza Oryapark" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Crowne Plaza Oryapark</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ümraniye, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">70,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/elite-residence-plus.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdde1ec48.jpg?tr=w-300,h-200" alt="Elite Residence" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Elite Residence Plus</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">48,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/elite-world-comfy.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites0e1cf619.jpg?tr=w-300,h-200" alt="Elite World Comfy" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Elite World Comfy</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Maltepe, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">55,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/hera-suit-atasehir.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu premium-vip ses-yalitimli" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkiye/istanbul/atasehir/hera-suit-atasehir-38b001ac.png?tr=w-300,h-200" alt="Hera Suit" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Hera Suit Ataşehir</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/hilton-moda-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu kadikoy business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdeec64a1.jpg?tr=w-300,h-200" alt="DoubleTree Hilton Moda" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Hilton İstanbul Moda</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Kadıköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">80,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/my-palace-resindence.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nishpalaceexclusivesuitesa0a5ce56.jpg?tr=w-300,h-200" alt="My Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">My Palace Residence</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Pendik, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">42,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/myy-boutique-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites431d8827.jpg?tr=w-300,h-200" alt="Myy Boutique" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Myy Boutique Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Pendik, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">44,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/near-palace-atasehir.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdeec64a1.jpg?tr=w-300,h-200" alt="Near Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Near Palace Ataşehir</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">43,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/nish-palace-exclusive-suites.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nishpalaceexclusivesuitesa0a5ce56.jpg?tr=w-300,h-200" alt="Nish Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Nish Palace Exclusive</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ümraniye, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">50,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/nish-suit-atasehir.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu ses-yalitimli" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdde1ec48.jpg?tr=w-300,h-200" alt="Nish Suit" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Nish Suit Ataşehir</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Ataşehir, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">44,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/otel-kadikoy.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu kadikoy" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites30464a48.jpg?tr=w-300,h-200" alt="Otel Kadıköy" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Otel Kadıköy</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Kadıköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">38,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/plus-hotel-bostanci.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-anadolu" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdeec64a1.jpg?tr=w-300,h-200" alt="Plus Hotel Bostancı" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Plus Hotel Bostancı</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bostancı, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+
+
+      <!-- ================= İSTANBUL AVRUPA OTELLERİ ================= -->
+      <a href="
+tr/best-western-premier-istanbul.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Best Western" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Best Western Premier</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Sultanahmet, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">65,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/crowne-plaza-istanbul-west.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Crowne Plaza West" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Crowne Plaza West</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bağcılar, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">68,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/des-suites-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Des Suites" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Des Suites Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bakırköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">46,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/golden-city-istanbul.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Golden City" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Golden City İstanbul</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Karaköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">54,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/grand-mark-otel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Grand Mark" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Grand Mark Otel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Fatih, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">40,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/gumus-palace-suit.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy premium-vip" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Gümüş Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Gümüş Palace Suit</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bahçelievler, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">38,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/gunes-otel-merter.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Güneş Otel Merter" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Güneş Otel Merter</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Güngören, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">44,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/hagia-sofia-mansions-istanbul.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa premium-vip" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Hagia Sofia Mansions" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Hagia Sofia Mansions</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Sultanahmet, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">95,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/hilton-istanbul-bakirkoy.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Hilton Bakırköy" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Hilton İstanbul Bakırköy</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bakırköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">75,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/hilton-istanbul-bomonti.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Hilton Bomonti" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Hilton İstanbul Bomonti</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Şişli, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">85,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/-galata-greenland.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa jakuzili oda" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Hotel Galata Greenland" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Hotel Galata Greenland</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Beyoğlu, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">42,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/linden-house.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa besiktas" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Linden House" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Linden House</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Beşiktaş, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/new-falcon-palace.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa besiktas" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="New Falcon Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">New Falcon Palace</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Beşiktaş, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">48,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/pasha-palace-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Pasha Palace" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Pasha Palace Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Fatih, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">40,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/restwon-suit-saatlik.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy ses-yalitimli" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Restwon Suit" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Restwon Suit Saatlik</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bakırköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/richmond-taksim.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa taksim" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Richmond" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Richmond Taksim</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">İstiklal Caddesi, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">58,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/royal-nest.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa besiktas premium-vip" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Royal Nest" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Royal Nest Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Beşiktaş, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">46,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/ser-suit-apart.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Ser Suit Apart" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Ser Suit Apart</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Fatih, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">39,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/sheraton-atakoy-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa  bakirkoy business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Sheraton Ataköy" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Sheraton Ataköy Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bakırköy, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">78,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/sky-blue-istanbul.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Sky Blue" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Sky Blue İstanbul</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Şişli, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">47,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/the-wind-ortakoy.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa besiktas premium-vip" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="The Wind Ortaköy" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">The Wind Ortaköy</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Beşiktaş, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">52,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/valeron-suit-premium.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/royalpremiumsuita09d4ce5.jpg?tr=w-300,h-200" alt="Valeron Suit" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Valeron Suit Premium</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Zeytinlik, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/weingart-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/bakirkoy/restwonsuitb46c9fa0.jpg?tr=w-300,h-200" alt="Weingart Hotel" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Weingart Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Karakör, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">49,00€</span></div></div>
+         </div>
+      </a>
+
+
+      <!-- ================= İSTANBUL AIRPORT OTELLERİ ================= -->
+      <a href="
+tr/airport-black-sea-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-airport" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites0e1cf619.jpg?tr=w-300,h-200" alt="Airport Black Sea" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Airport Black Sea Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Arnavutköy, İstanbul Airport</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">38,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/doubletree-by-hilton-istanbul.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa taksim business-suit " style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites29d2af8c.jpg?tr=w-300,h-200" alt="DoubleTree Hilton" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">DoubleTree by Hilton</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Avcılar, İstanbul</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">60,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/elysian-airport-Hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-airport ses-yalitimli" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites431d8827.jpg?tr=w-300,h-200" alt="Elysian Airport" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Elysian Airport Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Arnavutköy, İstanbul Airport</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/grand-ozer-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesdeec64a1.jpg?tr=w-300,h-200" alt="Grand Özer" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Grand Özer Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Arnavutköy, İstanbul Airport</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">37,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/the-great-airport-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-airport" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites0e1cf619.jpg?tr=w-300,h-200" alt="The Great Airport" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">The Great Airport Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Arnavutköy, İstanbul Airport</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">46,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/yotel-air-city-entrance.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-airport business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites431d8827.jpg?tr=w-300,h-200" alt="YOTELAIR City" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">YOTELAIR City Entrance</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Havalimanı İçi, İstanbul Airport</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">85,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/yotel-air-istanbul-airport.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-airport ses-yalitimli" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuitesb00c0206.jpg?tr=w-300,h-200" alt="YOTELAIR Transit" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">YOTELAIR Transit Area</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Havalimanı İçi, İstanbul Airport</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">90,00€</span></div></div>
+         </div>
+      </a>
+
+
+      <!-- ================= İZMİR OTELLERİ ================= -->
+      <a href="
+tr/green-palmiye-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="izmir" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/izmir/elizimotel83d8aa71.jpg?tr=w-300,h-200" alt="Green Palmiye" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Green Palmiye Hotel</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Merkez, İzmir</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">38,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/meva-pansiyon-izmir.html" target="_blank" class="tp-hotel-card-wrapper" data-city="izmir" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/izmir/elizimmotelae2406a8.jpg?tr=w-300,h-200" alt="Meva Pansiyon" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Meva Pansiyon İzmir</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Konak, İzmir</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">30,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/muber-otel-izmir.html" target="_blank" class="tp-hotel-card-wrapper" data-city="izmir" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/izmir/elizimotel83d8aa71.jpg?tr=w-300,h-200" alt="Müber Otel" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Müber Otel İzmir</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Alsancak, İzmir</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">40,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/rayalinn-bornova.html" target="_blank" class="tp-hotel-card-wrapper" data-city="izmir business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/izmir/elizimotel83d8aa71.jpg?tr=w-300,h-200" alt="Rayal Inn Bornova" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Rayal Inn Bornova</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Bornova, İzmir</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">42,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/the-port-guzelyali.html" target="_blank" class="tp-hotel-card-wrapper" data-city="izmir" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/izmir/elizimmotelae2406a8.jpg?tr=w-300,h-200" alt="The Port" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">The Port Güzelyalı</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Güzelyalı, İzmir</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+
+
+      <!-- ================= ANKARA OTELLERİ ================= -->
+      <a href="
+tr/cankaya-suit.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ankara business-suit" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites8d3dc3a8.jpg?tr=w-300,h-200" alt="Çankaya Suit" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Çankaya Suit</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Çankaya, Ankara</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">40,00€</span></div></div>
+         </div>
+      </a>
+      <a href="
+tr/park-12-ankara.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ankara" style="text-decoration: none !important; display: inline-block;">
+         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 260px; display: flex; flex-direction: column; overflow: hidden;">
+            <div class="tp-hotel-img-box"><img src="https://imgkit.otelz.com/turkey/istanbul/atasehir/nearsuites022ea485.jpg?tr=w-300,h-200" alt="Park 12" style="width:100%; height:160px; object-fit:cover;"></div>
+            <div class="tp-hotel-info" style="padding: 14px 12px;"><div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div><h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Park 12 Ankara</h4><p style="color:#718096; font-size:13px; margin:0 0 10px 0;">Gaziosmanpaşa, Ankara</p><div class="tp-hotel-price"><span class="from-text" style="font-size:12px; color:#718096;">başlayan</span><span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; margin-left:4px;">45,00€</span></div></div>
+         </div>
+      </a>
+
+   </div>
+</div>
+ 
+</body>
+</html>
+   <footer>
+
+      <!-- tp-footer-area-start -->
+      <div class="tp-footer-area tp-footer-6 z-index-2 pt-115 p-relative" data-bg-color="#fff3ed">
+         <img class="tp-footer-6-shape" src="/assets/img/footer/saven/shape.png" alt="">
+         <img class="tp-footer-6-shape-2" src="/assets/img/footer/saven/shape-3.png" alt="">
+         <img class="tp-footer-6-shape-3 tptranslateY2 d-none d-lg-block" src="/assets/img/footer/saven/shape-2.png" alt="">
+         <div class="container">
+            <div class="tp-footer-subscribe-wrap pb-30">
+               <div class="row">
+<div class="col-xxl-7 col-xl-6 col-lg-5">
+   
+   <div class="d-flex align-items-center gap-4 mb-30">
+
+      <!-- Logo -->
+      <div class="tp-header-logo">
+         <a href="/index.html">
+            <img width="105" src="/../../assets/img/logo/logo.png" alt="">
+         </a>
+      </div>
+
+      <!-- TÜRSAB -->
+      <div class="tp-footer-tursab">
+         <a href="https://www.tursab.org.tr/tr/ddsv" target="_blank">
+            <img 
+               src="/assets/img/footer/tursab-dvs-18154.png" 
+               alt="TÜRSAB Belgesi"
+               style="height:75px; width:auto;"
+            >
+         </a>
+      </div>
+
+   </div>
+
+</div>                           <br>
+                           <br>
+                                            
+                  <div class="col-xxl-5 col-xl-6 col-lg-7 col-md-9">
+                     <div class="tp-footer-three-subscribe-form tp-footer-6-subscribe-form mb-20">
+                        <h2 class="tp-footer-subscribe-title fs-32 fw-600 mb-10">Your Travel Newsletter</h2>
+                        <p class="mb-25">Get exclusive travel deals, tour updates, and special offers directly to your inbox.</p>
+                        <div class="tp-footer-subscribe-form p-relative">
+                           <form action="contact.html" class="p-relative">
+                              <input class="tp-input" type="text" placeholder="email address">
+                              <button class="tp-footer-subscribe-btn" type="submit">
+                                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.8999 5.65039H0.650071" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M7.31703 10.6504C7.31703 10.6504 12.3169 6.9679 12.3169 5.65033C12.3169 4.33275 7.31694 0.650391 7.31694 0.650391" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" />
+                                 </svg>
+                              </button>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tp-footer-widget-wrap pt-75 pb-65">
+               <div class="row">
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                     <div class="tp-footer-widget mb-30">
+                        <h3 class="tp-footer-widget-title fw-600 mb-15">Company</h3>
+                        <div class="tp-footer-widget-menu">
+                           <ul>
+                              <li><a href="about.html">About us</a></li>
+                              <li><a href="about.html">Carrier</a></li>
+                              <li><a href="blog.html">Blog</a></li>
+                              <li><a href="about.html">Partners</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                     <div class="tp-footer-widget mb-30">
+                        <h3 class="tp-footer-widget-title fw-600 mb-15">Useful Links</h3>
+                        <div class="tp-footer-widget-menu">
+                           <ul>
+                              <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                              <li><a href="privacy-policy.html">Terms & Conditions</a></li>
+                              <li><a href="">Register</a></li>
+                              <li><a href="privacy-policy.html">Stories</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                     <div class="tp-footer-widget ml-60 mb-30">
+                        <h3 class="tp-footer-widget-title fw-600 mb-15">Services</h3>
+                        <div class="tp-footer-widget-menu">
+                           <ul>
+<li><a href="premium-saatlik-odalar.html">Saatlik Oda Paketleri</a></li>
+                              <li><a href="transit-rehberi.html">Transit Rehberleri & İpuçları</a></li>
+                              <li><a href="blog.html">Kısa Konaklama Deneyimleri</a></li>
+                              <li><a href="rezervasyon-guvencesi.html">Rezervasyon & İptal Güvencesi</a></li>
+                                                 </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6 col-sm-6">
+                     <div class="tp-footer-widget ml-130 mb-30">
+                        <h3 class="tp-footer-widget-title fw-600 mb-15">Contact</h3>
+                        <div class="tp-footer-contact">
+                           <a href="https://www.google.com/maps" target="_blank" class="location mb-20 d-inline-block">Beyoğlu, İstanbul</a>
+                           <span class="support d-block mb-10">Supporter :</span>
+                           <a href="mailto:+(704)555-0127" class="phone">+90 212 9999 642</a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container-fluid container-1856">
+            <div class="tp-instagram-wrap">
+               <div class="swiper tp-instagram-slide">
+                  <div class="swiper-wrapper slide-transtion">
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                     <div class="swiper-slide">
+                        <div class="tp-instagram-thumb p-relative">
+                           <a href="#">
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="tp-copyright-area pt-25 pb-15">
+            <div class="container">
+               <div class="row align-items-center">
+                  <div class="col-lg-5">
+                     <div class="tp-copyright-text">
+                        <p class="tp-ff-inter mb-5">2026 <a href="#">Hourlybeds by TourQuaz Travel </a>© All rights reserved</p>
+                     </div>
+                  </div>
+                  <div class="col-lg-7">
+                     <div class="tp-copyright-payment d-flex flex-wrap align-items-center justify-content-lg-end">
+                        <p class="fw-500 mb-5">Payment Channels :</p>
+                        <a href="#"><img src="/assets/img/footer/payment.png" alt=""></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- tp-footer-area-end -->
+
+
+   </footer>
+
+
+   <!-- JS here -->
+   <script src="/assets/js/vendor/jquery.js"></script>
+   <script src="/assets/js/bootstrap-bundle.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+   <script src="/assets/js/magnific-popup.js"></script>
+   <script src="/assets/js/nice-select.js"></script>
+   <script src="/assets/js/range-slider.js"></script>
+   <script src="/assets/js/purecounter.js"></script>
+   <script src="/assets/js/moment.min.js"></script>
+   <script src="/assets/js/daterangepicker.js"></script>
+   <script src="/assets/js/btnloadmore.js"></script>
+   <script src="/assets/js/typed.js"></script>
+   <script src="/assets/js/wow.min.js"></script>
+   <script src="/assets/js/ajax-form.js"></script>
+   <script src="/assets/js/slider-init.js"></script>
+   <script src="/assets/js/main.js"></script>
+   <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const filterLinks = document.querySelectorAll(".tp-horizontal-scroll-container .tp-scroll-item");
+    const hotelWrappers = document.querySelectorAll(".tp-hotel-card-wrapper");
+    const activeFilter = "ist-airport"; 
+
+    // 1. URL'den veya tarayıcı hafızasından aktif filtreyi oku
+    const urlParams = new URLSearchParams(window.location.search);
+    let activeFilter = urlParams.get('bolge');
+    
+    if (!activeFilter) {
+        activeFilter = localStorage.getItem("selectedHotelFilter") || "all";
+    }
+    
+    activeFilter = activeFilter.trim().toLowerCase();
+
+    // 2. Üstteki butonların renk durumunu aktif filtreye göre ayarla
+    filterLinks.forEach(link => {
+        const target = link.getAttribute("data-target") ? link.getAttribute("data-target").trim().toLowerCase() : "";
+        
+        // Eğer bu buton aktif buton ise turuncu yap
+        if (target === activeFilter) {
+            link.style.setProperty("background-color", "#ff4a22", "important");
+            link.style.setProperty("color", "#ffffff", "important");
+            link.style.setProperty("font-weight", "600", "important");
+        } else {
+            // Pasif butonların içini boşalt, çerçevesini turuncu bırak
+            link.style.setProperty("background-color", "transparent", "important");
+            link.style.setProperty("color", "#ff4a22", "important");
+            link.style.setProperty("font-weight", "500", "important");
+        }
+
+        // 3. Butonlara tıklandığında yeni sayfaya gitmeden anlık adresi değiştirip süzme yapalım
+        link.addEventListener("click", function(e) {
+            e.preventDefault();
+            const clickTarget = this.getAttribute("data-target").trim().toLowerCase();
+            
+            // Adres çubuğunu bozmadan güncelle ve hafızaya yaz
+            const newUrl = window.location.protocol + "//" + window.location.host + window.location.pathname + '?bolge=' + clickTarget;
+            window.history.pushState({ path: newUrl }, '', newUrl);
+            localStorage.setItem("selectedHotelFilter", clickTarget);
+            
+            // Filtreleme fonksiyonunu tetikle
+            runFilter(clickTarget);
+        });
+    });
+
+    // 4. Otelleri ekranda süzme fonksiyonu
+    function runFilter(filterValue) {
+        // Tüm butonların renklerini anlık tıklanana göre güncelle
+        filterLinks.forEach(l => {
+            const t = l.getAttribute("data-target").trim().toLowerCase();
+            if (t === filterValue) {
+                l.style.setProperty("background-color", "#ff4a22", "important");
+                l.style.setProperty("color", "#ffffff", "important");
+                l.style.setProperty("font-weight", "600", "important");
+            } else {
+                l.style.setProperty("background-color", "transparent", "important");
+                l.style.setProperty("color", "#ff4a22", "important");
+                l.style.setProperty("font-weight", "500", "important");
+            }
+        });
+
+        // Kartları tek tek kontrol et
+        if (hotelWrappers.length > 0) {
+            hotelWrappers.forEach(wrapper => {
+                const cityAttr = wrapper.getAttribute("data-city");
+                // data-city içindeki boşlukla ayrılmış tüm kelimeleri diziye (array) çevir
+                const cityTags = cityAttr ? cityAttr.trim().toLowerCase().split(/\s+/) : [];
+                
+                if (filterValue === "all" || cityTags.includes(filterValue)) {
+                    wrapper.style.setProperty("display", "inline-block", "important"); 
+                } else {
+                    wrapper.style.setProperty("display", "none", "important");
+                }
+            });
+        }
+    }
+
+    // Sayfa ilk açıldığında filtreyi çalıştır
+    runFilter(activeFilter);
+});
+</script>
+   
+
+      <div class="tourquaz-fixed-lang" style="position: absolute; top: 54px; right: 50px; z-index: 999999;">
+      
+<button type="button" class="tq-fixed-btn" style="display: none !important; background: #ffffff; color: #ff2525; border: none; padding: 5px 24px; font-weight: 600; border-radius: 30px; cursor: pointer; box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; align-items: center; gap: 8px;">
+    Language <span style="font-size: 13px;">▼</span>
+</button>
+      
+      <ul class="tq-fixed-dropdown">
+         <li><a href="en/index.html">English</a></li>
+         <li><a href="/index.html">Türkçe</a></li>
+         <li><a href=""></a></li>
+         <li><a href=""></a></li>
+      </ul>
+
+      <style>
+         .tourquaz-fixed-lang .tq-fixed-dropdown {
+               display: none;
+               position: absolute;
+               right: 0;
+               top: 100%;
+               background-color: #ffffff;
+               min-width: 140px;
+               box-shadow: 0px 8px 24px rgba(0,0,0,0.2);
+               list-style: none;
+               padding: 8px 0;
+               margin: 5px 0 0 0;
+               border-radius: 10px;
+               border: 1px solid #eee;
+         }
+
+         .tourquaz-fixed-lang .tq-fixed-dropdown li a {
+               color: #333 !important;
+               padding: 10px 20px;
+               text-decoration: none;
+               display: block;
+               font-size: 14px;
+               font-weight: 500;
+               transition: all 0.2s ease;
+         }
+
+         .tourquaz-fixed-lang .tq-fixed-dropdown li a:hover {
+               background-color: #f8f9fa;
+               color: #fd3131 !important;
+               padding-left: 24px;
+         }
+
+         /* Hover ile açılma tetikleyicisi */
+         .tourquaz-fixed-lang:hover .tq-fixed-dropdown {
+               display: block !important;
+         }
+      </style>
+   </div>
+<style>
+/* Sadece bilgisayar ekranlarındayken çalışan nokta atışı koordinat temizliği */
+@media (min-width: 992px) {
+    
+    /* 1. Header alanına sonradan CSS ile çizdirilen tüm kaçak çizgileri uçuruyoruz */
+    header::before, header::after,
+    .tp-header-area::before, .tp-header-area::after,
+    .header-sticky::before, .header-sticky::after,
+    .tp-header-bottom::before, .tp-header-bottom::after,
+    .tp-logo-area::before, .tp-logo-area::after,
+    .tp-logo-link::before, .tp-logo-link::after {
+        display: none !important;
+        content: none !important; /* CSS çizgilerini kökten yok eder kanka 🎯 */
+        visibility: hidden !important;
+        opacity: 0 !important;
+    }
+
+    /* 2. Sağ üst köşede havada asılı kalabilecek her türlü sahte ikonu/grafiği kapsama alanı */
+    .tp-header-bottom .col-xl-3::before,
+    .tp-header-bottom .col-xl-3::after,
+    div[class*="col-"]::before,
+    div[class*="col-"]::after {
+        content: none !important;
+        display: none !important;
+    }
+
+    /* 3. Yan taraftan taşan o mükerrer mobil menü alanı (Garantide kalmaya devam ediyor) */
+    .tp-offcanvas-area,
+    div[class*="offcanvas"],
+    div[class*="mobile-menu"],
+    .tq-mobile-menu-wrapper,
+    aside[class*="sidebar"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+        width: 0 !important;
+    }
+}
+</style>
+<style>
+    /* Masaüstünde normal düzen, mobilde kesin engelleme */
+    .tq-desktop-only-lang {
+        display: flex !important;
+    }
+    @media (max-width: 768px) {
+        .tq-desktop-only-lang {
+            display: none !important; /* Üzerindeki satır içi kodu bıçak gibi keser 📱❌ */
+        }
+    }
+</style>
+
+<div class="tq-custom-lang-box tq-desktop-only-lang" onclick="event.preventDefault(); event.stopPropagation(); smartSwitchLanguage('TR');" 
+     style="
+        position: absolute; 
+        top: 14px;       /* 🛠️ YUKARIDAN MESAFE: Çizgilere göre yukarı-aşağı elinle ayarla kanka */
+        right: 13px;     /* 🛠️ SAĞDAN MESAFE: Çizgilere göre sağa-sola elinle ayarla kanka */
+        width: 40px; 
+        height: 40px; 
+        background: #ffffff; 
+        border: 1.5px solid #ff4a22; 
+        border-radius: 50%; 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        font-size: 16px; 
+        box-shadow: 0 3px 10px rgba(0,0,0,0.15); 
+        cursor: pointer; 
+        z-index: 999999;
+     "
+     onmouseover="this.style.transform='scale(1.08)';" 
+     onmouseout="this.style.transform='scale(1)';">
+<img src="https://flagcdn.com/w80/tr.png" alt="Türkçe" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+
+</div>
+<!-- ========================================== -->
+<!-- 1. HOURLYBEDS FIREBASE & USER MOTORU (TÜM SAYFALARA) -->
+<!-- ========================================== -->
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<script>
+  // Firebase Konsolundan (image_dc2283.png) aldığımız sana özel config bilgileri kanka
+const firebaseConfig = {
+  apiKey: "AIzaSyAmvSKcGKfWdHcNzNehhjFyYAOYtV9kf-8",
+  authDomain: "hourlybeds-auth.firebaseapp.com",
+  projectId: "hourlybeds-auth",
+  storageBucket: "hourlybeds-auth.firebasestorage.app",
+  messagingSenderId: "749804052407",
+  appId: "1:749804052407:web:4d54b45cffaa345c8e5232",
+  measurementId: "G-S1FSGV7R7W"
+};
+
+  // Motoru Başlat
+  if (!firebase.apps.length) {
+     firebase.initializeApp(firebaseConfig);
+  }
+  const auth = firebase.auth();
+
+  // Üst menüdeki (header) profil ikonunu giriş durumuna göre kontrol eden akıllı mekanizma
+  auth.onAuthStateChanged((user) => {
+      const menuList = document.getElementById('tq-user-menu-list');
+      if (!menuList) return;
+
+      if (user) {
+          // Müşteri giriş yaptıysa: Menüde e-postasını ve Çıkış Yap butonunu göster
+          menuList.innerHTML = `
+             <li style="padding: 8px 15px; font-size: 12px; color: #718096; border-bottom: 1px solid #edf2f7; word-break: break-all;">
+                <i class="far fa-user-circle"></i> ${user.email}
+             </li>
+             <li>
+                <a href="javascript:void(0);" onclick="auth.signOut().then(() => { alert('Çıkış yapıldı!'); window.location.reload(); })">
+                   <i class="icon fas fa-sign-out-alt" style="color: #ff4a22;"></i> Güvenli Çıkış
+                </a>
+             </li>
+          `;
+      } else {
+          // Müşteri ziyaretçiyse: Giriş Yap ve Kayıt Ol linklerini göster
+          menuList.innerHTML = `
+             <li>
+                <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
+             </li>
+             <li>
+                <a href="./register.html"> <i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+             </li>
+          `;
+      }
+  });
+</script>
+<!-- ========================================== -->
+</body>
+
+</html>

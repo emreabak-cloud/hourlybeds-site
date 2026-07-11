@@ -569,53 +569,47 @@ setTimeout(function() {
 }, 1000); // 1000ms = 1 saniye gecikme ile başlar
 
 /* --- SON --- */
-/* --- EVRENSEL DİL VE KLASÖR ROTA SİSTEMİ (NİHAİ TAM SÜRÜM) --- */
+/* --- HOURLYBEDS EVRENSEL DİL VE KLASÖR ROTA SİSTEMİ (TR & EN SÜRÜMÜ) --- */
 (function() {
     const path = window.location.pathname;
     let pageName = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
     
-    // Sayfa adından tüm dil eklerini temizleyip yalın adı buluyoruz
-    let baseName = pageName.replace(/\.html/i, '')
-                           .replace(/\.html/i, '')
-                           .replace(/\.html/i, '')
-                           .replace(/\.html/i, '');
+    // Sayfa adından .html uzantısını temizleyip yalın adı buluyoruz
+    let baseName = pageName.replace(/\.html/i, '');
     
     if (baseName.toLowerCase() === 'index' || baseName === '') {
         baseName = 'index';
     }
 
-    // Vercel ve klasör yapısıyla tam uyumlu rota hedefleri
-    const enTarget = baseName === 'index' ? 'en/index.html' : `/en/${baseName}.html`;
-    const trTarget = baseName === 'index' ? '/index.html' : `/tr/${baseName.toLowerCase()}.html`;
-    const ruTarget = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName.toLowerCase()}-ru.html`;
-    const arTarget = baseName === 'index' ? '/ar/index.html' : `/ar/${baseName.toLowerCase()}-ar.html`;
+    // Kök dizindeki index.html'in direkt Türkçe ana sayfa olduğu %100 uyumlu dinamik rotalar
+    const enTarget = baseName === 'index' ? '/en/' : `/en/${baseName.toLowerCase()}.html`;
+    const trTarget = baseName === 'index' ? '/' : `/${baseName.toLowerCase()}.html`;
 
-    // Aktif dil kontrolü (Kısaltma ve Tam İsimler)
+    // Aktif dil kontrolü (Sadece TR ve EN kanka)
     let currentLangShort = 'TR';
     let currentLangFull = 'Türkçe';
-    if (pageName.toLowerCase().includes('-tr.html') || path.toLowerCase().includes('/tr/')) {
-        currentLangShort = 'TR'; currentLangFull = 'Türkçe';
-    } else if (pageName.toLowerCase().includes('-ru.html') || path.toLowerCase().includes('/ru/')) {
-
+    
+    if (path.toLowerCase().includes('/en/')) {
+        currentLangShort = 'EN'; 
+        currentLangFull = 'English';
     }
 
-    // 1. ADIM: EVRENSEL MOBİL MENÜ ENTEGRASYONU (TÜM DİLLERDE ÇALIŞIR)
+    // 1. ADIM: EVRENSEL MOBİL MENÜ ENTEGRASYONU
     function injectLanguageIntoMobileMenu() {
         if (document.querySelector('.tq-mobile-lang-wrapper')) return; // Mükerrer eklemeyi önle
 
         let targetMenuLink = null;
         const allMobileLinks = document.querySelectorAll('a, span, div');
         
-        // Menünün ilk sırasındaki elemanı dile göre yakalıyoruz (Destinations, Rotalarımız vb.)
+        // Menünün ilk sırasındaki elemanı dile göre yakalıyoruz
         for (let el of allMobileLinks) {
             const txt = el.textContent.trim().toLowerCase();
-            if (txt === 'destinations' || txt === 'rotalarımız' || txt === 'rotalarimiz' || txt === 'napravleniya' || txt === 'الوجهات') {
+            if (txt === 'destinations' || txt === 'rotalarımız' || txt === 'rotalarimiz') {
                 targetMenuLink = el;
                 break;
             }
         }
 
-        // Eğer ilk menü elemanı bulunamazsa, Vip Transfer veya Search alanından referans alarak garantiye alıyoruz
         if (!targetMenuLink) {
             for (let el of allMobileLinks) {
                 const txt = el.textContent.trim().toLowerCase();
@@ -626,7 +620,7 @@ setTimeout(function() {
             }
         }
 
-        // Referans eleman bulunduysa üstüne turuncu butonları yerleştiriyoruz
+        // Referans eleman bulunduysa üstüne butonları yerleştiriyoruz
         if (targetMenuLink) {
             const mobileLangHtml = `
             <div class="tq-mobile-lang-wrapper" style="margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid #eeeeee; width: 100%; display: block; font-family: inherit;">
@@ -637,14 +631,14 @@ setTimeout(function() {
                 </div>
             </div>
             <style>
-                .tq-m-link.active { background-color: #f52c36 !important; color: #ffffff !important; }
+                .tq-m-link.active { background-color: #ff4a22 !important; color: #ffffff !important; }
             </style>
             `;
             targetMenuLink.insertAdjacentHTML('beforebegin', mobileLangHtml);
         }
     }
 
-    // 2. ADIM: MASAÜSTÜ MENÜYÜ VE DİL DEĞİŞİMLERİNİ DÜZELTEN FONKSİYON
+    // 2. ADIM: MASAÜSTÜ MENÜYÜ VE DİL DEĞİŞİMLERİNİ DÜZELTEN FONKSiyon
     function fixDesktopMenuAndRoutes() {
         const allLinks = document.querySelectorAll('a:not(.tq-m-link)');
         
@@ -652,12 +646,12 @@ setTimeout(function() {
             const txt = link.textContent.trim().toLowerCase();
             
             // Masaüstü ana buton yazısını düzelt (Ok işaretini bozmadan)
-            if (txt.includes('english') || txt.includes('türkçe') || txt.includes('русский') || txt.includes('العربية')) {
+            if (txt.includes('english') || txt.includes('türkçe')) {
                 if (!link.closest('ul')) { 
                     for (let node of link.childNodes) {
                         if (node.nodeType === Node.TEXT_NODE) {
                             let nodeTxt = node.textContent.trim().toLowerCase();
-                            if (nodeTxt.includes('english') || nodeTxt.includes('türkçe') || nodeTxt.includes('русский') || nodeTxt.includes('العربية') || nodeTxt === '') {
+                            if (nodeTxt.includes('english') || nodeTxt.includes('türkçe') || nodeTxt === '') {
                                 node.textContent = currentLangFull + ' ';
                                 break;
                             }
@@ -666,13 +660,9 @@ setTimeout(function() {
                 }
             }
 
-            // Açılır listedeki mükerrer dili "English" ile takas et
+            // Açılır listedeki dili "English" veya "Türkçe" ile eşle
             if (currentLangShort !== 'EN' && link.closest('ul')) {
-                if (
-                    (currentLangShort === 'TR' && (txt === 'turkish' || txt === 'türkçe' || txt === 'tr')) ||
-                    (currentLangShort === '' && (txt === '' || txt === '' || txt === 'ru')) ||
-                    (currentLangShort === '' && (txt === '' || txt === '' || txt === 'ar'))
-                ) {
+                if (txt === 'turkish' || txt === 'türkçe' || txt === 'tr') {
                     link.textContent = 'English';
                     link.setAttribute('href', enTarget);
                     link.onclick = function(e) { e.preventDefault(); window.location.href = enTarget; };
@@ -680,7 +670,7 @@ setTimeout(function() {
                 }
             }
 
-            // Genel link rotalarını sabitle
+            // Genel link rotalarını dinle ve kilitle kanka
             if (link.onclick) return;
             if (txt === 'english' || txt === 'en') {
                 link.setAttribute('href', enTarget);
@@ -688,12 +678,6 @@ setTimeout(function() {
             } else if (txt === 'türkçe' || txt === 'turkce' || txt === 'turkish' || txt === 'tr') {
                 link.setAttribute('href', trTarget);
                 link.onclick = function(e) { e.preventDefault(); window.location.href = trTarget; };
-            } else if (txt === '' || txt === '' || txt === '') {
-                link.setAttribute('href', ruTarget);
-                link.onclick = function(e) { e.preventDefault(); window.location.href = ruTarget; };
-            } else if (txt === '' || txt === '' || txt === '') {
-                link.setAttribute('href', arTarget);
-                link.onclick = function(e) { e.preventDefault(); window.location.href = arTarget; };
             }
         });
     }
@@ -709,29 +693,27 @@ setTimeout(function() {
         runLanguageSystem();
     }
     
-    // Hafif ve güvenli zamanlayıcılar (Asla takılı kalmaz)
+    // Sayfa dinamik yüklenmelerine karşı tetikleyiciler
     setTimeout(runLanguageSystem, 200);
     setTimeout(runLanguageSystem, 600);
     setTimeout(runLanguageSystem, 1500);
-    setTimeout(runLanguageSystem, 3000); 
 })();
 
+// Dışarıdan çağrılabilen global dil değiştirme fonksiyonu (Sayfa korumalı kanka)
 function switchLanguage(lang) {
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    let baseName = currentPath.toLowerCase().replace('-en', '').replace('-ru', '').replace('-ar', '').replace('.html', '');
-    if (baseName === '' || baseName === '/') baseName = 'index';
+    let baseName = currentPath.toLowerCase().replace('.html', '');
+    
+    if (baseName === '' || baseName === '/' || baseName === 'index') {
+        baseName = 'index';
+    }
 
     if (lang === 'EN' || lang === 'en') {
-        window.location.href = baseName === 'index' ? 'en/index.html' : `/tr/${baseName}.html`;
-    } else if (lang === 'RU' || lang === 'ru') {
-        window.location.href = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName}.html`;
-    } else if (lang === 'AR' || lang === 'ar') {
-        window.location.href = baseName === 'index' ? '/ar/index.html' : `/ar/${baseName}.html`;
+        window.location.href = baseName === 'index' ? '/en/' : `/en/${baseName}.html`;
     } else {
-        window.location.href = baseName === 'index' ? '/index.html' : `/${baseName}.html`;
+        window.location.href = baseName === 'index' ? '/' : `/${baseName}.html`;
     }
 }
-
 /* --- TOURQUAZ TRAVEL RADİKAL TEMİZLİKLİ MENÜ VE DİL SİSTEMİ --- */
 (function() {
     const path = window.location.pathname;
@@ -748,7 +730,7 @@ function switchLanguage(lang) {
 
     const trTarget = baseName === 'index' ? '/index.html' : `/${baseName}.html`;
     const enTarget = baseName === 'index' ? '/en/index.html' : `/en/${baseName.toLowerCase()}.html`;
-    const ruTarget = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName.toLowerCase()}.html`;
+    const ruTarget = baseName === 'index' ? '/index.html' : `/ru/${baseName.toLowerCase()}.html`;
     const arTarget = baseName === 'index' ? '/ar/index-ar.html' : `/ar/${baseName.toLowerCase()}.html`;
 
     let currentLangShort = 'TR';
@@ -765,10 +747,10 @@ function switchLanguage(lang) {
     let menuItems = [];
     if (isTr) {
         menuItems = [
-            { text: '', href: '/tr/destinations.html' },
-            { text: '', href: '/tr/best-tours.html' },
-            { text: '', href: '/tr/blog.html' },
-            { text: '', href: '/tr/vip-transfer.html' }
+            { text: '', href: 'destinations.html' },
+            { text: '', href: 'best-tours.html' },
+            { text: '', href: 'blog.html' },
+            { text: '', href: 'vip-transfer.html' }
         ];
     } else if (isRu) {
         menuItems = [
@@ -910,10 +892,10 @@ function switchLanguage(lang) {
 
 function switchLanguage(lang) {
     let currentPath = window.location.pathname.split('/').pop() || 'index.html';
-    let baseName = currentPath.toLowerCase().replace('-en', '').replace('-ru', '').replace('-ar', '').replace('.html', '');
+    let baseName = currentPath.toLowerCase().replace('-en', '').replace('', '').replace('-ar', '').replace('.html', '');
     if (baseName === '' || baseName === '/') baseName = 'index';
     if (lang === 'EN' || lang === 'en') { window.location.href = baseName === 'index' ? 'index.html' : `/en/${baseName}.html`; } 
-    else if (lang === 'RU' || lang === 'ru') { window.location.href = baseName === 'index' ? '/ru/index.html' : `/ru/${baseName}-ru.html`; } 
+    else if (lang === 'RU' || lang === 'ru') { window.location.href = baseName === 'index' ? '/index.html' : `/ru/${baseName}.html`; } 
     else if (lang === 'AR' || lang === 'ar') { window.location.href = baseName === 'index' ? '/ar/index-ar.html' : `/ar/${baseName}-ar.html`; } 
     else { window.location.href = baseName === 'index' ? '/index.html' : `/${baseName}.html`; }
 }
@@ -1021,3 +1003,23 @@ function fixMobileOffcanvasFinal() {
 $(".tp-header-toogle").on('click', fixMobileOffcanvasFinal);
 $(window).on('load', fixMobileOffcanvasFinal);
 setTimeout(fixMobileOffcanvasFinal, 1200);
+/* --- HOURLYBEDS AKILLI DİL VE SAYFA KORUMA SİSTEMİ --- */
+function smartSwitchLanguage(targetLang) {
+    // 1. Ziyaretçinin şu an bulunduğu tam sayfa adını alıyoruz (Örn: otel-sonuc.html)
+    let currentPath = window.location.pathname;
+    let pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
+    
+    // Eğer ana sayfadaysa ve URL'de dosya adı yazmıyorsa index.html kabul et kanka
+    if (pageName === '' || pageName === '/') {
+        pageName = 'index.html';
+    }
+
+    // 2. Yönlendirme mantığını kök dizine (/) bağlı olarak kuruyoruz ki klasörler çakışmasın
+    if (targetLang === 'EN') {
+        // İngilizceye geçerken: Mevcut sayfa adının başına /en/ koyuyoruz
+        window.location.href = '/en/' + pageName;
+    } else if (targetLang === 'TR') {
+        // Türkçeye geçerken: /en/ klasöründen sıyrılıp direkt kök dizindeki aynı sayfaya gidiyoruz
+        window.location.href = '/' + pageName;
+    }
+}
