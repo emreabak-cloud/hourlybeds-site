@@ -1034,3 +1034,27 @@ function smartSwitchLanguage(targetLang) {
         window.location.href = '/' + pageName;
     }
 }
+function smartSwitchLanguage(targetLang) {
+    // Mevcut sayfa yolunu al (Örn: /tr/elysian-airport-Hotel.html)
+    let currentPath = window.location.pathname;
+    
+    // Eğer kullanıcı zaten bir klasörün içindeyse (/tr/ veya /en/)
+    if (currentPath.includes('/tr/')) {
+        if (targetLang === 'EN') {
+            // /tr/ klasörünü /en/ klasörüne çevirir
+            window.location.href = currentPath.replace('/tr/', '/en/');
+        }
+    } else if (currentPath.includes('/en/')) {
+        if (targetLang === 'TR') {
+            // /en/ klasörünü /tr/ klasörüne çevirir
+            window.location.href = currentPath.replace('/en/', '/tr/');
+        }
+    } else {
+        // Eğer kök dizindeyse eski klasik mantıkla çalışmaya devam etsin
+        if (targetLang === 'EN') {
+            window.location.href = '/en' + currentPath;
+        } else {
+            window.location.href = '/tr' + currentPath;
+        }
+    }
+}
