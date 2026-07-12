@@ -999,62 +999,42 @@ function fixMobileOffcanvasFinal() {
     }, 700);
 }
 
-// Tetikleyiciler
 $(".tp-header-toogle").on('click', fixMobileOffcanvasFinal);
 $(window).on('load', fixMobileOffcanvasFinal);
 setTimeout(fixMobileOffcanvasFinal, 1200);
-/* --- HOURLYBEDS AKILLI DİL VE SAYFA KORUMA SİSTEMİ --- */
-function smartSwitchLanguage(targetLang) {
-    // 1. Mevcut tam yolu alıyoruz (Örn: /en/otel-sonuc veya /en/otel-sonuc.html)
-    let currentPath = window.location.pathname;
+
+/* --- HOURLYBEDS AKILLI DİL VE SAYFA KORUMA SİSTEMİ (GÜNCELLENDİ) --- */
+function toggleOtelLanguage() {
+    // 1. Tarayıcıdaki mevcut tam URL'yi ve ana domaini alıyoruz
+    let currentUrl = window.location.href;
+    let baseUrl = window.location.origin;
     
-    // Sondaki sayfa ismini temizce ayıklayalım kanka
-    let pageName = currentPath.substring(currentPath.lastIndexOf('/') + 1);
-    
-    // Eğer İngilizce klasörünün direkt içindeyse veya boşsa index.html yapalım
-    if (pageName === '' || pageName === '/' || pageName === 'en') {
-        pageName = 'index.html';
-    }
-    
-    // 🚀 CANLI SUNUCU ZIRHI: Eğer tarayıcı .html kısmını gizlediyse ve pageName'de .html yoksa zorla ekle kanka!
-    if (!pageName.includes('.')) {
-        pageName = pageName + '.html';
+    // 2. URL'yi parçalayıp en sondaki dosya adını (Örn: elysian-airport-Hotel.html) çekiyoruz kanka
+    let urlParts = currentUrl.split('/');
+    let fileName = urlParts[urlParts.length - 1]; 
+
+    // Eğer dosya adı boşsa (ana sayfadaysa) index.html yapalım
+    if (!fileName || fileName.trim() === "" || fileName === "en") {
+        fileName = "index.html";
     }
 
-    // 2. Yönlendirme Kontrolü
-    if (targetLang === 'EN') {
-        // Eğer zaten /en/ altındaysak tekrar ekleme yapmasın kanka
-        if (currentPath.startsWith('/en/')) {
-            window.location.href = '/en/' + pageName;
-        } else {
-            window.location.href = '/en/' + pageName;
-        }
-    } else if (targetLang === 'TR') {
-        // Türkçeye geçerken: /en/ yapısından tamamen kurtulup kökteki .html dosyasına vuruyoruz
-        window.location.href = '/' + pageName;
+    // 🚀 CANLI SUNUCU KORUMASI: Eğer tarayıcı uzantıyı gizlediyse ve .html yoksa zorla ekle!
+    if (!fileName.includes('.')) {
+        fileName = fileName + '.html';
+    }
+
+    // 3. Yönlendirme Kontrolü (Türkçe sayfalar direkt ana klasörde!)
+    if (currentUrl.includes('/en/')) {
+        // İngilizce klasöründeysek, direkt ana dizindeki (Türkçe) dosyaya uçur kanka
+        window.location.href = baseUrl + '/' + fileName;
+    } else {
+        // Türkçe ana dizindeysek, en klasörünün altındaki aynı dosyaya gönder
+        window.location.href = baseUrl + '/en/' + fileName;
     }
 }
+
+// 🎯 ESKİ BUTONLARIN PATLAMAMASI İÇİN GERİYE DÖNÜK UYUMLULUK ZIRHI:
+// Eğer sitenin başka bir yerinde eski fonksiyon çağrıldıysa otomatik olarak yenisine yönlendirsin.
 function smartSwitchLanguage(targetLang) {
-    // Mevcut sayfa yolunu al (Örn: /tr/elysian-airport-Hotel.html)
-    let currentPath = window.location.pathname;
-    
-    // Eğer kullanıcı zaten bir klasörün içindeyse (/tr/ veya /en/)
-    if (currentPath.includes('/tr/')) {
-        if (targetLang === 'EN') {
-            // /tr/ klasörünü /en/ klasörüne çevirir
-            window.location.href = currentPath.replace('/tr/', '/en/');
-        }
-    } else if (currentPath.includes('/en/')) {
-        if (targetLang === 'TR') {
-            // /en/ klasörünü /tr/ klasörüne çevirir
-            window.location.href = currentPath.replace('/en/', '/tr/');
-        }
-    } else {
-        // Eğer kök dizindeyse eski klasik mantıkla çalışmaya devam etsin
-        if (targetLang === 'EN') {
-            window.location.href = '/en' + currentPath;
-        } else {
-            window.location.href = '/tr' + currentPath;
-        }
-    }
+    toggleOtelLanguage();
 }
