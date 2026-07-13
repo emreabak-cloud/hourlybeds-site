@@ -1147,3 +1147,48 @@ $(window).on('load', hardCoreLocationFilter);
 // Tema Ajax ile kartları geç yüklese bile arkadan gelip 400ms ve 1.2sn sonra temizlik yapacak
 setTimeout(hardCoreLocationFilter, 400);
 setTimeout(hardCoreLocationFilter, 1200);
+// 1. Önce CSS Animasyon Kurallarını Dinamik Olarak Sayfaya Enjekte Ediyoruz
+$("<style>")
+    .prop("type", "text/css")
+    .html("\
+        @keyframes tqDynamicBounce {\
+            0% { transform: translateX(0); }\
+            30% { transform: translateX(-50px); }\
+            65% { transform: translateX(15px); }\
+            100% { transform: translateX(0); }\
+        }\
+        .tq-bounce-active {\
+            animation: tqDynamicBounce 1s cubic-bezier(0.25, 1, 0.5, 1) !important;\
+        }\
+    ")
+    .appendTo("head");
+
+// 2. Sayfa Aşağı Kaydırıldığında Tetiklenecek Akıllı Takip Sistemi
+$(document).ready(function() {
+    let bounceFired = false;
+
+    $(window).on('scroll', function() {
+        // Zaten çalıştıysa veya masaüstündeysek durdur
+        if (bounceFired || $(window).width() > 991) return;
+
+        // Otel kartlarının kaydırılabilir ana kapsayıcısı
+        let $target = $('.tq-hotel-scroll-container');
+        if ($target.length === 0) return;
+
+        let elementTop = $target.offset().top;
+        let windowBottom = $(window).scrollTop() + $(window).height();
+
+        // Kullanıcı ekranda otel kartlarına tam yaklaştığı an (100px kala)
+        if (windowBottom > (elementTop + 100)) {
+            bounceFired = true; // Sadece 1 kere çalışmasını garanti et
+
+            // Animasyon sınıfını ekle, sola göz kırpıp gelsin
+            $target.addClass('tq-bounce-active');
+
+            // Animasyon bittikten (1 saniye sonra) sınıfı temizle ki tasarımı etkilemesin
+            setTimeout(function() {
+                $target.removeClass('tq-bounce-active');
+            }, 1050);
+        }
+    });
+});
