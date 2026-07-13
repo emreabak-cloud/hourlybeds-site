@@ -999,7 +999,46 @@ function fixMobileOffcanvasFinal() {
     }, 700);
 }
 
-$(".tp-header-toogle").on('click', fixMobileOffcanvasFinal);
+function fixMobileOffcanvasFinal() {
+    // 1. Sitedeki tüm olası mobil menü ve sidebar elementlerini yakala
+    var $offcanvas = $('.tp-offcanvas-area, .offcanvas__area, .tp-sidebar-menu, .tpsidebar');
+    var $body = $('body');
+    
+    if ($offcanvas.length === 0) return; 
+
+    // 2. Tam ekranı engelleyen modern 300px kapsül menü kuralları
+    $offcanvas.css({
+        'max-width': '300px !important', 
+        'width': '100% !important',
+        'right': '0 !important',
+        'left': 'auto !important',
+        'box-shadow': '-5px 0 25px rgba(0,0,0,0.15) !important',
+        'overflow-y': 'auto !important',
+        '-webkit-overflow-scrolling': 'touch'
+    });
+
+    // 3. 🎯 ANA SAYFA + OTEL SAYFALARI ORTAK TETİKLEYİCİLERİ
+    // Ana sayfada ve otel sayfalarında menüyü açan tüm olası class'ları buraya bağladım kanka
+    $('.tp-header-toogle, .tp-offcanvas-open-btn, .offcanvas-open-btn, .hamburger-btn').off('click').on('click', function(e) {
+        $body.css({
+            'overflow': 'hidden',
+            'position': 'fixed',
+            'width': '100%'
+        });
+    });
+
+    // 4. Menü kapandığında arka plan kilidini tertemiz açan kural
+    $('.tp-offcanvas-close-btn, .tp-offcanvas-backdrop, .offcanvas-close, .tp-offcanvas-overlay').off('click').on('click', function() {
+        $body.css({
+            'overflow': '',
+            'position': '',
+            'width': ''
+        });
+    });
+}
+
+// Dosyanın en üstündeki tetikleyicileri de ana sayfayı kapsayacak şekilde güncelledim:
+$(".tp-header-toogle, .tp-offcanvas-open-btn, .hamburger-btn").on('click', fixMobileOffcanvasFinal);
 $(window).on('load', fixMobileOffcanvasFinal);
 setTimeout(fixMobileOffcanvasFinal, 1200);
 
@@ -1038,3 +1077,73 @@ function toggleOtelLanguage() {
 function smartSwitchLanguage(targetLang) {
     toggleOtelLanguage();
 }
+function applyUrlLocationFilter() {
+    // 1. URL'deki parametreyi al (?location=kadikoy veya taksim)
+    let urlParams = new URLSearchParams(window.location.search);
+    let locationParam = urlParams.get('location');
+
+    if (locationParam) {
+        let searchLocation = locationParam.toLowerCase().trim();
+        console.log("Filtreleme başlatıldı. Aranan lokasyon:", searchLocation);
+
+        // 2. Sayfadaki tüm kartları tarıyoruz
+        let foundCount = 0;
+        $('.tp-hotel-card-wrapper').each(function() {
+            let cardCityData = $(this).attr('data-city');
+
+            if (cardCityData) {
+                cardCityData = cardCityData.toLowerCase();
+
+                // Eğer aranan kelime data-city içinde YOKSA, acımadan gizle!
+                if (!cardCityData.includes(searchLocation)) {
+                    // Temanın diğer CSS kuralları ezemesin diye !important ile display: none çakıyoruz
+                    $(this).attr('style', $(this).attr('style') + '; display: none !important;');
+                } else {
+                    $(this).attr('style', $(this).attr('style') + '; display: inline-block !important;');
+                    foundCount++;
+                }
+            }
+        });
+        console.log("Filtreleme bitti. Bulunan otel sayısı:", foundCount);
+    }
+}
+
+// 🚀 GARANTİ TETİKLEYİCİLER:
+// Hem sayfa hazır olduğunda, hem tamamen yüklendiğinde, hem de 1 saniye rötarla çalıştırıyoruz ki tema ezip geçemesin!
+$(document).ready(applyUrlLocationFilter);
+$(window).on('load', applyUrlLocationFilter);
+setTimeout(applyUrlLocationFilter, 1000);
+function hardCoreLocationFilter() {
+    // 1. URL'deki parametreyi çekiyoruz (?location=taksim)
+    let urlParams = new URLSearchParams(window.location.search);
+    let locationParam = urlParams.get('location');
+
+    if (locationParam) {
+        let searchLocation = locationParam.toLowerCase().trim();
+        console.log("Sert filtreleme devrede. Aranan konum:", searchLocation);
+
+        // 2. Sayfadaki tüm otel kartlarını tarıyoruz
+        $('.tp-hotel-card-wrapper').each(function() {
+            let cardCityData = $(this).attr('data-city');
+
+            if (cardCityData) {
+                cardCityData = cardCityData.toLowerCase();
+
+                // 3. 🎯 EĞER ARANAN KONUM data-city İÇİNDE YOKSA KARTI SAYFADAN TAMAMEN SİL!
+                if (!cardCityData.includes(searchLocation)) {
+                    $(this).remove(); // .css('display', 'none') yerine tamamen yok ediyoruz!
+                }
+            } else {
+                // Eğer kartta hiç data-city yazmıyorsa ne olur ne olmaz diye onu da sil
+                $(this).remove();
+            }
+        });
+    }
+}
+
+// 🚀 HİÇBİR ŞABLONUN EZEMEYECEĞİ TETİKLEME HATTI:
+$(document).ready(hardCoreLocationFilter);
+$(window).on('load', hardCoreLocationFilter);
+// Tema Ajax ile kartları geç yüklese bile arkadan gelip 400ms ve 1.2sn sonra temizlik yapacak
+setTimeout(hardCoreLocationFilter, 400);
+setTimeout(hardCoreLocationFilter, 1200);
