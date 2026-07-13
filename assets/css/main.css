@@ -14571,3 +14571,65 @@ div[class*="counter"] {
 }
 </style>
 
+/* 📱 SADECE MOBİLDE İLK KARTIN GENİŞLİĞİNİ DÜŞÜRME */
+@media (max-width: 767px) {
+    /* Yatay kaydırma kutusunun içindeki İLK otel kartı sarmalayıcısını hedefliyoruz */
+    .tq-hotel-scroll-container .tp-hotel-card-wrapper:first-child,
+    .tq-hotel-scroll-container .placeholder-promo-card:first-child {
+        width: 220px !important; /* Genişliği 360px'ten 290px'e çektik */
+        max-width: 220px !important;
+    }
+
+    /* İlk kartın içindeki gerçek div'in genişliğini de eşliyoruz kanka */
+    .tq-hotel-scroll-container .tp-hotel-card-wrapper:first-child .tp-hotel-card,
+    .tq-hotel-scroll-container .placeholder-promo-card:first-child .tp-hotel-card {
+        width: 220px !important;
+    }
+}
+@media (max-width: 767px) {
+    /* 1. Hem dış sarmalayıcıyı hem iç div'i aynı anda 280px'e kilitliyoruz kanka */
+    .tq-first-mobil-card,
+    .tq-first-mobil-card .tp-hotel-card {
+        width: 240px !important;
+        max-width: 240px !important;
+        min-width: 240px !important; /* Üst üste binmeyi önleyen canavar kural kanka */
+    }
+
+    /* 2. Diğer kartların (2. ve 3. otellerin) altına kaymasını veya binmesini önlemek için */
+    .tq-hotel-scroll-container {
+        display: flex !important;
+        flex-wrap: nowrap !important; /* Kartların kesinlikle alt satıra düşmesini engeller */
+    }
+}
+/* 🚀 SAYFA GENELİNDEKİ TÜM BAĞIMSIZ BLOKLARDAKİ KARTLARI KÜÇÜLTME KURALI */
+@media (max-width: 767px) {
+    
+    /* 1. Sayfadaki tüm otel kartı sarmalayıcılarını (a etiketlerini) mobil uyumlu yap kanka */
+    .tp-hotel-card-wrapper {
+        display: inline-block !important;
+        width: 100% !important; /* Blok içindeki esnekliği sağlasın */
+        max-width: 290px !important; /* İstediğin o kibar küçük boyuta çektik kanka */
+        min-width: 290px !important;
+        margin-right: 15px !important; /* Eğer yan yana duranlar varsa araya tatlı bir boşluk */
+    }
+
+    /* 2. Kartların içindeki o sert satır içi width değerlerini tamamen eziyoruz */
+    .tp-hotel-card-wrapper .tp-hotel-card {
+        width: 100% !important; /* Dıştaki 290px sınırına tam otursun, taşmasın */
+        max-width: 290px !important;
+        min-width: 290px !important;
+    }
+
+    /* 3. Kartların yer aldığı tüm farklı bağımsız blok taşıyıcı konteynerleri */
+    /* Temandaki o farklı blokların yan yana kaymasını sağlayan genel sınıflar */
+    .tq-hotel-scroll-container,
+    [class*="-scroll-container"], 
+    [class*="-block-wrapper"] {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important; /* Alt satıra düşüp üst üste binmeyi engeller */
+        overflow-x: auto !important; /* Blokların parmakla sola kaydırılabilmesini açar kanka */
+        -webkit-overflow-scrolling: touch !important; /* iOS (iPhone) cihazlarda kaydırma yağ gibi aksın */
+        padding-bottom: 15px !important; /* Kaydırma çubuğu kartı kapatmasın diye alt boşluk */
+    }
+}

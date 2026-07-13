@@ -789,9 +789,11 @@
    <div class="tq-hotel-scroll-container" style="display: flex !important; gap: 20px !important; overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important; -webkit-overflow-scrolling: touch !important; padding: 10px 5px 20px 5px !important; scroll-snap-type: x mandatory;">
       
  
-<a href="
-tr/hilton-istanbul-bakirkoy.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy business-suit" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
-   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 300px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+<!-- 🎯 tq-first-mobil-card sınıfını class="..." içine, tp-hotel-card-wrapper'ın yanına ekledik kanka -->
+<a href="tr/hilton-istanbul-bakirkoy.html" target="_blank" class="tp-hotel-card-wrapper tq-first-mobil-card" data-city="ist-avrupa bakirkoy business-suit" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
+   
+   <!-- 🎯 Masaüstünde orijinal büyük boyutu (360px) korumak için buradaki width değerini 360px yapıyoruz, mobil daraltmayı CSS halledecek -->
+   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 360px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
       
       <div style="display: flex; flex-direction: column; width: 100%;">
          
@@ -2209,9 +2211,13 @@ window.addEventListener("load", function() {
    <!-- Yatay Kayan Konteyner -->
    <div class="tq-hotel-scroll-container" style="display: flex !important; gap: 20px !important; overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important; -webkit-overflow-scrolling: touch !important; padding: 10px 5px 20px 5px !important; scroll-snap-type: x mandatory;">
 
-      <a href="tr/yotel-london-city.html" target="_blank" class="tp-hotel-card-wrapper" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
-         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 300px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box;">
-            <div style="display: flex; flex-direction: column; width: 100%;">
+<!-- 🎯 Normal otel kartlarında ekstra bir mobil class'a gerek yok, standart yapıyı koruyoruz -->
+<a href="tr/yotel-london-city.html" target="_blank" class="tp-hotel-card-wrapper" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
+   
+   <!-- 🎯 Masaüstü için orijinal genişliği 360px yapıyoruz; mobil düzenlemeyi CSS dosyasındaki Flexbox paketi otomatik yönetecek -->
+   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 360px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box;">
+      
+      <div style="display: flex; flex-direction: column; width: 100%;">
                <div class="tp-hotel-img-box"><img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH6ctJk7avegy8c-shKSlh6CQPkg_TIYNP73txpMJxOoq97ZiFlx_iEqAa69Ixm9wuV6N97FUnmR8U7NCGEjPzrYgceug8mw-_OGjPHI5X9m1JNBXFOaXwOfgBVAjABCYeEOEtR=s680-w680-h510-rw" style="width:100%; height:160px; object-fit:cover;"></div>
                <div class="tp-hotel-info" style="padding: 12px 12px 0 12px; text-align: left !important;">
                   <div style="color:#ffb100; font-size: 12px;">★★★★</div>
@@ -2410,10 +2416,12 @@ window.addEventListener("load", function() {
    <!-- Yatay Kayan Konteyner -->
    <div class="tq-hotel-scroll-container" style="display: flex !important; gap: 20px !important; overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important; -webkit-overflow-scrolling: touch !important; padding: 10px 5px 20px 5px !important; scroll-snap-type: x mandatory;">
 
-   <!-- 1. Radisson Blu Hotel Manchester Airport -->
-      <a href="tr/radisson-blu-manchester.html" target="_blank" class="tp-hotel-card-wrapper" data-city="manchester-airport" style="text-decoration: none !important; display: inline-flex !important; justify-content: center !important; width: auto !important;">
-         <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 300px; max-width: 90vw; display: flex; flex-direction: column; overflow: hidden; text-align: left !important;">
-            <div class="tp-hotel-img-box"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/e1/d2/d9/radisson-blu-hotel-manchester.jpg?w=900&h=500&s=1" alt="Radisson Blu Manchester Airport" style="width:100%; height:180px; object-fit:cover;"></div>
+ <!-- 🎯 1. Radisson Blu Hotel Manchester Airport -->
+<a href="tr/radisson-blu-manchester.html" target="_blank" class="tp-hotel-card-wrapper" data-city="manchester-airport" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
+   
+   <!-- 🎯 Masaüstü genişliğini diğerleriyle eşitlemek için 360px yapıyoruz, mobil esnekliği CSS yönetecek -->
+   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 360px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; text-align: left !important;">
+                  <div class="tp-hotel-img-box"><img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/07/e1/d2/d9/radisson-blu-hotel-manchester.jpg?w=900&h=500&s=1" alt="Radisson Blu Manchester Airport" style="width:100%; height:180px; object-fit:cover;"></div>
             <div class="tp-hotel-info" style="padding: 14px 12px;">
                <div class="tp-hotel-rating" style="color:#ffb100;">★★★★</div>
                <h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:4px 0; color: #1a1a1a;">Radisson Blu Manchester Airport</h4>
