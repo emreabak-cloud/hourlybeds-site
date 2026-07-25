@@ -153,20 +153,63 @@
         </div>
 
         <div class="btn-container">
-            <a href="https://www.tourquaztravel.com" class="btn-home"><i class="fa-solid fa-house"></i> Ana Sayfaya Dön</a>
+            <a href="https://www.tourquaz.com" class="btn-home"><i class="fa-solid fa-house"></i> Ana Sayfaya Dön</a>
         </div>
     </div>
 
 </div>
 
+<!-- EmailJS Kütüphanesi -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("pggb-cCyofAl9lKSm");
+   })();
+</script>
+
 <script>
-    // Bir önceki form sayfasından gelen tüm parametreleri dinamik yakalıyoruz
-    const urlParams = new URLSearchParams(window.location.search);
-    document.getElementById('res-amount').innerText = urlParams.get('total') || '0.00';
-    document.getElementById('cust-name').innerText = urlParams.get('name') || 'Misafirimiz';
-    document.getElementById('res-time').innerText = urlParams.get('time') || 'Belirtilen Saatte';
-    // Süre bilgisini URL'den çekip ekrana yazdırıyoruz
-    document.getElementById('res-duration').innerText = urlParams.get('duration') || '1';
+window.addEventListener('DOMContentLoaded', async () => {
+    // 1. Bir önceki form veya maildeki linkten gelen tüm parametreleri yakalıyoruz
+    const urlParams   = new URLSearchParams(window.location.search);
+    const total       = urlParams.get('total') || '0.00';
+    const name        = urlParams.get('name') || 'Misafirimiz';
+    const time        = urlParams.get('time') || 'Belirtilen Saatte';
+    const duration    = urlParams.get('duration') || '1';
+    const isConfirmed = urlParams.get('status');
+
+    // 2. Ekrandaki Bilgileri Dolduruyoruz (Senin Mevcut Kodun)
+    if(document.getElementById('res-amount')) document.getElementById('res-amount').innerText = total;
+    if(document.getElementById('cust-name'))  document.getElementById('cust-name').innerText = name;
+    if(document.getElementById('res-time'))   document.getElementById('res-time').innerText = time;
+    if(document.getElementById('res-duration')) document.getElementById('res-duration').innerText = duration;
+
+    // 3. 🎯 EĞER MÜŞTERİ MAİLDEKİ "ONAYLIYORUM" LINKINE TIKLAYIP GELDİYSE OTEL VE ADMİNE MAİL AT
+    if (isConfirmed === 'confirmed') {
+        const templateParams = {
+            name: name,
+            reply_to: urlParams.get('email') || '',
+            phone: urlParams.get('phone') || '',
+            date: urlParams.get('date') || '',
+            time: time,
+            duration: duration + ' Saat',
+            total: total,
+            hotel: urlParams.get('hotel') || '',
+            room_type: urlParams.get('room_type') || '',
+            addons: urlParams.get('addons') || 'Yok',
+            hotel_email: urlParams.get('hotel_email') || '',
+            admin_email: "info@hourlybeds.com",
+            paymentMethod: "Otelde Ödenecek (E-posta ile Doğrulanmış Kesin Rezervasyon)"
+        };
+
+        try {
+            // Otele ve Admin'e giden bildirim (EmailJS'deki şablon ID'nizi kullanın)
+            await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
+            console.log("Otele ve Admin'e onaylanmış rezervasyon bildirimi uçtu!");
+        } catch (err) {
+            console.error("Otel maili gönderilirken hata oluştu:", err);
+        }
+    }
+});
 </script>
 </body>
 </html>

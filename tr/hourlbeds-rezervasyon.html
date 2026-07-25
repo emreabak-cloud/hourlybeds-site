@@ -118,29 +118,6 @@
             width: 25px;
         }
 
-        .promo-banner {
-            background: linear-gradient(135deg, #1a1a1a, #333);
-            color: white;
-            padding: 25px;
-            border-radius: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
-        .promo-text h3 { margin: 0 0 5px 0; color: var(--primary-color); font-size: 18px; }
-        .promo-text p { margin: 0; font-size: 14px; color: #ccc; }
-        .promo-btn {
-            background: var(--primary-color);
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 25px;
-            font-weight: 600;
-            cursor: pointer;
-            white-space: nowrap;
-        }
-
         .how-it-works {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -156,7 +133,6 @@
         .step-card i { font-size: 28px; color: var(--primary-color); margin-bottom: 10px; }
         .step-card h4 { margin: 5px 0; font-size: 15px; }
         .step-card p { margin: 0; font-size: 12px; color: var(--text-muted); }
-
 
         /* ================= SAĞ SÜTUN STİLLERİ (FORM) ================= */
         .right-column {
@@ -177,15 +153,6 @@
             margin-bottom: 25px;
             font-weight: 600;
             text-align: center;
-        }
-
-        .section-title {
-            font-size: 13px;
-            font-weight: 700;
-            color: #999;
-            text-transform: uppercase;
-            margin: 20px 0 10px 0;
-            letter-spacing: 0.5px;
         }
 
         .input-group {
@@ -209,124 +176,31 @@
             color: #a0a0a0;
         }
 
-        .time-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-        }
-        .time-option {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #e0e0e0;
-            padding: 10px 0;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .time-option input { display: none; }
-        .time-option:has(input:checked) {
-            border-color: var(--primary-color);
-            background-color: #fff5f2;
-            color: var(--primary-color);
-        }
-
-        .stepper-group {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .stepper-controls {
-            display: flex;
-            align-items: center;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            padding: 2px 6px;
-            background: #fff;
-        }
-        .stepper-btn {
-            background: none;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            width: 28px;
-            height: 28px;
-            color: var(--primary-color);
-        }
-        .stepper-value { font-weight: 600; min-width: 24px; text-align: center; }
-
-        .service-option {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 12px;
-            font-size: 14px;
-        }
-        .service-left { display: flex; align-items: center; gap: 8px; }
-        .service-left input { accent-color: var(--primary-color); width: 16px; height: 16px; }
-
-        .price-summary-box {
-            background: #fdfaf9;
-            border: 1px dashed var(--primary-color);
-            border-radius: 10px;
-            padding: 15px;
-            margin-top: 25px;
-        }
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-        }
-        .price-row.total {
-            font-size: 18px;
-            font-weight: 700;
-            color: var(--text-main);
-            border-top: 1px solid #eec;
-            padding-top: 8px;
-            margin-bottom: 0;
-        }
-
-        /* YENİ AKSİYON BUTONLARI */
+        /* YENİ TEK AKSİYON BUTONU */
         .action-buttons-container {
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin-top: 20px;
         }
-        .btn-pay {
+        .btn-pay-hotel {
             border: none;
             width: 100%;
-            padding: 14px;
+            padding: 16px;
             border-radius: 30px;
-            font-size: 15px;
-            font-weight: 600;
+            font-size: 16px;
+            font-weight: 700;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-        }
-        .btn-pay-hotel {
-            background-color: transparent;
-            border: 2px solid #ccc;
-            color: #333;
-        }
-        .btn-pay-hotel:hover {
-            border-color: #333;
-            background-color: #f9f9f9;
-        }
-        .btn-pay-online {
+            gap: 10px;
+            transition: all 0.3s ease;
             background-color: var(--secondary-color);
             color: white;
-            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.2);
+            box-shadow: 0 4px 12px rgba(40, 167, 69, 0.25);
         }
-        .btn-pay-online:hover {
+        .btn-pay-hotel:hover {
             background-color: var(--secondary-hover);
         }
 
@@ -370,14 +244,14 @@
                 <p>Giriş yapacağın saati ve kalacağın süreyi belirle.</p>
             </div>
             <div class="step-card">
-                <i class="fa-solid fa-credit-card"></i>
-                <h4>2. Ödemeni Yönet</h4>
-                <p>Güvenle online öde veya otelde ödemeyi seç.</p>
+                <i class="fa-solid fa-hotel"></i>
+                <h4>2. Otelde Öde</h4>
+                <p>Ödemeyi giriş esnasında resepsiyonda yapın.</p>
             </div>
             <div class="step-card">
                 <i class="fa-solid fa-envelope-open-text"></i>
                 <h4>3. Onay Maili Al</h4>
-                <p>Detaylar ve giriş bilgileri anında mailine gelsin.</p>
+                <p>E-postandaki linke tıklayarak rezervasyonunu tamamla.</p>
             </div>
         </div>
     </div>
@@ -386,92 +260,96 @@
         <div class="booking-card">
             <h2>Saatlik Odanızı Planlayın</h2>
             
- <form id="bookingForm" onsubmit="return false;">
-   <div class="row">
-      <!-- SOL SÜTUN: SADECE MÜŞTERİ BİLGİLERİ -->
-      <div class="col-lg-7">
-         <div class="tp-booking-passenger-info mb-40">
-            <h3 class="fw-500 tp-tour-details-support-title fs-20 mb-20">Müşteri Bilgileri</h3>
-            
-            <!-- İsim Soyisim -->
-            <div class="input-group mb-15" style="position: relative;">
-               <i class="fa-solid fa-user" style="position: absolute; left: 15px; top: 15px; color: #aaa;"></i>
-               <input type="text" id="fullname" required placeholder="Adınız Soyadınız" style="width: 100%; padding: 12px 14px 12px 40px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; outline: none;">
-            </div>
+            <form id="bookingForm" onsubmit="return false;">
+               <div class="row">
+                  <!-- MÜŞTERİ BİLGİLERİ -->
+                  <div class="col-lg-12">
+                     <div class="tp-booking-passenger-info mb-30">
+                        <h3 class="fw-500 tp-tour-details-support-title fs-18 mb-15">Müşteri Bilgileri</h3>
+                        
+                        <!-- İsim Soyisim -->
+                        <div class="input-group mb-15">
+                           <i class="fa-solid fa-user"></i>
+                           <input type="text" id="fullname" required placeholder="Adınız Soyadınız">
+                        </div>
 
-            <!-- E-posta -->
-            <div class="input-group mb-15" style="position: relative;">
-               <i class="fa-solid fa-envelope" style="position: absolute; left: 15px; top: 15px; color: #aaa;"></i>
-               <input type="email" id="email" required placeholder="E-posta Adresiniz" style="width: 100%; padding: 12px 14px 12px 40px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; outline: none;">
-            </div>
+                        <!-- E-posta -->
+                        <div class="input-group mb-15">
+                           <i class="fa-solid fa-envelope"></i>
+                           <input type="email" id="email" required placeholder="E-posta Adresiniz">
+                        </div>
 
-            <!-- Telefon -->
-            <div class="input-group mb-15" style="position: relative;">
-               <i class="fa-solid fa-phone" style="position: absolute; left: 15px; top: 15px; color: #aaa;"></i>
-               <input type="tel" id="phone" required placeholder="Telefon Numaranız" style="width: 100%; padding: 12px 14px 12px 40px; border: 1px solid #e0e0e0; border-radius: 8px; font-size: 14px; outline: none;">
-            </div>
-         </div>
+                        <!-- Telefon -->
+                        <div class="input-group mb-15">
+                           <i class="fa-solid fa-phone"></i>
+                           <input type="tel" id="phone" required placeholder="Telefon Numaranız">
+                        </div>
+                     </div>
 
-         <!-- EKSTRA SERVİSLER (İSTEĞE BAĞLI KORUNDU) -->
-         <div class="tp-booking-addons mb-40">
-            <h3 class="fw-500 tp-tour-details-support-title fs-20 mb-20">Ekstra Servisler</h3>
-            <div class="mb-10">
-               <label style="cursor: pointer; font-size: 14px;">
-                  <input type="checkbox" name="addons" value="Özel Süslenmiş Oda" data-price="100" onchange="calculateTotal()"> Özel Süslenmiş Oda (+€100.00)
-               </label>
-            </div>
-         </div>
+                     <!-- EKSTRA SERVİSLER -->
+                     <div class="tp-booking-addons mb-30">
+                        <h3 class="fw-500 tp-tour-details-support-title fs-18 mb-15">Ekstra Servisler</h3>
+                        <div class="mb-10">
+                           <label style="cursor: pointer; font-size: 14px;">
+                              <input type="checkbox" name="addons" value="Özel Süslenmiş Oda" data-price="100" onchange="calculateTotal()"> Özel Süslenmiş Oda (+€100.00)
+                           </label>
+                        </div>
+                     </div>
 
-         <!-- AKSİYON BUTONLARI -->
-         <div class="action-buttons-container d-flex gap-3 mt-30">
-            <button type="button" class="btn-pay btn-pay-hotel tp-btn" onclick="handleBooking('hotel')" style="flex: 1; padding: 15px; font-weight: 600;">
-               <i class="fa-solid fa-hotel"></i> Otelde Öde
-            </button>
-            <button type="button" class="btn-pay btn-pay-online tp-btn" onclick="handleBooking('online')" style="flex: 1; padding: 15px; font-weight: 600; background-color: #ff4a22;">
-               <i class="fa-solid fa-credit-card"></i> Şimdi Online Öde
-            </button>
-         </div>
-      </div>
+                     <!-- REZERVASYON ÖZETİ VE FİYAT TABLOSU -->
+                     <div class="tp-booking-sidebar-wrap mb-25" style="background: #fcfcfc; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px;">
+                        <ul class="rezervasyon-özeti list-unstyled" style="padding: 0; margin: 0; font-size: 14px; line-height: 1.8;">
+                           <div class="d-flex justify-content-between mb-1">
+                              <span>Seçilen Otel:</span>
+                              <strong id="view-hotel-name" class="text-dark">---</strong>
+                           </div>
+                           <div class="d-flex justify-content-between mb-1">
+                              <span>Giriş Tarihi:</span>
+                              <strong id="view-date" class="text-dark">---</strong>
+                           </div>
+                           <div class="d-flex justify-content-between mb-1">
+                              <span>Giriş Saati:</span>
+                              <strong id="view-time" class="text-dark">---</strong>
+                           </div>
+                           <div class="d-flex justify-content-between mb-1">
+                              <span>Konaklama Süresi:</span>
+                              <strong id="view-duration" class="text-dark">0 Saat</strong>
+                           </div>
+                           <div class="d-flex justify-content-between mb-1">
+                              <span>Oda Seçimi:</span> 
+                              <strong id="view-room-type" class="text-dark">Standart Oda</strong>
+                           </div>
+                        </ul>
 
-      <!-- SAĞ SÜTUN: OTELDEN GELEN REZERVASYON VE FİYAT ÖZETİ -->
-      <div class="col-lg-5">
-         <div class="tp-booking-sidebar-wrap" style="background: #fff; border: 1px solid #e0e0e0; border-radius: 12px; padding: 25px;">
-         <ul class="rezervasyon-özeti list-unstyled" style="padding: 0; margin: 0;">
-        <span>Seçilen Otel</span>
-<strong id="view-hotel-name" class="text-dark">---</strong>
-<br>
-        <span>Giriş Tarihi</span>
-        <strong id="view-date" class="text-dark">---</strong>
-<br>
-        <span>Giriş Saati</span>
-        <strong id="view-time" class="text-dark">---</strong>
-<br>
-        <span>Konaklama Süresi</span>
-        <strong id="view-duration" class="text-dark">0 Saat</strong>
-    </li><div class="mb-2">
-   <span>Oda Seçimi:</span> 
-   <strong id="view-room-type" class="text-dark">Yükleniyor...</strong>
+                        <h4 class="fw-600 mb-10 mt-20" style="font-size: 15px; border-top: 1px solid #eee; padding-top: 10px;">Fiyat Detayları</h4>
+                        <div class="d-flex justify-content-between mb-1" style="font-size: 14px;">
+                           <span>Oda Bedeli:</span>
+                           <span>€<span id="summary-room-price">0.00</span></span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-1" style="font-size: 14px;">
+                           <span>Ekstra Servisler:</span>
+                           <span>€<span id="summary-addons-price">0.00</span></span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center pt-2 mt-2" style="border-top: 2px dashed #ff4a22; font-size: 18px; font-weight: 700; color: #1a1a1a;">
+                           <span>Toplam Tutar:</span>
+                           <span>€<span id="summary-total-price">0.00</span></span>
+                        </div>
+                     </div>
+
+                     <!-- SADECE OTELDE ÖDE AKSİYON BUTONU -->
+                     <div class="action-buttons-container">
+                        <button type="button" class="btn-pay-hotel" onclick="handleBooking()">
+                           <i class="fa-solid fa-hotel"></i> Rezervasyonu Onayla (Otelde Öde)
+                        </button>
+                     </div>
+                  </div>
+               </div>
+            </form>
+        </div>
+    </div>
 </div>
 
-            </ul>
-
-            <h4 class="fw-600 mb-15 mt-25" style="font-size: 16px; border-top: 1px solid #eee; pt-15">Fiyat Detayları</h4>
-            <div class="d-flex justify-content-between mb-2" style="font-size: 14px;">
-               <span>Oda Bedeli:</span>
-               <span>€<span id="summary-room-price">0.00</span></span>
-            </div>
-            <div class="d-flex justify-content-between mb-2" style="font-size: 14px;">
-               <span>Ekstra Servisler:</span>
-               <span>€<span id="summary-addons-price">0.00</span></span>
-            </div>
-            <div class="d-flex justify-content-between align-items-center pt-3 mt-3" style="border-top: 2px dashed #ff4a22; font-size: 20px; font-weight: 700; color: #1a1a1a;">
-               <span>Toplam Tutar:</span>
-               <span>€<span id="summary-total-price">0.00</span></span>
-            </div>
-         </div>
-      </div>
-   </div>
-</form>
+<!-- EmailJS Kütüphanesi -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
    (function(){
@@ -480,111 +358,64 @@
 </script>
 
 <script>
-    // 1. URL'den gelen parametreleri en üstte GLOBAL olarak güvenle çekiyoruz
-    const urlParams = new URLSearchParams(window.location.search);
-    const gelenOtelAdi = urlParams.get('hotel_name') || 'Galata Greenland Hotel';
-    const preDate      = urlParams.get('pre_date') || 'Seçilmedi';
-    const preTime      = urlParams.get('pre_time') || 'Seçilmedi';
-    const preDuration  = urlParams.get('pre_duration') || '0';
+    // 1. URL'den gelen parametreleri çekiyoruz
+    const urlParams         = new URLSearchParams(window.location.search);
+    const gelenOtelAdi      = urlParams.get('hotel_name') || 'Galata Greenland Hotel';
+    const preDate           = urlParams.get('pre_date') || 'Seçilmedi';
+    const preTime           = urlParams.get('pre_time') || 'Seçilmedi';
+    const preDuration       = urlParams.get('pre_duration') || '0';
     const oteldenGelenFiyat = parseFloat(urlParams.get('pre_price')) || 0;
-    const gelenOdaTipi  = urlParams.get('room_type') || 'Standart Oda';
+    const gelenOdaTipi      = urlParams.get('room_type') || 'Standart Oda';
+    const gelenOtelEmail    = urlParams.get('hotel_email') || '';
 
-    // 2. FİYAT HESAPLAMA SİSTEMİ
+    // Fiyat Hesaplama
     function calculateTotal() {
         let addonsTotal = 0;
         document.querySelectorAll('input[name="addons"]:checked').forEach(cb => {
             addonsTotal += parseFloat(cb.getAttribute('data-price')) || 0;
         });
-
+        
         if (document.getElementById('summary-addons-price')) {
             document.getElementById('summary-addons-price').innerText = addonsTotal.toFixed(2);
         }
-
+        
         const finalTotal = oteldenGelenFiyat + addonsTotal;
         
-        // Ekrandaki ana toplam fiyat alanını günceller
-        const totalDisplay = document.getElementById('summary-total-price') || document.querySelector('.rezervasyon-özeti-toplam strong');
-        if (totalDisplay) {
-            totalDisplay.innerText = finalTotal.toFixed(2);
+        if (document.getElementById('summary-room-price')) {
+            document.getElementById('summary-room-price').innerText = oteldenGelenFiyat.toFixed(2);
         }
+        
+        const totalDisplay = document.getElementById('summary-total-price');
+        if (totalDisplay) totalDisplay.innerText = finalTotal.toFixed(2);
     }
 
-    // 3. GÜVENLİ VERİ BASMA MOTORU (Element yoksa bile kod çökmez!)
     window.addEventListener('DOMContentLoaded', () => {
-        
-        // A. Otel Adını Bas (Eğer view-hotel-name ID'si yoksa class üzerinden seçer)
-        const hotelEl = document.getElementById('view-hotel-name') || document.querySelector('.rezervasyon-özeti li:first-child strong') || document.querySelector('[id*="hotel"]');
-        if (hotelEl) {
-            hotelEl.innerText = gelenOtelAdi;
-            // Eğer elementin içinde "Yükleniyor..." metni kalıyorsa doğrudan temizleyelim
-            if(hotelEl.textContent.includes('Yükleniyor')) {
-                hotelEl.innerText = gelenOtelAdi;
-            }
-        }
-        
-// =========================================================
-        // B. GİRİŞ TARİHİNİ BAS (Hem eski hem yeni ID'yi destekler)
-        // =========================================================
-        const dateEl = document.getElementById('res-date') || document.getElementById('view-date') || document.querySelector('.rezervasyon-özeti-tarih');
-        if (dateEl) {
-            if (preDate && preDate !== 'Seçilmedi' && preDate !== 'Belirtilmedi') {
-                const dateParts = preDate.split('-');
-                if(dateParts.length === 3) {
-                    const parsedDate = new Date(dateParts[0], dateParts[1] - 1, dateParts[2]);
-                    
-                    // Şık Türkçe metne çeviriyoruz
-                    dateEl.innerText = parsedDate.toLocaleDateString('tr-TR', { 
-                        day: 'numeric', 
-                        month: 'long', 
-                        year: 'numeric',
-                        weekday: 'long'
-                    });
-                } else {
-                    dateEl.innerText = preDate;
-                }
-            } else {
-                dateEl.innerText = preDate;
-            }
-        }
+        // Ekrandaki Özet Alanlarını Dolduruyoruz
+        const hotelEl = document.getElementById('view-hotel-name');
+        if (hotelEl) hotelEl.innerText = gelenOtelAdi;
 
-        // =========================================================
-        // C. GİRİŞ SAATİNİ BAS (Hem eski hem yeni ID'yi destekler)
-        // =========================================================
-        const timeEl = document.getElementById('res-time') || document.getElementById('view-time');
-        if (timeEl) {
-            if (preTime && preTime !== 'Seçilmedi' && preTime !== 'Belirtilmedi') {
-                timeEl.innerText = "Saat " + preTime;
-            } else {
-                timeEl.innerText = preTime;
-            }
-        }
+        const dateEl = document.getElementById('view-date');
+        if (dateEl) dateEl.innerText = preDate;
 
-        // =========================================================
-        // D. KONAKLAMA SÜRESİNİ BAS (Hem eski hem yeni ID'yi destekler)
-        // =========================================================
-        const durationEl = document.getElementById('res-duration') || document.getElementById('view-duration');
-        if (durationEl) {
-            // innerText ile içini tamamen temizleyip tertemiz süreyi basıyoruz
-            durationEl.innerText = preDuration + " Saat";
-        }
+        const timeEl = document.getElementById('view-time');
+        if (timeEl) timeEl.innerText = preTime !== 'Seçilmedi' ? "Saat " + preTime : preTime;
 
-        // E. Oda Seçimini Bas (Deluxe Oda, Jakuzili Oda vb. buraya akar)
-        const roomTypeEl = document.getElementById('view-room-type') || document.querySelector('li:nth-child(5) strong') || document.querySelector('[id*="room"]');
-        if (roomTypeEl) roomTypeEl.innerText = gelenOdaTipi;
+        const durationEl = document.getElementById('view-duration');
+        if (durationEl) durationEl.innerText = preDuration + " Saat";
 
-        // Fiyat tablosunu ilk açılışta hesapla
+        const roomEl = document.getElementById('view-room-type');
+        if (roomEl) roomEl.innerText = gelenOdaTipi;
+
         calculateTotal();
-
-        // Ekstra servis checkbox'ları değiştikçe tetikle
+        
         document.querySelectorAll('input[name="addons"]').forEach(cb => {
             cb.addEventListener('change', calculateTotal);
         });
     });
 
-    // 4. RESERVASYON TAMAMLAMA VE EMAILJS AKIŞI
-    async function handleBooking(paymentMethod) {
+    // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON (Sadece Otelde Öde)
+    async function handleBooking() {
         const form = document.getElementById('bookingForm');
-        
         if (form && !form.checkValidity()) {
             form.reportValidity();
             return;
@@ -594,13 +425,16 @@
         document.querySelectorAll('input[name="addons"]:checked').forEach(cb => addons.push(cb.value));
         const addonsText = addons.join(', ') || 'Yok';
         
-        const fullname = document.getElementById('fullname').value;
-        const email = document.getElementById('email').value;
-        const phone = document.getElementById('phone').value;
-        
-        const totalDisplay = document.getElementById('summary-total-price') || document.querySelector('.rezervasyon-özeti-toplam strong');
+        const fullname   = document.getElementById('fullname').value;
+        const email      = document.getElementById('email').value;
+        const phone      = document.getElementById('phone').value;
+        const totalDisplay = document.getElementById('summary-total-price');
         const totalPrice = totalDisplay ? totalDisplay.innerText : oteldenGelenFiyat.toFixed(2);
 
+        // Müşterinin mailine gidecek olan Onay Linki
+        const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
+
+        // EMAILJS PARAMETRELERİ (Müşteriye Doğrulama Maili Atar)
         const templateParams = {
             name: fullname,
             reply_to: email, 
@@ -608,34 +442,36 @@
             date: preDate,
             time: preTime,
             duration: preDuration + ' Saat',
-            guests: '1',
-            addons: addonsText,
             total: totalPrice, 
             hotel: gelenOtelAdi,
             room_type: gelenOdaTipi, 
-            paymentMethod: paymentMethod === 'online' ? 'Online Ödeme' : 'Otelde Öde'
+            addons: addonsText,
+            confirm_link: confirmLink
         };
 
-        const activeBtn = document.querySelector(paymentMethod === 'online' ? '.btn-pay-online' : '.btn-pay-hotel');
+        const activeBtn = document.querySelector('.btn-pay-hotel');
         if (activeBtn) {
-            activeBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Rezervasyon Alınıyor...';
+            activeBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Onay Bağlantısı Gönderiliyor...';
             activeBtn.disabled = true;
         }
 
         try {
-            // Await kaldırılarak olası EmailJS yetki kilitlenmelerinin önüne geçildi
-            emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
-            console.log('Rezervasyon maili sıraya alındı.');
+            await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
+            
+            // Müşteriye Uyarı Pop-Up
+            alert("Son Bir Adım Kaldı!\n\n Sayın " + fullname + ",\n" + email + " adresinize bir doğrulama bağlantısı gönderdik.\n\nLütfen e-posta kutunuzu kontrol edip 'Rezervasyonumu Onaylıyorum' butonuna tıklayınız.");
+            
+            if (activeBtn) {
+                activeBtn.innerHTML = '<i class="fa-solid fa-check"></i> Mailinize Onay Bağlantısı Gönderildi';
+            }
+            
         } catch (error) {
             console.error('Mail iletim hatası:', error);
-        }
-
-        var queryParams = `?hotel=€{encodeURIComponent(gelenOtelAdi)}&name=€{encodeURIComponent(fullname)}&email=€{encodeURIComponent(email)}&phone=€{encodeURIComponent(phone)}&date=€{encodeURIComponent(preDate)}&time=€{encodeURIComponent(preTime)}&duration=€{encodeURIComponent(preDuration)}&guests=1&addons=€{encodeURIComponent(addonsText)}&total=€{encodeURIComponent(totalPrice)}&room_type=€{encodeURIComponent(gelenOdaTipi)}`;
-
-        if (paymentMethod === 'hotel') {
-            window.location.href = "rezervasyon-onay.html" + queryParams; 
-        } else if (paymentMethod === 'online') {
-            window.location.href = `online-odeme.html?hotel=€{encodeURIComponent(gelenOtelAdi)}&total=€{encodeURIComponent(totalPrice)}&room_type=€{encodeURIComponent(gelenOdaTipi)}`; 
+            alert('Onay maili gönderilirken bir hata oluştu. Lütfen bilgilerinizi kontrol edip tekrar deneyiniz.');
+            if (activeBtn) {
+                activeBtn.innerHTML = '<i class="fa-solid fa-hotel"></i> Rezervasyonu Onayla (Otelde Öde)';
+                activeBtn.disabled = false;
+            }
         }
     }
 </script>

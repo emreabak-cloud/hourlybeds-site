@@ -447,6 +447,26 @@
               alert("Kayıt Hatası: " + mesaj);
           });
   });
+  // Google ile Giriş/Kayıt Tetikleyici Fonksiyonu
+function googleIleGirişYap() {
+    // Firebase Google Sağlayıcısını Çağırıyoruz
+    const provider = new firebase.auth.GoogleAuthProvider();
+    
+    // Tarayıcıda Google giriş penceresini (Pop-up) açar
+    auth.signInWithPopup(provider)
+        .then((result) => {
+            alert("Google ile giriş başarılı! Hoş geldiniz 🎯");
+            window.location.href = "./index.html"; // Başarılıysa ana sayfaya uçur
+        })
+        .catch((error) => {
+            console.error("Google Giriş Hatası:", error);
+            if (error.code === 'auth/popup-closed-by-user') {
+                alert("Giriş penceresini kapattınız kanka.");
+            } else {
+                alert("Google girişi sırasında bir hata oluştu: " + error.message);
+            }
+        });
+}
 </script>
 
    <footer>

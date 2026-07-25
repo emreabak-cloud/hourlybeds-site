@@ -70,7 +70,7 @@
             <p class="text-muted small mb-4">
                 <i class="fa-solid fa-circle-info text-primary"></i> "Ödemeyi Başlat" butonuna tıkladığınızda, 3D Secure güvenli doğrulama işlemini tamamlamak üzere Garanti BBVA resmi ödeme ekranına yönlendirileceksiniz.
             </p>
-
+<input type="hidden" id="hotel_email" name="hotel_email" value="">
             <button type="submit" class="btn-garanti w-100">
                 <i class="fa-solid fa-lock"></i> Güvenli Ödemeyi Başlat
             </button>
@@ -92,10 +92,16 @@
         
         const hotel = urlParams.get('hotel') || 'Belirtilmemiş Otel';
         const total = urlParams.get('total') || '0.00';
+        
+        // 🎯 YENİ EKLENEN: URL'den Otel Mailini Alıyoruz
+        const hotelEmail = urlParams.get('hotel_email') || '';
 
         // Ekrandaki bilgi kutusunu doldur
         if(document.getElementById('view-hotel')) document.getElementById('view-hotel').innerText = hotel;
         if(document.getElementById('view-total')) document.getElementById('view-total').innerText = total;
+
+        // 🎯 YENİ EKLENEN: Otel Mailini Formdaki Gizli Kutucuğa Dolduruyoruz
+        if(document.getElementById('hotel_email')) document.getElementById('hotel_email').value = hotelEmail;
 
         // Garanti Bankası parametrelerini doldur
         if(document.getElementById('param-amount')) {

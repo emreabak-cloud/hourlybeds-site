@@ -9,35 +9,48 @@ use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $name     = isset($_POST["name"])     ? trim($_POST["name"])     : "";
-    $message  = isset($_POST["message"])  ? trim($_POST["message"])  : "";
-    $subject  = isset($_POST["subject"])  ? trim($_POST["subject"])  : "Yeni İletişim Mesajı"; // HTML formundaki 'subject' alanı eklendi
-    $email    = isset($_POST["email"]) ? filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL) : "";
+    // 1. Formdan Gelen Verileri Yakalıyoruz
+    $name         = isset($_POST["name"])         ? trim($_POST["name"])         : "";
+    $email        = isset($_POST["email"])        ? filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL) : "";
+    $phone        = isset($_POST["phone"])        ? trim($_POST["phone"])        : "";
+    $hotel_name   = isset($_POST["hotel_name"])   ? trim($_POST["hotel_name"])   : "Belirtilmedi";
+    $checkin_time = isset($_POST["checkin_time"]) ? trim($_POST["checkin_time"]) : "Belirtilmedi";
+    $duration     = isset($_POST["duration"])     ? trim($_POST["duration"])     : "Belirtilmedi";
+    $total_price  = isset($_POST["total_price"])  ? trim($_POST["total_price"])  : "Belirtilmedi";
+    $message      = isset($_POST["message"])      ? trim($_POST["message"])      : "";
 
-    // KONTROL: Senin formunda 'website' yok, 'subject' var. Bu yüzden validation güncellendi.
-    if ( empty($name) OR empty($subject) OR empty($message) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    // 🎯 Otelden Gelen Mail Adresleri (Tekli veya Virgüllü Çoklu)
+    $hotel_email  = isset($_POST["hotel_email"])  ? trim($_POST["hotel_email"])  : "";
+
+    if (empty($name) OR !filter_var($email, FILTER_VALIDATE_EMAIL)) {
         http_response_code(400);
-        echo "Lütfen formu eksiksiz doldurun ve tekrar deneyin.";
+        echo "Lütfen gerekli alanları eksiksiz doldurun.";
         exit;
     }
 
-    // Alıcı Adresi (Maillerin gelmesini istediğin kendi e-posta adresin)
-    $recipient = "seninmailadresin@gmail.com"; 
+    $admin_email = "info@hourlybeds.com"; 
 
-    // HTML E-posta İçeriği
+    // HTML Mail İçeriği
     $email_content = "
     <html>
-    <head>
-        <title>Yeni İletişim Formu Mesajı</title>
-    </head>
-    <body style='font-family: Arial, sans-serif;'>
-        <h2 style='color:#333;'>Siteden Yeni Destek Talebi</h2>
-        <p><strong>Adı Soyadı:</strong> {$name}</p>
-        <p><strong>E-posta:</strong> {$email}</p>
-        <p><strong>Konu:</strong> {$subject}</p>
-        <p><strong>Mesaj:</strong><br>".nl2br($message)."</p>
-        <hr>
-        <p style='font-size:12px;color:#999;'>Bu e-posta Ankara Saatlik Oteller web sitesi iletişim formundan gönderilmiştir.</p>
+    <head><title>Yeni Saatlik Rezervasyon Talebi</title></head>
+    <body style='font-family: Arial, sans-serif; color: #333;'>
+        <div style='background-color: #f4f4f4; padding: 20px; border-radius: 8px;'>
+            <h2 style='color: #0056b3; border-bottom: 2px solid #0056b3; padding-bottom: 10px;'>HourlyBeds Yeni Rezervasyon Bildirimi</h2>
+            <h3>Otel Bilgileri</h3>
+            <p><strong>Otel Adı:</strong> {$hotel_name}</p>
+            <h3>Misafir Bilgileri</h3>
+            <p><strong>Adı Soyadı:</strong> {$name}</p>
+            <p><strong>E-posta:</strong> {$email}</p>
+            <p><strong>Telefon:</strong> {$phone}</p>
+            <h3>Konaklama Detayları</h3>
+            <p><strong>Giriş Saati:</strong> {$checkin_time}</p>
+            <p><strong>Konaklama Süresi:</strong> {$duration}</p>
+            <p><strong>Toplam Tutar:</strong> {$total_price} TL</p>
+            <p><strong>Not/Mesaj:</strong><br>".nl2br($message)."</p>
+            <hr style='border: 0; border-top: 1px solid #ccc; margin-top: 20px;'>
+            <p style='font-size: 11px; color: #777;'>Bu bildirim HourlyBeds.com Otomatik Rezervasyon Sistemi tarafından oluşturulmuştur.</p>
+        </div>
     </body>
     </html>
     ";
@@ -45,31 +58,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $mail = new PHPMailer(true);
 
     try {
-        // Server Ayarları (Burayı hosting bilgilerine göre doldurmalısın)
+        // Server Ayarları
         $mail->isSMTP();
-        $mail->Host       = 'mail.kurumsaleposta.com';      // Hosting şirketinin SMTP sunucusu (Örn: mail.kurumsal.com)
+        $mail->Host       = 'mail.kurumsaleposta.com'; 
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'info@tourquaz.com';     // Web sitene ait resmi mail adresi
-        $mail->Password   = 'GGgg040310059&@';          // Bu mail adresinin şifresi
+        $mail->Username   = 'info@tourquaz.com'; 
+        $mail->Password   = 'GGgg040310059&@'; 
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-        $mail->Port       = 465;                             // SSL için 465, TLS kullanacaksanız 587 yapın
-        $mail->CharSet    = 'UTF-8';                         // Türkçe karakter hatası olmaması için eklendi
+        $mail->Port       = 465; 
+        $mail->CharSet    = 'UTF-8'; 
 
-        // Alıcılar
-        $mail->setFrom('info@tourquaz.com', 'Saatlik Oteller İletişim Formu');
-        $mail->addAddress($recipient); 
-        $mail->addReplyTo($email, $name); // Yanıtla dediğinde formu dolduran kişiye gitsin
+        $mail->setFrom('info@tourquaz.com', 'HourlyBeds Rezervasyon');
 
-        // İçerik
+        // =======================================================
+        // 🚀 ALICILAR (ÇOKLU OTEL MAİLİ DESTEKLİ)
+        // =======================================================
+        
+        // 1. Sana (Admin) Mail
+        $mail->addAddress($admin_email); 
+
+        // 2. Müşteriye Onay Maili
+        $mail->addAddress($email, $name); 
+
+        // 3. Otel Mailleri (Virgülle Ayrılmış Birden Fazla Maili Parçalar)
+        if (!empty($hotel_email)) {
+            // Mailleri virgüle göre ayırıp dizi yapıyoruz
+            $emails_list = explode(',', $hotel_email); 
+            
+            foreach ($emails_list as $single_email) {
+                $clean_email = filter_var(trim($single_email), FILTER_SANITIZE_EMAIL);
+                if (filter_var($clean_email, FILTER_VALIDATE_EMAIL)) {
+                    $mail->addAddress($clean_email); // Geçerli olan her otel mailine ayrı ayrı ekler
+                }
+            }
+        }
+
+        $mail->addReplyTo($email, $name); 
+
+        // İçerik Ayarları
         $mail->isHTML(true);
-        $mail->Subject = "İletişim Formu: $subject"; // Hatalı olan $service değişkeni $subject ile düzeltildi
+        $mail->Subject = "Yeni Rezervasyon: {$hotel_name} - {$name}";
         $mail->Body    = $email_content;
         $mail->AltBody = strip_tags($email_content);
 
         $mail->send();
 
         http_response_code(200);
-        echo "Mesajınız başarıyla gönderildi. Teşekkür ederiz!";
+        echo "Rezervasyon talebiniz başarıyla alındı!";
     } catch (Exception $e) {
         http_response_code(500);
         echo "Mesaj gönderilemedi. Hata: {$mail->ErrorInfo}";
