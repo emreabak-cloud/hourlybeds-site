@@ -1088,7 +1088,7 @@ function redirectToHub() {
     // 🚀 URL Paketinin içine room_type parametresini de ekliyoruz
     const queryParams = `?hotel_name=${encodeURIComponent(otelAdi)}&pre_date=${encodeURIComponent(dateEl.value)}&pre_time=${encodeURIComponent(selectedTimeEl.value)}&pre_duration=${encodeURIComponent(selectedDurationEl.value)}&pre_price=${encodeURIComponent(hesaplananOdaFiyati)}&room_type=${encodeURIComponent(selectedRoomEl.value)}`;
     
-    window.location.href = "hourlybeds-reservation.html" + queryParams;
+    window.location.href = "hourlybeds-rezervasyon.html" + queryParams;
 }</script>
 </script>
 
@@ -1888,6 +1888,16 @@ div[class*="sticky-wrapper"],
 </div>
 <!-- ========================================== -->
 <!-- ======================================================= -->
+<!-- ======================================================= -->
+<!-- ======================================================= -->
+<!-- HOURLYBEDS FIREBASE, ÜYE YÖNETİMİ & REZERVASYON MOTORU -->
+<!-- ======================================================= -->
+
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<
+ <!-- ======================================================= -->
 <!-- HOURLYBEDS FIREBASE, ÜYE YÖNETİMİ & REZERVASYON MOTORU -->
 <!-- ======================================================= -->
 
@@ -1912,7 +1922,11 @@ div[class*="sticky-wrapper"],
   }
   const auth = firebase.auth();
 
-  // Üst menü profil dinamik kontrolü
+  // Dinamik Menü Yolu (Klasör Seviyesini Otomatik Algılar)
+  const isSubFolder = window.location.pathname.includes('/tr/') || window.location.pathname.includes('/en/');
+  const loginPath = isSubFolder ? "../login.html" : "./login.html";
+  const registerPath = isSubFolder ? "../register.html" : "./register.html";
+
   auth.onAuthStateChanged((user) => {
       const menuList = document.getElementById('tq-user-menu-list');
       if (!menuList) return;
@@ -1931,26 +1945,29 @@ div[class*="sticky-wrapper"],
       } else {
           menuList.innerHTML = `
              <li>
-                <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
+                <a href="${loginPath}"><i class="icon far fa-user"></i> Giriş Yap</a>
              </li>
              <li>
-                <a href="./register.html"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+                <a href="${registerPath}"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
              </li>
           `;
       }
   });
 
-  // 2. REZERVASYON YÖNLENDİRME MOTORU (DİNAMİK OTEL & MERAJ MAİLİ)
+// 2. REZERVASYON YÖNLENDİRME MOTORU
   function redirectToHub() {
-      // Otel Mailllerini Al (Eğer gizli input boşsa varsayılan info@tourquaz.com atar)
+      // Otel Maillerini Al
       const hotelEmailInput = document.getElementById('hotel_email');
       const hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
                          ? hotelEmailInput.value 
                          : 'info@tourquaz.com';
 
-      // Dinamik Otel Adı (ID yoksa h1/h2 veya sayfa başlığından yakalar)
-      const hotelNameElement = document.getElementById('hotel_name') || document.querySelector('.tp-tour-details-title') || document.querySelector('h1');
-      const hotelName = hotelNameElement ? hotelNameElement.innerText.trim() : document.title.split('-')[0].trim();
+      // Otel Adını Akıllı Yakala
+      let hotelName = document.getElementById('hotel_name')?.innerText.trim();
+      if (!hotelName || hotelName.includes("Hakkında") || hotelName.includes("Bu Otel") || hotelName.includes("About")) {
+          const mainTitle = document.querySelector('.tp-tour-details-title') || document.querySelector('h1');
+          hotelName = mainTitle ? mainTitle.innerText.replace(/Bu Otel Hakkında|About This Hotel/gi, '').trim() : document.title.split('-')[0].trim();
+      }
 
       // Form Verilerini Al
       const preDate     = document.getElementById('select_date')?.value || '';
@@ -1970,10 +1987,12 @@ div[class*="sticky-wrapper"],
           hotel_email: hotelEmail
       });
 
-      // Rezervasyon (Checkout) Sayfasına Yönlendir
-      window.location.href = "hourlybeds-rezervasyon.html?" + queryParams.toString();
+      // Bulunduğu klasöre göre (tr/en veya root) dosyayı bulur
+      const isSub = window.location.pathname.includes('/tr/') || window.location.pathname.includes('/en/');
+      const target = isSub ? "../hourlybeds-rezervasyon.html" : "./hourlybeds-rezervasyon.html";
+
+      window.location.href = target + "?" + queryParams.toString();
   }
-</script>
 <!-- ======================================================= -->
 
 <!-- ========================================== -->
