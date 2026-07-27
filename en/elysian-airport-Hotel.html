@@ -1995,36 +1995,37 @@ div[class*="sticky-wrapper"],
 <img src="https://flagcdn.com/w80/tr.png" alt="Turkish" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 </div>
 <!-- ========================================== -->
-<!-- 1. HOURLYBEDS FIREBASE & USER MOTORU (TÜM SAYFALARA) -->
-<!-- ========================================== -->
+<!-- ======================================================= -->
+<!-- HOURLYBEDS FIREBASE, ÜYE YÖNETİMİ & REZERVASYON MOTORU -->
+<!-- ======================================================= -->
+
+<!-- Firebase SDK (Compat Sürümleri) -->
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
 <script>
-  // Firebase Konsolundan (image_dc2283.png) aldığımız sana özel config bilgileri kanka
-const firebaseConfig = {
-  apiKey: "AIzaSyAmvSKcGKfWdHcNzNehhjFyYAOYtV9kf-8",
-  authDomain: "hourlybeds-auth.firebaseapp.com",
-  projectId: "hourlybeds-auth",
-  storageBucket: "hourlybeds-auth.firebasestorage.app",
-  messagingSenderId: "749804052407",
-  appId: "1:749804052407:web:4d54b45cffaa345c8e5232",
-  measurementId: "G-S1FSGV7R7W"
-};
+  // 1. FIREBASE BAŞLATMA VE KULLANICI KONTROLÜ
+  const firebaseConfig = {
+    apiKey: "AIzaSyAmvSKcGKfWdHcNzNehhjFyYAOYtV9kf-8",
+    authDomain: "hourlybeds-auth.firebaseapp.com",
+    projectId: "hourlybeds-auth",
+    storageBucket: "hourlybeds-auth.firebasestorage.app",
+    messagingSenderId: "749804052407",
+    appId: "1:749804052407:web:4d54b45cffaa345c8e5232",
+    measurementId: "G-S1FSGV7R7W"
+  };
 
-  // Motoru Başlat
   if (!firebase.apps.length) {
      firebase.initializeApp(firebaseConfig);
   }
   const auth = firebase.auth();
 
-  // Üst menüdeki (header) profil ikonunu giriş durumuna göre kontrol eden akıllı mekanizma
+  // Üst menü profil dinamik kontrolü
   auth.onAuthStateChanged((user) => {
       const menuList = document.getElementById('tq-user-menu-list');
       if (!menuList) return;
 
       if (user) {
-          // Müşteri giriş yaptıysa: Menüde e-postasını ve Çıkış Yap butonunu göster
           menuList.innerHTML = `
              <li style="padding: 8px 15px; font-size: 12px; color: #718096; border-bottom: 1px solid #edf2f7; word-break: break-all;">
                 <i class="far fa-user-circle"></i> ${user.email}
@@ -2036,18 +2037,52 @@ const firebaseConfig = {
              </li>
           `;
       } else {
-          // Müşteri ziyaretçiyse: Giriş Yap ve Kayıt Ol linklerini göster
           menuList.innerHTML = `
              <li>
                 <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
              </li>
              <li>
-                <a href="./register.html"> <i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+                <a href="./register.html"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
              </li>
           `;
       }
   });
+
+  // 2. REZERVASYON YÖNLENDİRME MOTORU (DİNAMİK OTEL & MERAJ MAİLİ)
+  function redirectToHub() {
+      // Otel Mailllerini Al (Eğer gizli input boşsa varsayılan info@tourquaz.com atar)
+      const hotelEmailInput = document.getElementById('hotel_email');
+      const hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
+                         ? hotelEmailInput.value 
+                         : 'info@tourquaz.com';
+
+      // Dinamik Otel Adı (ID yoksa h1/h2 veya sayfa başlığından yakalar)
+      const hotelNameElement = document.getElementById('hotel_name') || document.querySelector('.tp-tour-details-title') || document.querySelector('h1');
+      const hotelName = hotelNameElement ? hotelNameElement.innerText.trim() : document.title.split('-')[0].trim();
+
+      // Form Verilerini Al
+      const preDate     = document.getElementById('select_date')?.value || '';
+      const preTime     = document.getElementById('select_time')?.value || '';
+      const preDuration = document.getElementById('select_duration')?.value || '3';
+      const prePrice    = document.getElementById('total_price')?.innerText || document.querySelector('.price-value')?.innerText || '0';
+      const roomType    = document.getElementById('select_room')?.value || 'Standart Oda';
+
+      // URL Parametrelerini Oluştur
+      const queryParams = new URLSearchParams({
+          hotel_name: hotelName,
+          pre_date: preDate,
+          pre_time: preTime,
+          pre_duration: preDuration,
+          pre_price: prePrice.replace(/[^0-9,.]/g, ''),
+          room_type: roomType,
+          hotel_email: hotelEmail
+      });
+
+      // Rezervasyon (Checkout) Sayfasına Yönlendir
+      window.location.href = "rezervasyon.html?" + queryParams.toString();
+  }
 </script>
+<!-- ======================================================= -->
 <!-- ========================================== -->
 </body>
 
