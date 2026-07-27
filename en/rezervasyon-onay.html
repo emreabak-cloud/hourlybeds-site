@@ -132,8 +132,8 @@
             </div>
             <div class="receipt-body">
                 <div class="detail-row"><span class="label">Hizmet Tipi:</span> <span class="value">Saatlik Konaklama (Hourly Bed)</span></div>
-                <div class="detail-row"><span class="label">Planlanan Check in time</span> <span class="value" id="res-time">Belirtilmedi</span></div>
-                <div class="detail-row"><span class="label">Toplam Duration of stay</span> <span class="value" style="color: var(--primary-color);"><span id="res-duration">1</span> Saat</span></div>
+                <div class="detail-row"><span class="label">Planlanan Giriş Saati:</span> <span class="value" id="res-time">Belirtilmedi</span></div>
+                <div class="detail-row"><span class="label">Toplam Konaklama Süresi:</span> <span class="value" style="color: var(--primary-color);"><span id="res-duration">1</span> Saat</span></div>
                 <div class="detail-row"><span class="label">Ödeme Tercihi:</span> <span class="value">Otel Resepsiyonunda Ödeme</span></div>
                 <div class="detail-row" style="font-size: 16px; border-top: 1px dashed #cbd5e1; padding-top: 15px; margin-top: 5px;">
                     <span class="label" style="color: var(--text-main); font-weight: 700;">Resepsiyonda Ödenecek:</span> 
@@ -159,14 +159,63 @@
 
 </div>
 
-<script>
-    // Bir önceki form sayfasından gelen tüm parametreleri dinamik yakalıyoruz
-    const urlParams = new URLSearchParams(window.location.search);
-    document.getElementById('res-amount').innerText = urlParams.get('total') || '0.00';
-    document.getElementById('cust-name').innerText = urlParams.get('name') || 'Misafirimiz';
-    document.getElementById('res-time').innerText = urlParams.get('time') || 'Belirtilen Saatte';
-    // Süre bilgisini URL'den çekip ekrana yazdırıyoruz
-    document.getElementById('res-duration').innerText = urlParams.get('duration') || '1';
+<!-- EmailJS SDK (SADECE 1 KERE YÜKLENİYOR) -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script type="text/javascript">
+(function(){
+    // EmailJS Başlatma
+    emailjs.init("pggb-cCyofAl9lKSm");
+})();
+
+window.addEventListener('DOMContentLoaded', function() {
+    const urlParams   = new URLSearchParams(window.location.search);
+    const isConfirmed = urlParams.get('status');
+
+    // 1. Ekrandaki Voucher Alanlarını Doldur
+    if(document.getElementById('res-amount'))   document.getElementById('res-amount').innerText = urlParams.get('total') || '0.00';
+    if(document.getElementById('cust-name'))    document.getElementById('cust-name').innerText = urlParams.get('name') || 'Misafirimiz';
+    if(document.getElementById('res-time'))     document.getElementById('res-time').innerText = urlParams.get('time') || '---';
+    if(document.getElementById('res-duration')) document.getElementById('res-duration').innerText = urlParams.get('duration') || '1';
+
+    // 2. status=confirmed ise Otele ve Admine Mail Fırlat
+    if (isConfirmed === 'confirmed' || window.location.search.indexOf('status=confirmed') > -1) {
+        
+        const templateParams = {
+            to_email: urlParams.get('hotel_email') || 'info@tourquaz.com',
+            hotel_email: urlParams.get('hotel_email') || 'info@tourquaz.com',
+            customer_name: urlParams.get('name') || 'EMRE ABAK',
+            name: urlParams.get('name') || 'EMRE ABAK',
+            customer_email: urlParams.get('email') || 'emreabak34@gmail.com',
+            email: urlParams.get('email') || 'emreabak34@gmail.com',
+            reply_to: urlParams.get('email') || 'emreabak34@gmail.com',
+            customer_phone: urlParams.get('phone') || '05336292827',
+            phone: urlParams.get('phone') || '05336292827',
+            hotel_name: urlParams.get('hotel') || 'Galata Greenland Hotel',
+            hotel: urlParams.get('hotel') || 'Galata Greenland Hotel',
+            checkin_date: urlParams.get('date') || '2026-07-31',
+            date: urlParams.get('date') || '2026-07-31',
+            checkin_time: urlParams.get('time') || '12:00',
+            time: urlParams.get('time') || '12:00',
+            duration: (urlParams.get('duration') || '3') + ' Saat',
+            room_type: urlParams.get('room_type') || 'Standart Oda',
+            addons: urlParams.get('addons') || 'Yok',
+            total_price: (urlParams.get('total') || '30.00') + ' €',
+            total: urlParams.get('total') || '30.00'
+        };
+
+        // 🚀 2. ŞABLON TETİKLENİYOR
+        emailjs.send('service_1c8kjjh', 'template_itrq18q', templateParams)
+            .then(function(response) {
+                alert("🎉 BAŞARILI! Otele ve Admine 2. Bildirim Maili Gönderildi!");
+                console.log("SUCCESS:", response);
+            }, function(error) {
+                alert("❌ HATA OLUŞTU: " + JSON.stringify(error));
+                console.error("ERROR:", error);
+            });
+    }
+});
 </script>
+
 </body>
 </html>

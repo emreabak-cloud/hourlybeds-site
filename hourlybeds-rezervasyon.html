@@ -364,9 +364,10 @@
     const preTime           = urlParams.get('pre_time') || 'Seçilmedi';
     const preDuration       = urlParams.get('pre_duration') || '0';
     
-    // Fiyatı daha güvenli alma (Sadece rakamları çeker)
+    // FİYAT TEMİZLEME MOTORU (Virgüllü ve sembollü fiyatları tam çözer)
     const rawPrice          = urlParams.get('pre_price') || '0';
-    const oteldenGelenFiyat = parseFloat(rawPrice.replace(/[^0-9.]/g, '')) || 0;
+    const cleanPriceStr     = rawPrice.replace(',', '.').replace(/[^0-9.]/g, '');
+    const oteldenGelenFiyat = parseFloat(cleanPriceStr) || 0;
     
     const gelenOdaTipi      = urlParams.get('room_type') || 'Standart Oda';
     const gelenOtelEmail    = urlParams.get('hotel_email') || 'info@tourquaz.com';
@@ -416,12 +417,31 @@
         });
     });
 
-    // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON (Sadece Otelde Öde)
- // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON (Gelişmiş Hata Ayıklamalı)
+  // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON
     async function handleBooking() {
-        const form = document.getElementById('bookingForm');
-        if (form && !form.checkValidity()) {
-            form.reportValidity();
+        // Input Elemanlarını Alıyoruz
+        const fullnameEl = document.getElementById('fullname');
+        const emailEl    = document.getElementById('email');
+        const phoneEl    = document.getElementById('phone');
+
+        const fullname  = fullnameEl ? fullnameEl.value.trim() : '';
+        const userEmail = emailEl ? emailEl.value.trim() : '';
+        const phone     = phoneEl ? phoneEl.value.trim() : '';
+
+        // Form Doğrulama
+        if (!fullname) {
+            alert("Lütfen Adınızı ve Soyadınızı giriniz.");
+            if (fullnameEl) fullnameEl.focus();
+            return;
+        }
+        if (!userEmail || !userEmail.includes('@')) {
+            alert("Lütfen geçerli bir e-posta adresi giriniz.");
+            if (emailEl) emailEl.focus();
+            return;
+        }
+        if (!phone) {
+            alert("Lütfen telefon numaranızı giriniz.");
+            if (phoneEl) phoneEl.focus();
             return;
         }
 
@@ -429,28 +449,18 @@
         document.querySelectorAll('input[name="addons"]:checked').forEach(cb => addons.push(cb.value));
         const addonsText = addons.join(', ') || 'Yok';
         
-        // Form girdilerini temizleyerek alıyoruz
-        const fullname   = document.getElementById('fullname').value.trim();
-        const userEmail  = document.getElementById('email').value.trim();
-        const phone      = document.getElementById('phone').value.trim();
         const totalDisplay = document.getElementById('summary-total-price');
         const totalPrice = totalDisplay ? totalDisplay.innerText : oteldenGelenFiyat.toFixed(2);
-
-        // Geçerli Email Kontrolü
-        if (!userEmail || !userEmail.includes('@')) {
-            alert("Lütfen geçerli bir e-posta adresi giriniz.");
-            return;
-        }
 
         // Müşterinin mailine gidecek Onay Linki
         const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(userEmail)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
 
-        // EMAILJS PARAMETRELERİ (Tüm olası alıcı isimlerini içerir)
+        // EMAILJS PARAMETRELERİ
         const templateParams = {
-            to_email: userEmail,             // EmailJS To Email alanı
-            reply_to: userEmail,             // EmailJS Reply-To alanı
-            user_email: userEmail,           // Alternatif email parametresi
-            email: userEmail,                // Alternatif email parametresi
+            to_email: userEmail,
+            reply_to: userEmail,
+            user_email: userEmail,
+            email: userEmail,
             name: fullname,
             phone: phone,
             date: preDate,
@@ -470,10 +480,10 @@
         }
 
         try {
-            const response = await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
+            // 🎯 YENİ SERVICE ID ENTEGRE EDİLDİ: service_1c8kjjh
+            const response = await emailjs.send('service_1c8kjjh', 'template_hc4ib2c', templateParams);
             console.log('EMAILJS BAŞARILI:', response.status, response.text);
             
-            // Müşteriye Uyarı Pop-Up
             alert("Son Bir Adım Kaldı!\n\n Sayın " + fullname + ",\n" + userEmail + " adresinize bir doğrulama bağlantısı gönderdik.\n\nLütfen e-posta kutunuzu kontrol edip 'Rezervasyonumu Onaylıyorum' butonuna tıklayınız.");
             
             if (activeBtn) {
@@ -481,16 +491,15 @@
             }
             
         } catch (error) {
-            console.error('EmailJS Detaylı Hata Nesnesi:', error);
-            
-            // Hata detayını yakalayıp ekrana basıyoruz
+            console.error('EmailJS Detaylı Hata:', error);
             let errorText = error.text || error.message || (typeof error === 'object' ? JSON.stringify(error) : error);
-            alert("EmailJS Hatası: " + errorText);
+            alert("EmailJS Gönderim Hatası: " + errorText);
 
             if (activeBtn) {
                 activeBtn.innerHTML = '<i class="fa-solid fa-hotel"></i> Rezervasyonu Onayla (Otelde Öde)';
                 activeBtn.disabled = false;
             }
         }
-    }</body>
+    }
+</script></body>
 </html>
