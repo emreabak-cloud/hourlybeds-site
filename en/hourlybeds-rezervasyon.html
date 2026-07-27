@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Saatlik Oda Rezervasyonu - TourQuaz Travel</title>
+    <title>Premium Hourly Room Booking - TourQuaz Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -25,7 +25,6 @@
             color: var(--text-main);
         }
 
-        /* Üst Menü / Navbar Simülasyonu */
         .navbar {
             background: var(--card-bg);
             padding: 15px 5%;
@@ -41,7 +40,6 @@
         }
         .logo span { color: #333; }
 
-        /* ANA İKİLİ SÜTUN DÜZENİ */
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -51,7 +49,6 @@
             gap: 40px;
         }
 
-        /* ================= SOL SÜTUN STİLLERİ ================= */
         .left-column {
             display: flex;
             flex-direction: column;
@@ -134,7 +131,6 @@
         .step-card h4 { margin: 5px 0; font-size: 15px; }
         .step-card p { margin: 0; font-size: 12px; color: var(--text-muted); }
 
-        /* ================= SAĞ SÜTUN STİLLERİ (FORM) ================= */
         .right-column {
             position: sticky;
             top: 20px;
@@ -176,7 +172,6 @@
             color: #a0a0a0;
         }
 
-        /* YENİ TEK AKSİYON BUTONU */
         .action-buttons-container {
             display: flex;
             flex-direction: column;
@@ -221,125 +216,125 @@
     
     <div class="left-column">
         <div class="main-gallery">
-            <span class="gallery-badge"><i class="fa-solid fa-camera"></i> Premium Oda Konsepti</span>
+            <span class="gallery-badge"><i class="fa-solid fa-camera"></i> Premium Room Concept</span>
             <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80" alt="Hourly Bed Premium">
         </div>
 
         <div class="content-card">
-            <h1>Premium Saatlik Oda Konsepti</h1>
-            <p>Yolculuğunuzu veya günün yorgunluğunu, yaşam tarzınıza özel premium VIP oda hizmetlerimizle zirveye taşıyın. TourQuaz kalitesiyle tam gizlilik ve konfor odaklı bir deneyim sizi bekliyor.</p>
+            <h1>Premium Hourly Room Concept</h1>
+            <p>Elevate your journey or daily break with our premium VIP room services tailored to your lifestyle. A experience focused on total privacy and comfort awaits you with TourQuaz quality.</p>
             
             <div class="features-grid">
-                <div class="feature-item"><i class="fa-solid fa-wifi"></i> Ultra Hızlı Wi-Fi Altyapısı</div>
+                <div class="feature-item"><i class="fa-solid fa-wifi"></i> Ultra High-Speed Wi-Fi</div>
                 <div class="feature-item"><i class="fa-solid fa-tv"></i> Smart TV (Netflix & YouTube)</div>
-                <div class="feature-item"><i class="fa-solid fa-user-shield"></i> 100% Güvenli ve İzole Gizlilik</div>
-                <div class="feature-item"><i class="fa-solid fa-mug-hot"></i> Kahve & Çay İstasyonu</div>
+                <div class="feature-item"><i class="fa-solid fa-user-shield"></i> 100% Safe & Isolated Privacy</div>
+                <div class="feature-item"><i class="fa-solid fa-mug-hot"></i> Coffee & Tea Station</div>
             </div>
         </div>
 
         <div class="how-it-works">
             <div class="step-card">
                 <i class="fa-solid fa-clock-pointer"></i>
-                <h4>1. Saatini Seç</h4>
-                <p>Giriş yapacağın saati ve kalacağın süreyi belirle.</p>
+                <h4>1. Choose Time</h4>
+                <p>Select your check-in time and duration.</p>
             </div>
             <div class="step-card">
                 <i class="fa-solid fa-hotel"></i>
-                <h4>2. Otelde Öde</h4>
-                <p>Ödemeyi giriş esnasında resepsiyonda yapın.</p>
+                <h4>2. Pay at Hotel</h4>
+                <p>Pay upon arrival at the front desk.</p>
             </div>
             <div class="step-card">
                 <i class="fa-solid fa-envelope-open-text"></i>
-                <h4>3. Onay Maili Al</h4>
-                <p>E-postandaki linke tıklayarak rezervasyonunu tamamla.</p>
+                <h4>3. Get Confirmation</h4>
+                <p>Click the link in your email to confirm.</p>
             </div>
         </div>
     </div>
 
     <div class="right-column">
         <div class="booking-card">
-            <h2>Saatlik Odanızı Planlayın</h2>
+            <h2>Plan Your Hourly Room</h2>
             
             <form id="bookingForm" onsubmit="return false;">
                <div class="row">
-                  <!-- MÜŞTERİ BİLGİLERİ -->
+                  <!-- GUEST INFORMATION -->
                   <div class="col-lg-12">
                      <div class="tp-booking-passenger-info mb-30">
-                        <h3 class="fw-500 tp-tour-details-support-title fs-18 mb-15">Müşteri Bilgileri</h3>
+                        <h3 class="fw-500 tp-tour-details-support-title fs-18 mb-15">Guest Information</h3>
                         
-                        <!-- İsim Soyisim -->
+                        <!-- Full Name -->
                         <div class="input-group mb-15">
                            <i class="fa-solid fa-user"></i>
-                           <input type="text" id="fullname" required placeholder="Adınız Soyadınız">
+                           <input type="text" id="fullname" required placeholder="Full Name">
                         </div>
 
-                        <!-- E-posta -->
+                        <!-- Email -->
                         <div class="input-group mb-15">
                            <i class="fa-solid fa-envelope"></i>
-                           <input type="email" id="email" required placeholder="E-posta Adresiniz">
+                           <input type="email" id="email" required placeholder="Email Address">
                         </div>
 
-                        <!-- Telefon -->
+                        <!-- Phone -->
                         <div class="input-group mb-15">
                            <i class="fa-solid fa-phone"></i>
-                           <input type="tel" id="phone" required placeholder="Telefon Numaranız">
+                           <input type="tel" id="phone" required placeholder="Phone Number">
                         </div>
                      </div>
 
-                     <!-- EKSTRA SERVİSLER -->
+                     <!-- EXTRA SERVICES -->
                      <div class="tp-booking-addons mb-30">
-                        <h3 class="fw-500 tp-tour-details-support-title fs-18 mb-15">Ekstra Servisler</h3>
+                        <h3 class="fw-500 tp-tour-details-support-title fs-18 mb-15">Extra Services</h3>
                         <div class="mb-10">
                            <label style="cursor: pointer; font-size: 14px;">
-                              <input type="checkbox" name="addons" value="Özel Süslenmiş Oda" data-price="100" onchange="calculateTotal()"> Özel Süslenmiş Oda (+€100.00)
+                              <input type="checkbox" name="addons" value="Special Decorated Room" data-price="100" onchange="calculateTotal()"> Special Decorated Room (+€100.00)
                            </label>
                         </div>
                      </div>
 
-                     <!-- REZERVASYON ÖZETİ VE FİYAT TABLOSU -->
+                     <!-- RESERVATION SUMMARY & PRICE TABLE -->
                      <div class="tp-booking-sidebar-wrap mb-25" style="background: #fcfcfc; border: 1px solid #e8e8e8; border-radius: 12px; padding: 20px;">
                         <ul class="rezervasyon-özeti list-unstyled" style="padding: 0; margin: 0; font-size: 14px; line-height: 1.8;">
                            <div class="d-flex justify-content-between mb-1">
-                              <span>Seçilen Otel:</span>
+                              <span>Selected Hotel:</span>
                               <strong id="view-hotel-name" class="text-dark">---</strong>
                            </div>
                            <div class="d-flex justify-content-between mb-1">
-                              <span>Giriş Tarihi:</span>
+                              <span>Check-in Date:</span>
                               <strong id="view-date" class="text-dark">---</strong>
                            </div>
                            <div class="d-flex justify-content-between mb-1">
-                              <span>Giriş Saati:</span>
+                              <span>Check-in Time:</span>
                               <strong id="view-time" class="text-dark">---</strong>
                            </div>
                            <div class="d-flex justify-content-between mb-1">
-                              <span>Konaklama Süresi:</span>
-                              <strong id="view-duration" class="text-dark">0 Saat</strong>
+                              <span>Duration:</span>
+                              <strong id="view-duration" class="text-dark">0 Hours</strong>
                            </div>
                            <div class="d-flex justify-content-between mb-1">
-                              <span>Oda Seçimi:</span> 
-                              <strong id="view-room-type" class="text-dark">Standart Oda</strong>
+                              <span>Room Type:</span> 
+                              <strong id="view-room-type" class="text-dark">Standard Room</strong>
                            </div>
                         </ul>
 
-                        <h4 class="fw-600 mb-10 mt-20" style="font-size: 15px; border-top: 1px solid #eee; padding-top: 10px;">Fiyat Detayları</h4>
+                        <h4 class="fw-600 mb-10 mt-20" style="font-size: 15px; border-top: 1px solid #eee; padding-top: 10px;">Price Details</h4>
                         <div class="d-flex justify-content-between mb-1" style="font-size: 14px;">
-                           <span>Oda Bedeli:</span>
+                           <span>Room Price:</span>
                            <span>€<span id="summary-room-price">0.00</span></span>
                         </div>
                         <div class="d-flex justify-content-between mb-1" style="font-size: 14px;">
-                           <span>Ekstra Servisler:</span>
+                           <span>Extra Services:</span>
                            <span>€<span id="summary-addons-price">0.00</span></span>
                         </div>
                         <div class="d-flex justify-content-between align-items-center pt-2 mt-2" style="border-top: 2px dashed #ff4a22; font-size: 18px; font-weight: 700; color: #1a1a1a;">
-                           <span>Toplam Tutar:</span>
+                           <span>Total Price:</span>
                            <span>€<span id="summary-total-price">0.00</span></span>
                         </div>
                      </div>
 
-                     <!-- SADECE OTELDE ÖDE AKSİYON BUTONU -->
+                     <!-- ACTION BUTTON -->
                      <div class="action-buttons-container">
                         <button type="button" class="btn-pay-hotel" onclick="handleBooking()">
-                           <i class="fa-solid fa-hotel"></i> Rezervasyonu Onayla (Otelde Öde)
+                           <i class="fa-solid fa-hotel"></i> Confirm Booking (Pay at Hotel)
                         </button>
                      </div>
                   </div>
@@ -349,7 +344,7 @@
     </div>
 </div>
 
-<!-- EmailJS Kütüphanesi -->
+<!-- EmailJS Library -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
    (function(){
@@ -358,17 +353,21 @@
 </script>
 
 <script>
-    // 1. URL'den gelen parametreleri çekiyoruz
+    // 1. Fetching parameters from URL
     const urlParams         = new URLSearchParams(window.location.search);
     const gelenOtelAdi      = urlParams.get('hotel_name') || 'Galata Greenland Hotel';
-    const preDate           = urlParams.get('pre_date') || 'Seçilmedi';
-    const preTime           = urlParams.get('pre_time') || 'Seçilmedi';
+    const preDate           = urlParams.get('pre_date') || 'Not selected';
+    const preTime           = urlParams.get('pre_time') || 'Not selected';
     const preDuration       = urlParams.get('pre_duration') || '0';
-    const oteldenGelenFiyat = parseFloat(urlParams.get('pre_price')) || 0;
-    const gelenOdaTipi      = urlParams.get('room_type') || 'Standart Oda';
-    const gelenOtelEmail    = urlParams.get('hotel_email') || '';
+    
+    // Clean price fetching
+    const rawPrice          = urlParams.get('pre_price') || '0';
+    const oteldenGelenFiyat = parseFloat(rawPrice.replace(/[^0-9.]/g, '')) || 0;
+    
+    const gelenOdaTipi      = urlParams.get('room_type') || 'Standard Room';
+    const gelenOtelEmail    = urlParams.get('hotel_email') || 'info@tourquaz.com';
 
-    // Fiyat Hesaplama
+    // Price Calculation
     function calculateTotal() {
         let addonsTotal = 0;
         document.querySelectorAll('input[name="addons"]:checked').forEach(cb => {
@@ -390,7 +389,7 @@
     }
 
     window.addEventListener('DOMContentLoaded', () => {
-        // Ekrandaki Özet Alanlarını Dolduruyoruz
+        // Display summary details
         const hotelEl = document.getElementById('view-hotel-name');
         if (hotelEl) hotelEl.innerText = gelenOtelAdi;
 
@@ -398,10 +397,10 @@
         if (dateEl) dateEl.innerText = preDate;
 
         const timeEl = document.getElementById('view-time');
-        if (timeEl) timeEl.innerText = preTime !== 'Seçilmedi' ? "Saat " + preTime : preTime;
+        if (timeEl) timeEl.innerText = preTime !== 'Not selected' ? "Time " + preTime : preTime;
 
         const durationEl = document.getElementById('view-duration');
-        if (durationEl) durationEl.innerText = preDuration + " Saat";
+        if (durationEl) durationEl.innerText = preDuration + " Hours";
 
         const roomEl = document.getElementById('view-room-type');
         if (roomEl) roomEl.innerText = gelenOdaTipi;
@@ -413,7 +412,7 @@
         });
     });
 
-    // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON (Sadece Otelde Öde)
+    // 🚀 BOOKING SUBMIT FUNCTION
     async function handleBooking() {
         const form = document.getElementById('bookingForm');
         if (form && !form.checkValidity()) {
@@ -423,7 +422,7 @@
 
         const addons = [];
         document.querySelectorAll('input[name="addons"]:checked').forEach(cb => addons.push(cb.value));
-        const addonsText = addons.join(', ') || 'Yok';
+        const addonsText = addons.join(', ') || 'None';
         
         const fullname   = document.getElementById('fullname').value;
         const email      = document.getElementById('email').value;
@@ -431,17 +430,19 @@
         const totalDisplay = document.getElementById('summary-total-price');
         const totalPrice = totalDisplay ? totalDisplay.innerText : oteldenGelenFiyat.toFixed(2);
 
-        // Müşterinin mailine gidecek olan Onay Linki
+        // Confirmation Link for English Customer
         const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
 
-        // EMAILJS PARAMETRELERİ (Müşteriye Doğrulama Maili Atar)
+        // EMAILJS PARAMETERS
         const templateParams = {
+            to_email: email,             
+            reply_to: email,             
+            user_email: email,           
             name: fullname,
-            reply_to: email, 
             phone: phone,
             date: preDate,
             time: preTime,
-            duration: preDuration + ' Saat',
+            duration: preDuration + ' Hours',
             total: totalPrice, 
             hotel: gelenOtelAdi,
             room_type: gelenOdaTipi, 
@@ -451,25 +452,25 @@
 
         const activeBtn = document.querySelector('.btn-pay-hotel');
         if (activeBtn) {
-            activeBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Onay Bağlantısı Gönderiliyor...';
+            activeBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending Confirmation Link...';
             activeBtn.disabled = true;
         }
 
         try {
             await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
             
-            // Müşteriye Uyarı Pop-Up
-            alert("Son Bir Adım Kaldı!\n\n Sayın " + fullname + ",\n" + email + " adresinize bir doğrulama bağlantısı gönderdik.\n\nLütfen e-posta kutunuzu kontrol edip 'Rezervasyonumu Onaylıyorum' butonuna tıklayınız.");
+            // English Pop-Up Alert
+            alert("One Last Step!\n\n Dear " + fullname + ",\nWe have sent a verification link to " + email + ".\n\nPlease check your inbox and click 'Confirm My Booking'.");
             
             if (activeBtn) {
-                activeBtn.innerHTML = '<i class="fa-solid fa-check"></i> Mailinize Onay Bağlantısı Gönderildi';
+                activeBtn.innerHTML = '<i class="fa-solid fa-check"></i> Confirmation Link Sent to Your Email';
             }
             
         } catch (error) {
-            console.error('Mail iletim hatası:', error);
-            alert('Onay maili gönderilirken bir hata oluştu. Lütfen bilgilerinizi kontrol edip tekrar deneyiniz.');
+            console.error('Mail delivery error:', error);
+            alert('An error occurred while sending the confirmation email. Please check your information and try again.');
             if (activeBtn) {
-                activeBtn.innerHTML = '<i class="fa-solid fa-hotel"></i> Rezervasyonu Onayla (Otelde Öde)';
+                activeBtn.innerHTML = '<i class="fa-solid fa-hotel"></i> Confirm Booking (Pay at Hotel)';
                 activeBtn.disabled = false;
             }
         }

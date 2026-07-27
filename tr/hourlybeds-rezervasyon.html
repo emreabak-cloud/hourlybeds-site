@@ -176,7 +176,6 @@
             color: #a0a0a0;
         }
 
-        /* YENİ TEK AKSİYON BUTONU */
         .action-buttons-container {
             display: flex;
             flex-direction: column;
@@ -364,9 +363,13 @@
     const preDate           = urlParams.get('pre_date') || 'Seçilmedi';
     const preTime           = urlParams.get('pre_time') || 'Seçilmedi';
     const preDuration       = urlParams.get('pre_duration') || '0';
-    const oteldenGelenFiyat = parseFloat(urlParams.get('pre_price')) || 0;
+    
+    // Fiyatı daha güvenli alma (Sadece rakamları çeker)
+    const rawPrice          = urlParams.get('pre_price') || '0';
+    const oteldenGelenFiyat = parseFloat(rawPrice.replace(/[^0-9.]/g, '')) || 0;
+    
     const gelenOdaTipi      = urlParams.get('room_type') || 'Standart Oda';
-    const gelenOtelEmail    = urlParams.get('hotel_email') || '';
+    const gelenOtelEmail    = urlParams.get('hotel_email') || 'info@tourquaz.com';
 
     // Fiyat Hesaplama
     function calculateTotal() {
@@ -434,10 +437,12 @@
         // Müşterinin mailine gidecek olan Onay Linki
         const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
 
-        // EMAILJS PARAMETRELERİ (Müşteriye Doğrulama Maili Atar)
+        // EMAILJS PARAMETRELERİ (Tüm E-posta Parametrelerini Kapsar)
         const templateParams = {
+            to_email: email,             // <-- KİLİT NOKTA: Müşterinin alıcı adresi
+            reply_to: email,             // Yanıtla adresi
+            user_email: email,           // Alternatif email parametresi
             name: fullname,
-            reply_to: email, 
             phone: phone,
             date: preDate,
             time: preTime,
