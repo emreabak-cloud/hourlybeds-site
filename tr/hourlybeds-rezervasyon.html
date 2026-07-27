@@ -417,6 +417,7 @@
     });
 
     // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON (Sadece Otelde Öde)
+ // 🚀 REZERVASYON BUTONUNA BASILDIĞINDA ÇALIŞAN FONKSİYON (Gelişmiş Hata Ayıklamalı)
     async function handleBooking() {
         const form = document.getElementById('bookingForm');
         if (form && !form.checkValidity()) {
@@ -428,20 +429,28 @@
         document.querySelectorAll('input[name="addons"]:checked').forEach(cb => addons.push(cb.value));
         const addonsText = addons.join(', ') || 'Yok';
         
-        const fullname   = document.getElementById('fullname').value;
-        const email      = document.getElementById('email').value;
-        const phone      = document.getElementById('phone').value;
+        // Form girdilerini temizleyerek alıyoruz
+        const fullname   = document.getElementById('fullname').value.trim();
+        const userEmail  = document.getElementById('email').value.trim();
+        const phone      = document.getElementById('phone').value.trim();
         const totalDisplay = document.getElementById('summary-total-price');
         const totalPrice = totalDisplay ? totalDisplay.innerText : oteldenGelenFiyat.toFixed(2);
 
-        // Müşterinin mailine gidecek olan Onay Linki
-        const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
+        // Geçerli Email Kontrolü
+        if (!userEmail || !userEmail.includes('@')) {
+            alert("Lütfen geçerli bir e-posta adresi giriniz.");
+            return;
+        }
 
-        // EMAILJS PARAMETRELERİ (Tüm E-posta Parametrelerini Kapsar)
+        // Müşterinin mailine gidecek Onay Linki
+        const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(userEmail)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
+
+        // EMAILJS PARAMETRELERİ (Tüm olası alıcı isimlerini içerir)
         const templateParams = {
-            to_email: email,             // <-- KİLİT NOKTA: Müşterinin alıcı adresi
-            reply_to: email,             // Yanıtla adresi
-            user_email: email,           // Alternatif email parametresi
+            to_email: userEmail,             // EmailJS To Email alanı
+            reply_to: userEmail,             // EmailJS Reply-To alanı
+            user_email: userEmail,           // Alternatif email parametresi
+            email: userEmail,                // Alternatif email parametresi
             name: fullname,
             phone: phone,
             date: preDate,
@@ -461,24 +470,27 @@
         }
 
         try {
-            await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
+            const response = await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
+            console.log('EMAILJS BAŞARILI:', response.status, response.text);
             
             // Müşteriye Uyarı Pop-Up
-            alert("Son Bir Adım Kaldı!\n\n Sayın " + fullname + ",\n" + email + " adresinize bir doğrulama bağlantısı gönderdik.\n\nLütfen e-posta kutunuzu kontrol edip 'Rezervasyonumu Onaylıyorum' butonuna tıklayınız.");
+            alert("Son Bir Adım Kaldı!\n\n Sayın " + fullname + ",\n" + userEmail + " adresinize bir doğrulama bağlantısı gönderdik.\n\nLütfen e-posta kutunuzu kontrol edip 'Rezervasyonumu Onaylıyorum' butonuna tıklayınız.");
             
             if (activeBtn) {
                 activeBtn.innerHTML = '<i class="fa-solid fa-check"></i> Mailinize Onay Bağlantısı Gönderildi';
             }
             
         } catch (error) {
-            console.error('Mail iletim hatası:', error);
-            alert('Onay maili gönderilirken bir hata oluştu. Lütfen bilgilerinizi kontrol edip tekrar deneyiniz.');
+            console.error('EmailJS Detaylı Hata Nesnesi:', error);
+            
+            // Hata detayını yakalayıp ekrana basıyoruz
+            let errorText = error.text || error.message || (typeof error === 'object' ? JSON.stringify(error) : error);
+            alert("EmailJS Hatası: " + errorText);
+
             if (activeBtn) {
                 activeBtn.innerHTML = '<i class="fa-solid fa-hotel"></i> Rezervasyonu Onayla (Otelde Öde)';
                 activeBtn.disabled = false;
             }
         }
-    }
-</script>
-</body>
+    }</body>
 </html>
