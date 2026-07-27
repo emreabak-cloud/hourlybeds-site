@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rezervasyonunuz Onaylandı! - TourQuaz Travel</title>
+    <title>Booking Confirmed! - TourQuaz Travel</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -40,7 +40,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.04); padding: 35px; box-sizing: border-box;
         }
 
-        /* ================= SOL TARAF STİLLERİ ================= */
+        /* ================= LEFT COLUMN STYLES ================= */
         .left-column { display: flex; flex-direction: column; gap: 25px; }
         .room-preview-image { width: 100%; height: 280px; object-fit: cover; border-radius: 12px; }
         .room-title { font-size: 22px; font-weight: 700; margin: 0; }
@@ -52,7 +52,7 @@
         .feature-tag { display: flex; align-items: center; gap: 8px; }
         .feature-tag i { color: var(--success-color); }
 
-        /* ================= SAĞ TARAF STİLLERİ ================= */
+        /* ================= RIGHT COLUMN STYLES ================= */
         .success-header { text-align: center; margin-bottom: 25px; }
         .success-badge { color: var(--success-color); font-size: 48px; margin-bottom: 10px; }
         .success-header h1 { font-size: 24px; margin: 0; }
@@ -66,7 +66,7 @@
         .detail-row .label { color: var(--text-muted); font-weight: 500; }
         .detail-row .value { color: var(--text-main); font-weight: 600; }
 
-        /* Bildirim Şeridi (E-posta & WhatsApp) */
+        /* Notification Banner */
         .notification-info-box {
             background-color: #f0fdf4; border: 1px solid #bbf7d0;
             border-radius: 8px; padding: 12px 15px; font-size: 13px;
@@ -95,25 +95,25 @@
 <div class="layout-container">
     
     <div class="card left-column">
-        <img class="room-preview-image" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80" alt="VIP Premium Oda">
+        <img class="room-preview-image" src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=1200&q=80" alt="VIP Premium Room">
         <div>
-            <div class="room-title">TourQuaz VIP Premium Oda</div>
-            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5; margin-top: 5px;">Rezervasyonunu yaptığınız bu konsept odamız tam izole, ses yalıtımlı ve üst düzey lüks materyallerle döşenmiştir.</p>
+            <div class="room-title">TourQuaz VIP Premium Room</div>
+            <p style="color: var(--text-muted); font-size: 14px; line-height: 1.5; margin-top: 5px;">This concept room you reserved is fully isolated, soundproofed, and furnished with high-end luxury amenities.</p>
         </div>
         <div>
-            <strong style="font-size: 14px; display: block; margin-bottom: 10px;">Odaya Dahil Hizmetler:</strong>
+            <strong style="font-size: 14px; display: block; margin-bottom: 10px;">Included Services:</strong>
             <div class="features-list">
-                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Ultra Hızlı Wi-Fi</div>
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Ultra Fast Wi-Fi</div>
                 <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Smart TV & Netflix</div>
-                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Buklet Seti & Havlular</div>
-                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> İkram Çay & Kahve</div>
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Toiletries & Towels</div>
+                <div class="feature-tag"><i class="fa-solid fa-circle-check"></i> Complimentary Tea & Coffee</div>
             </div>
         </div>
         <div class="hotel-location">
-            <strong style="color: var(--primary-color); font-size: 14px;"><i class="fa-solid fa-location-dot"></i> Otel Adres Bilgisi:</strong>
+            <strong style="color: var(--primary-color); font-size: 14px;"><i class="fa-solid fa-location-dot"></i> Hotel Address:</strong>
             <span style="display: block; margin-top: 6px; font-size: 13px; color: #334155;">
                 TourQuaz Center Hotel & Luxury Suites<br>
-                Barbaros Bulvarı, No: 142, Beşiktaş / İstanbul
+                Barbaros Boulevard, No: 142, Beşiktaş / Istanbul
             </span>
         </div>
     </div>
@@ -121,22 +121,22 @@
     <div class="card">
         <div class="success-header">
             <div class="success-badge"><i class="fa-solid fa-circle-check"></i></div>
-            <h1>Rezervasyon Talebi Alındı!</h1>
-            <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Sayın <strong id="cust-name">Misafirimiz</strong>, talebiniz acentemize başarıyla iletilmiştir.</p>
+            <h1>Booking Request Received!</h1>
+            <p style="color: var(--text-muted); font-size: 14px; margin-top: 5px;">Dear <strong id="cust-name">Guest</strong>, your reservation request has been successfully processed.</p>
         </div>
 
         <div class="receipt-box">
             <div class="receipt-title">
-                <span>🎫 Giriş Belgesi (Voucher)</span>
-                <span style="color: var(--success-color); font-weight: bold;">Durum: Onaylandı</span>
+                <span>🎫 Entry Voucher</span>
+                <span style="color: var(--success-color); font-weight: bold;">Status: Confirmed</span>
             </div>
             <div class="receipt-body">
-                <div class="detail-row"><span class="label">Hizmet Tipi:</span> <span class="value">Saatlik Konaklama (Hourly Bed)</span></div>
-                <div class="detail-row"><span class="label">Planlanan Giriş Saati:</span> <span class="value" id="res-time">Belirtilmedi</span></div>
-                <div class="detail-row"><span class="label">Toplam Konaklama Süresi:</span> <span class="value" style="color: var(--primary-color);"><span id="res-duration">1</span> Saat</span></div>
-                <div class="detail-row"><span class="label">Ödeme Tercihi:</span> <span class="value">Otel Resepsiyonunda Ödeme</span></div>
+                <div class="detail-row"><span class="label">Service Type:</span> <span class="value">Hourly Accommodation (Hourly Bed)</span></div>
+                <div class="detail-row"><span class="label">Check-in Time:</span> <span class="value" id="res-time">Not specified</span></div>
+                <div class="detail-row"><span class="label">Total Stay Duration:</span> <span class="value" style="color: var(--primary-color);"><span id="res-duration">1</span> Hours</span></div>
+                <div class="detail-row"><span class="label">Payment Method:</span> <span class="value">Pay at Hotel Reception</span></div>
                 <div class="detail-row" style="font-size: 16px; border-top: 1px dashed #cbd5e1; padding-top: 15px; margin-top: 5px;">
-                    <span class="label" style="color: var(--text-main); font-weight: 700;">Resepsiyonda Ödenecek:</span> 
+                    <span class="label" style="color: var(--text-main); font-weight: 700;">Amount Due at Reception:</span> 
                     <span class="value" style="color: var(--primary-color); font-size: 18px;">€<span id="res-amount">0.00</span></span>
                 </div>
             </div>
@@ -144,27 +144,26 @@
 
         <div class="notification-info-box">
             <i class="fa-solid fa-bell-circle-badge" style="font-size: 20px; color: var(--success-color)"></i>
-            <span>Rezervasyon kodunuz ve giriş detaylarınız sistemimiz tarafından **E-posta** ve **WhatsApp** üzerinden telefonunuza anlık olarak iletilmiştir.</span>
+            <span>Your booking confirmation code and check-in details have been sent instantly to your **Email** and **WhatsApp**.</span>
         </div>
 
         <div class="notice-box">
-            <strong style="color: var(--primary-color); display: block; margin-bottom: 3px;"><i class="fa-solid fa-circle-info"></i> Önemli Not:</strong>
-            Otelde ödeme kayıtlarında oda garantisi sağlanabilmesi için lütfen seçtiğiniz giriş saatinden en geç 15 dakika önce resepsiyonda olunuz.
+            <strong style="color: var(--primary-color); display: block; margin-bottom: 3px;"><i class="fa-solid fa-circle-info"></i> Important Note:</strong>
+            To guarantee your room availability upon arrival, please be at the hotel reception at least 15 minutes before your selected check-in time.
         </div>
 
         <div class="btn-container">
-            <a href="https://www.hourlybeds.com" class="btn-home"><i class="fa-solid fa-house"></i> Ana Sayfaya Dön</a>
+            <a href="https://www.hourlybeds.com" class="btn-home"><i class="fa-solid fa-house"></i> Return to Homepage</a>
         </div>
     </div>
 
 </div>
 
-<!-- EmailJS SDK (SADECE 1 KERE YÜKLENİYOR) -->
+<!-- EmailJS SDK -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script type="text/javascript">
 (function(){
-    // EmailJS Başlatma
     emailjs.init("pggb-cCyofAl9lKSm");
 })();
 
@@ -172,45 +171,47 @@ window.addEventListener('DOMContentLoaded', function() {
     const urlParams   = new URLSearchParams(window.location.search);
     const isConfirmed = urlParams.get('status');
 
-    // 1. Ekrandaki Voucher Alanlarını Doldur
+    // 1. Populate Voucher Details on Screen
     if(document.getElementById('res-amount'))   document.getElementById('res-amount').innerText = urlParams.get('total') || '0.00';
-    if(document.getElementById('cust-name'))    document.getElementById('cust-name').innerText = urlParams.get('name') || 'Misafirimiz';
+    if(document.getElementById('cust-name'))    document.getElementById('cust-name').innerText = urlParams.get('name') || 'Valued Guest';
     if(document.getElementById('res-time'))     document.getElementById('res-time').innerText = urlParams.get('time') || '---';
     if(document.getElementById('res-duration')) document.getElementById('res-duration').innerText = urlParams.get('duration') || '1';
 
-    // 2. status=confirmed ise Otele ve Admine Mail Fırlat
+    // 2. Trigger 2nd Email Notification if status=confirmed
     if (isConfirmed === 'confirmed' || window.location.search.indexOf('status=confirmed') > -1) {
         
+        const hotelEmailFromUrl = urlParams.get('hotel_email');
+
         const templateParams = {
-            to_email: urlParams.get('hotel_email') || 'info@tourquaz.com',
-            hotel_email: urlParams.get('hotel_email') || 'info@tourquaz.com',
-            customer_name: urlParams.get('name') || 'EMRE ABAK',
-            name: urlParams.get('name') || 'EMRE ABAK',
-            customer_email: urlParams.get('email') || 'emreabak34@gmail.com',
-            email: urlParams.get('email') || 'emreabak34@gmail.com',
-            reply_to: urlParams.get('email') || 'emreabak34@gmail.com',
-            customer_phone: urlParams.get('phone') || '05336292827',
-            phone: urlParams.get('phone') || '05336292827',
-            hotel_name: urlParams.get('hotel') || 'Galata Greenland Hotel',
-            hotel: urlParams.get('hotel') || 'Galata Greenland Hotel',
-            checkin_date: urlParams.get('date') || '2026-07-31',
-            date: urlParams.get('date') || '2026-07-31',
-            checkin_time: urlParams.get('time') || '12:00',
-            time: urlParams.get('time') || '12:00',
-            duration: (urlParams.get('duration') || '3') + ' Saat',
-            room_type: urlParams.get('room_type') || 'Standart Oda',
-            addons: urlParams.get('addons') || 'Yok',
-            total_price: (urlParams.get('total') || '30.00') + ' €',
-            total: urlParams.get('total') || '30.00'
+            to_email: hotelEmailFromUrl ? hotelEmailFromUrl : 'info@tourquaz.com',
+            hotel_email: hotelEmailFromUrl ? hotelEmailFromUrl : 'info@tourquaz.com',
+            customer_name: urlParams.get('name') || 'Guest',
+            name: urlParams.get('name') || 'Guest',
+            customer_email: urlParams.get('email') || '',
+            email: urlParams.get('email') || '',
+            reply_to: urlParams.get('email') || '',
+            customer_phone: urlParams.get('phone') || '-',
+            phone: urlParams.get('phone') || '-',
+            hotel_name: urlParams.get('hotel') || 'Hotel',
+            hotel: urlParams.get('hotel') || 'Hotel',
+            checkin_date: urlParams.get('date') || '-',
+            date: urlParams.get('date') || '-',
+            checkin_time: urlParams.get('time') || '-',
+            time: urlParams.get('time') || '-',
+            duration: (urlParams.get('duration') || '1') + ' Hours',
+            room_type: urlParams.get('room_type') || 'Standard Room',
+            addons: urlParams.get('addons') || 'None',
+            total_price: (urlParams.get('total') || '0.00') + ' €',
+            total: urlParams.get('total') || '0.00'
         };
 
-        // 🚀 2. ŞABLON TETİKLENİYOR
+        // Send Email via EmailJS
         emailjs.send('service_1c8kjjh', 'template_itrq18q', templateParams)
             .then(function(response) {
-                alert("🎉 BAŞARILI! Otele ve Admine 2. Bildirim Maili Gönderildi!");
+                alert("🎉 SUCCESS! Reservation details have been sent to the hotel via Email!");
                 console.log("SUCCESS:", response);
             }, function(error) {
-                alert("❌ HATA OLUŞTU: " + JSON.stringify(error));
+                alert("❌ ERROR: " + JSON.stringify(error));
                 console.error("ERROR:", error);
             });
     }

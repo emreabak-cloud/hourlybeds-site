@@ -222,7 +222,7 @@
 
         <div class="content-card">
             <h1>Premium Hourly Room Concept</h1>
-            <p>Elevate your journey or daily break with our premium VIP room services tailored to your lifestyle. A experience focused on total privacy and comfort awaits you with TourQuaz quality.</p>
+            <p>Elevate your journey or daily break with our premium VIP room services tailored to your lifestyle. An experience focused on total privacy and comfort awaits you with TourQuaz quality.</p>
             
             <div class="features-grid">
                 <div class="feature-item"><i class="fa-solid fa-wifi"></i> Ultra High-Speed Wi-Fi</div>
@@ -348,6 +348,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script type="text/javascript">
    (function(){
+      // Public Key Initialized
       emailjs.init("pggb-cCyofAl9lKSm");
    })();
 </script>
@@ -430,8 +431,8 @@
         const totalDisplay = document.getElementById('summary-total-price');
         const totalPrice = totalDisplay ? totalDisplay.innerText : oteldenGelenFiyat.toFixed(2);
 
-        // Confirmation Link for English Customer
-        const confirmLink = `https://www.hourlybeds.com/rezervasyon-onay.html?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
+        // 🎯 Onay Linki: İngilizce Onay Sayfasına Yönlendirir
+        const confirmLink = `https://www.hourlybeds.com/booking-confirmation?hotel=${encodeURIComponent(gelenOtelAdi)}&name=${encodeURIComponent(fullname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&date=${encodeURIComponent(preDate)}&time=${encodeURIComponent(preTime)}&duration=${encodeURIComponent(preDuration)}&total=${encodeURIComponent(totalPrice)}&room_type=${encodeURIComponent(gelenOdaTipi)}&hotel_email=${encodeURIComponent(gelenOtelEmail)}&addons=${encodeURIComponent(addonsText)}&status=confirmed`;
 
         // EMAILJS PARAMETERS
         const templateParams = {
@@ -457,10 +458,11 @@
         }
 
         try {
-            await emailjs.send('service_aa1abfm', 'template_hc4ib2c', templateParams);
+            // 🎯 SERVICE ID DÜZELTİLDİ: service_1c8kjjh
+            await emailjs.send('service_1c8kjjh', 'template_hc4ib2c', templateParams);
             
             // English Pop-Up Alert
-            alert("One Last Step!\n\n Dear " + fullname + ",\nWe have sent a verification link to " + email + ".\n\nPlease check your inbox and click 'Confirm My Booking'.");
+            alert("One Last Step!\n\nDear " + fullname + ",\nWe have sent a verification link to " + email + ".\n\nPlease check your inbox and click 'Confirm My Booking'.");
             
             if (activeBtn) {
                 activeBtn.innerHTML = '<i class="fa-solid fa-check"></i> Confirmation Link Sent to Your Email';

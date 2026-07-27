@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popüler Lokasyonlar & Havalimanları - Hourlybeds / TourQuaz Travel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #ff4a22;
+            --primary-hover: #e03d19;
+            --secondary-color: #0f172a;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            margin: 0; padding: 0;
+            color: var(--text-main);
+        }
+
+        /* Top Navbar */
+        .navbar {
+            background: var(--card-bg);
+            padding: 18px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky; top: 0; z-index: 100;
+        }
+        .logo { font-size: 24px; font-weight: 700; color: var(--primary-color); text-decoration: none; }
+        .logo span { color: var(--secondary-color); }
+        
+        .nav-links { display: flex; gap: 20px; align-items: center; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 14px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* Hero Header */
+        .hero-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .hero-section h1 { font-size: 36px; margin-bottom: 12px; font-weight: 800; }
+        .hero-section p { font-size: 16px; color: #94a3b8; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+
+        /* Container & Section titles */
+        .container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+        .section-title {
+            font-size: 24px; font-weight: 700; margin-bottom: 25px;
+            display: flex; align-items: center; gap: 12px;
+            border-bottom: 2px solid #e2e8f0; padding-bottom: 12px;
+        }
+        .section-title i { color: var(--primary-color); }
+
+        /* Grid System */
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Location Card Design */
+        .location-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .location-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(255, 74, 34, 0.15);
+        }
+
+        .card-img-wrap {
+            position: relative;
+            height: 190px;
+            overflow: hidden;
+        }
+        .card-img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .location-card:hover .card-img-wrap img {
+            transform: scale(1.08);
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: rgba(15, 23, 42, 0.8);
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px; font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
+        .card-content { padding: 20px; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-size: 19px; font-weight: 700; margin: 0 0 8px 0; }
+        .card-desc { font-size: 13px; color: var(--text-muted); margin-bottom: 15px; line-height: 1.5; }
+        
+        .card-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            border-top: 1px solid #f1f5f9; padding-top: 12px; margin-top: auto;
+        }
+        .btn-link { color: var(--primary-color); font-weight: 700; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 28px; }
+            .location-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <a href="https://www.hourlybeds.com" class="logo">Hourly<span>beds</span></a>
+    <div class="nav-links">
+        <a href="https://www.hourlybeds.com">Ana Sayfa</a>
+        <a href="/lokasyonlar.html" style="color: var(--primary-color);">Lokasyonlar</a>
+        <a href="tel:+902129999642"><i class="fa-solid fa-phone"></i> +90 212 999 96 42</a>
+    </div>
+</div>
+
+<div class="hero-section">
+    <h1>Saatlik Oda Lokasyonları</h1>
+    <p>Şehir merkezlerinde veya havalimanı aktarmalarında dinlenebileceğiniz, transit konaklamaya özel esnek saatlik odaları keşfedin.</p>
+</div>
+
+<div class="container">
+
+    <!-- 📌 ŞEHİRLER -->
+    <div class="section-title">
+        <i class="fa-solid fa-city"></i> POPÜLER ŞEHİRLER
+    </div>
+    
+    <div class="location-grid">
+        <!-- İstanbul -->
+
+<!-- İstanbul Avrupa Yakası -->
+        <a href="/otel-sonuc.html?bolge=ist-avrupa" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge"><i class="fa-solid fa-bed"></i> 25+ Otel</span>
+                <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?auto=format&fit=crop&w=800&q=80" alt="İstanbul Avrupa Yakası Saatlik Otel">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">İstanbul (Avrupa Yakası)</h3>
+                <p class="card-desc">Taksim, Beşiktaş, Şişli, Levent ve Maslak çevresinde iş veya gezi molalarınız için esnek saatlik odalar.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: #16a34a; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Anında Onay</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+
+        <!-- İstanbul Anadolu Yakası -->
+        <a href="/otel-sonuc.html?bolge=ist-anadolu" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge"><i class="fa-solid fa-bed"></i> 18+ Otel</span>
+                <img src="https://images.unsplash.com/photo-1541432901042-2d8bd64b4a9b?auto=format&fit=crop&w=800&q=80" alt="İstanbul Anadolu Yakası Saatlik Otel">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">İstanbul (Anadolu Yakası)</h3>
+                <p class="card-desc">Kadıköy, Üsküdar, Ataşehir ve Maltepe merkezlerinde dinlenme ve günlük kullanım odaklı konforlu odalar.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: #16a34a; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Anında Onay</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+        <!-- İzmir -->
+        <a href="/otel-sonuc.html?bolge=izmir" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge"><i class="fa-solid fa-bed"></i> 15+ Otel</span>
+                <img src="https://images.unsplash.com/photo-1589561454226-796a8aa89b05?auto=format&fit=crop&w=800&q=80" alt="İzmir Saatlik Oda">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">İzmir</h3>
+                <p class="card-desc">Alsancak, Konak ve Kordon yakınında esnek giriş saatli konforlu odalar.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: #16a34a; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Anında Onay</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Ankara -->
+        <a href="/otel-sonuc.html?bolge=ankara" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge"><i class="fa-solid fa-bed"></i> 20+ Otel</span>
+                <img src="https://images.unsplash.com/photo-1622542796254-5b9c46ab0d2f?auto=format&fit=crop&w=800&q=80" alt="Ankara Saatlik Oda">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Ankara</h3>
+                <p class="card-desc">Kızılay, Çankaya ve Tunalı çevresinde iş seyahatleriniz için ideal günlük kullanım odaları.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: #16a34a; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Anında Onay</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Londra (London) -->
+        <a href="/hotel-searh-london?bolge=all" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge"><i class="fa-solid fa-bed"></i> 30+ Otel</span>
+                <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=800&q=80" alt="Londra Hourly Beds">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Londra (London)</h3>
+                <p class="card-desc">Central London, Paddington ve Victoria çevresinde esnek saatlik otel seçenekleri.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: #16a34a; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Instant Booking</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Manchester -->
+        <a href="/hotel-searh-manchester?bolge=all" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge"><i class="fa-solid fa-bed"></i> 12+ Otel</span>
+                <img src="https://images.unsplash.com/photo-1543832923-44667a44c804?auto=format&fit=crop&w=800&q=80" alt="Manchester Hourly Beds">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Manchester</h3>
+                <p class="card-desc">City Centre ve Piccadilly istasyonu çevresinde gün içi mola ve dinlenme odaları.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: #16a34a; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Instant Booking</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <!-- ✈️ HAVALİMANLARI -->
+    <div class="section-title">
+        <i class="fa-solid fa-plane-arrival"></i> HAVALİMANI TRANSİT BÖLGELERİ
+    </div>
+
+    <div class="location-grid">
+        <!-- İstanbul Havalimanı (IST) -->
+        <a href="/otel-sonuc.html?bolge=ist-airport" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge" style="background: #ff4a22;"><i class="fa-solid fa-plane"></i> Transit Özel</span>
+                <img src="https://images.unsplash.com/photo-1569154941061-e231b4725ef1?auto=format&fit=crop&w=800&q=80" alt="İstanbul Havalimanı Saatlik Otel">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">İstanbul Havalimanı (IST)</h3>
+                <p class="card-desc">Uzun aktarmalarda terminal içi ve havalimanına 5 dk mesafede saatlik transit dinlenme odaları.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: var(--primary-color); font-weight: 600;"><i class="fa-solid fa-clock"></i> 3 / 6 / 12 Saat</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Sabiha Gökçen Havalimanı (SAW) -->
+        <a href="/otel-sonuc.html?bolge=ist-airport" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge" style="background: #ff4a22;"><i class="fa-solid fa-plane"></i> Transit Özel</span>
+                <img src="https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=800&q=80" alt="Sabiha Gökçen Saatlik Otel">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">Sabiha Gökçen Havalimanı (SAW)</h3>
+                <p class="card-desc">Anadolu yakası uçuşlarınız öncesi veya sonrası havalimanı çevresinde hızlı duş ve uyku molası.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: var(--primary-color); font-weight: 600;"><i class="fa-solid fa-clock"></i> 3 / 6 / 12 Saat</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+
+        <!-- İzmir Adnan Menderes Havalimanı (ADB) -->
+        <a href="/otel-sonuc.html?bolge=ist-airport" class="location-card">
+            <div class="card-img-wrap">
+                <span class="card-badge" style="background: #ff4a22;"><i class="fa-solid fa-plane"></i> Transit Özel</span>
+                <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=800&q=80" alt="İzmir Adnan Menderes Havalimanı Otel">
+            </div>
+            <div class="card-content">
+                <h3 class="card-title">İzmir Adnan Menderes (ADB)</h3>
+                <p class="card-desc">Gaziemir ve ADB havalimanı çevresinde konforlu, transfer kolaylığı sunan saatlik odalar.</p>
+                <div class="card-footer">
+                    <span style="font-size: 12px; color: var(--primary-color); font-weight: 600;"><i class="fa-solid fa-clock"></i> 3 / 6 / 12 Saat</span>
+                    <span class="btn-link">Odaları Gör <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+</div>
+
+</body>
+</html>
