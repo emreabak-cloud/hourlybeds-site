@@ -2039,10 +2039,22 @@ div[class*="sticky-wrapper"],
   // 2. REZERVASYON YÖNLENDİRME MOTORU (ÇOK DİLLİ VE ÇOK KLASÖRLÜ TAM UYUMLU)
   function redirectToHub() {
       // 1. Otel Maillerini Al (Yoksa info@tourquaz.com)
-      const hotelEmailInput = document.getElementById('hotel_email');
-      const hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
-                         ? hotelEmailInput.value 
-                         : 'info@tourquaz.com';
+      // Otel Maillerini Al ve Temizle
+const hotelEmailInput = document.getElementById('hotel_email');
+let hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
+                 ? hotelEmailInput.value.trim() 
+                 : 'info@tourquaz.com';
+
+// URL Parametrelerini Oluştur
+const queryParams = new URLSearchParams({
+    hotel_name: hotelName,
+    pre_date: preDate,
+    pre_time: preTime,
+    pre_duration: preDuration,
+    pre_price: prePrice.replace(/[^0-9,.]/g, ''),
+    room_type: roomType,
+    hotel_email: hotelEmail // Artık sorunsuz şekilde URL'e eklenecek
+});
 
       // 2. Otel Adını Akıllı Yakala
       let hotelName = document.getElementById('hotel_name')?.innerText.trim();

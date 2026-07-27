@@ -9,10 +9,10 @@ use PHPMailer\PHPMailer\Exception;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // 1. Formdan Gelen Verileri Yakalıyoruz
-    $name         = isset($_POST["name"])         ? trim($_POST["name"])         : "";
-    $email        = isset($_POST["email"])        ? filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL) : "";
-    $phone        = isset($_POST["phone"])        ? trim($_POST["phone"])        : "";
+    // 1. Formdan Gelen Verileri Yakalıyoruz (JS alan adlarına uyumlu)
+    $name         = isset($_POST["name"])         ? trim($_POST["name"])         : (isset($_POST["customer_name"]) ? trim($_POST["customer_name"]) : "");
+    $email        = isset($_POST["email"])        ? filter_var(trim($_POST["email"]), FILTER_SANITIZE_EMAIL) : (isset($_POST["customer_email"]) ? filter_var(trim($_POST["customer_email"]), FILTER_SANITIZE_EMAIL) : "");
+    $phone        = isset($_POST["phone"])        ? trim($_POST["phone"])        : (isset($_POST["customer_phone"]) ? trim($_POST["customer_phone"]) : "");
     $hotel_name   = isset($_POST["hotel_name"])   ? trim($_POST["hotel_name"])   : "Belirtilmedi";
     $checkin_time = isset($_POST["checkin_time"]) ? trim($_POST["checkin_time"]) : "Belirtilmedi";
     $duration     = isset($_POST["duration"])     ? trim($_POST["duration"])     : "Belirtilmedi";
@@ -68,6 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port       = 465; 
         $mail->CharSet    = 'UTF-8'; 
 
+        // 🛠️ KRİTİK EKLENTİ: SUNUCU SSL SERTİFİKA DOĞRULAMA TAKILMALARINI AŞAR
+        $mail->SMTPOptions = array(
+            'ssl' => array(
+                'verify_peer'       => false,
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true
+            )
+        );
+
         $mail->setFrom('info@tourquaz.com', 'HourlyBeds Rezervasyon');
 
         // =======================================================
@@ -82,13 +91,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // 3. Otel Mailleri (Virgülle Ayrılmış Birden Fazla Maili Parçalar)
         if (!empty($hotel_email)) {
-            // Mailleri virgüle göre ayırıp dizi yapıyoruz
             $emails_list = explode(',', $hotel_email); 
             
             foreach ($emails_list as $single_email) {
                 $clean_email = filter_var(trim($single_email), FILTER_SANITIZE_EMAIL);
                 if (filter_var($clean_email, FILTER_VALIDATE_EMAIL)) {
-                    $mail->addAddress($clean_email); // Geçerli olan her otel mailine ayrı ayrı ekler
+                    $mail->addAddress($clean_email);
                 }
             }
         }

@@ -967,7 +967,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <span class="tp-booking-extra-payment-price price-tag" data-usd="40">€40</span>
                      </div>
-
+<input type="hidden" id="hotel_email" name="hotel_email" value="gm@galatagreenlandhotel.com,info@galatagreenlandhotel.com">
                      <button type="button" class="tp-btn tp-btn-xl w-100" onclick="redirectToHub()" style="padding: 15px; font-weight: 600; display: block; text-align: center;">
                         Şimdi Rezervasyon Yap
                      </button>
@@ -1889,7 +1889,6 @@ div[class*="sticky-wrapper"],
 <!-- ========================================== -->
 
 
-<!-- ======================================================= -->
 <!-- HOURLYBEDS FIREBASE, ÜYE YÖNETİMİ & REZERVASYON MOTORU -->
 <!-- ======================================================= -->
 
@@ -1914,11 +1913,7 @@ div[class*="sticky-wrapper"],
   }
   const auth = firebase.auth();
 
-  // Dinamik Menü Yolu (Klasör Seviyesini Otomatik Algılar)
-  const isSubFolder = window.location.pathname.includes('/tr/') || window.location.pathname.includes('/en/');
-  const loginPath = isSubFolder ? "../login.html" : "./login.html";
-  const registerPath = isSubFolder ? "../register.html" : "./register.html";
-
+  // Üst menü profil dinamik kontrolü
   auth.onAuthStateChanged((user) => {
       const menuList = document.getElementById('tq-user-menu-list');
       if (!menuList) return;
@@ -1937,10 +1932,10 @@ div[class*="sticky-wrapper"],
       } else {
           menuList.innerHTML = `
              <li>
-                <a href="${loginPath}"><i class="icon far fa-user"></i> Giriş Yap</a>
+                <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
              </li>
              <li>
-                <a href="${registerPath}"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+                <a href="./register.html"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
              </li>
           `;
       }
@@ -1949,10 +1944,22 @@ div[class*="sticky-wrapper"],
   // 2. REZERVASYON YÖNLENDİRME MOTORU (ÇOK DİLLİ VE ÇOK KLASÖRLÜ TAM UYUMLU)
   function redirectToHub() {
       // 1. Otel Maillerini Al (Yoksa info@tourquaz.com)
-      const hotelEmailInput = document.getElementById('hotel_email');
-      const hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
-                         ? hotelEmailInput.value 
-                         : 'info@tourquaz.com';
+      // Otel Maillerini Al ve Temizle
+const hotelEmailInput = document.getElementById('hotel_email');
+let hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
+                 ? hotelEmailInput.value.trim() 
+                 : 'info@tourquaz.com';
+
+// URL Parametrelerini Oluştur
+const queryParams = new URLSearchParams({
+    hotel_name: hotelName,
+    pre_date: preDate,
+    pre_time: preTime,
+    pre_duration: preDuration,
+    pre_price: prePrice.replace(/[^0-9,.]/g, ''),
+    room_type: roomType,
+    hotel_email: hotelEmail // Artık sorunsuz şekilde URL'e eklenecek
+});
 
       // 2. Otel Adını Akıllı Yakala
       let hotelName = document.getElementById('hotel_name')?.innerText.trim();
@@ -1979,12 +1986,15 @@ div[class*="sticky-wrapper"],
           hotel_email: hotelEmail
       });
 
-      // 5. EVRENSEL VE DİNAMİK KÖK DİZİN YÖNLENDİRMESİ
-      // Hangi klasörde olursan ol, doğrudan ana sunucu adresindeki (root) dosyaya gider!
-      const rootUrl = window.location.origin;
-      window.location.href = rootUrl + "/hourlybeds-rezervasyon.html?" + queryParams.toString();
+      // Bulunduğu klasöre göre (tr/en veya root) dosyayı bulur
+      const isSub = window.location.pathname.includes('/tr/') || window.location.pathname.includes('/en/');
+      const target = isSub ? "../hourlybeds-rezervasyon.html" : "./hourlybeds-rezervasyon.html";
+
+      window.location.href = target + "?" + queryParams.toString();
   }
 </script>
+<!-- ======================================================= -->
+
 </body>
 
 </html>
