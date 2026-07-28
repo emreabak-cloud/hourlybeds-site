@@ -313,6 +313,245 @@
    </header>
 
    <main>
+      <!-- ================================================================= -->
+<!-- ================================================================= -->
+<!-- 🎯 HOURLYBEDS HERO DÜZELTME (ÜST ARAMA KUTUSU TEMİZLENDİ) -->
+<!-- ================================================================= -->
+
+<style>
+  /* 🎯 1. HEADER (MENÜ) İLE RESİM ARASINDAKİ DEV BEYAZ BOŞLUĞU SIFIRLAMA */
+  .tp-hero-area, 
+  .tp-hero-3-area, 
+  section[class*="hero"] {
+    padding-top: 0px !important;    /* Resmin üstündeki boşluğu sıfırlar */
+    margin-top: 0px !important;     /* Resmi doğrudan menünün altına yapıştırır */
+    overflow: visible !important;
+  }
+
+  header, 
+  .tp-header-area {
+    padding-bottom: 0px !important; /* Menünün altındaki boşluğu sıfırlar */
+    margin-bottom: 0px !important;
+  }
+
+  /* 🎯 2. TURUNCU ŞEFFAF MADDELERİ RESMİN İÇİNDE NİZAMİ TUTMA */
+  .tq-features-panel-wrapper {
+    position: relative !important;
+    z-index: 1 !important; /* Arama açılır menüsü altında kalır */
+    width: 100% !important;
+    margin-top: 15px !important;
+    clear: both !important;
+  }
+
+  .tq-features-inside-box {
+    display: flex !important;
+    gap: 15px !important;
+    justify-content: center !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .tq-feature-item {
+    background: transparent !important; /* Şeffaf */
+    border: none !important;
+    box-shadow: none !important;
+    padding: 4px 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  .tq-feature-icon-box svg {
+    width: 20px !important;
+    height: 20px !important;
+    stroke: #ff4a22 !important; /* Canlı Turuncu İkon */
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4)) !important;
+  }
+
+  .tq-feature-text-box h3 {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    color: #ff4a22 !important; /* CANLI TURUNCU METİN */
+    margin: 0 !important;
+    white-space: nowrap !important;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.9), 0 2px 6px rgba(0, 0, 0, 0.5) !important;
+  }
+
+  @media (max-width: 768px) {
+    .tq-feature-text-box h3 {
+      font-size: 12.5px !important;
+    }
+  }
+</style>
+
+<!-- 🎯 ŞEFFAF TURUNCU AVANTAJ MADDELERİ -->
+<div class="tq-features-panel-wrapper">
+   <div class="tq-features-inside-box">
+      
+      <div class="tq-feature-item">
+         <div class="tq-feature-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/>
+            </svg>
+         </div>
+         <div class="tq-feature-text-box"><h3>Ücretsiz İptal</h3></div>
+      </div>
+
+      <div class="tq-feature-item">
+         <div class="tq-feature-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/>
+            </svg>
+         </div>
+         <div class="tq-feature-text-box"><h3>Otelde Ödeme</h3></div>
+      </div>
+
+      <div class="tq-feature-item">
+         <div class="tq-feature-icon-box">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+               <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/>
+            </svg>
+         </div>
+         <div class="tq-feature-text-box"><h3>%75'e Varan İndirim</h3></div>
+      </div>
+
+   </div>
+</div>
+
+<!-- 🧠 JAVASCRIPT CANLI ARAMA MOTORU -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   
+   const searchDatabase = [
+      { title: "İstanbul Avrupa Yakası", subtitle: "Taksim, Beşiktaş, Bakırköy, Şişli • Saatlik Oteller", url: "./otel-sonuc.html?bolge=ist-avrupa", keywords: ["avrupa", "istanbul avrupa", "avrupa yakasi", "merkez"] },
+      { title: "İstanbul Anadolu Yakası", subtitle: "Kadıköy, Ataşehir, Üsküdar, Ümraniye • Saatlik Oteller", url: "./otel-sonuc.html?bolge=ist-anadolu", keywords: ["anadolu", "istanbul anadolu", "anadolu yakasi", "216"] },
+      { title: "İstanbul Airport & Transit Zone", subtitle: "Havalimanı İçi ve Yakını Transit Konaklama", url: "./otel-sonuc.html?bolge=ist-airport", keywords: ["airport", "havalimanı", "havalimani", "ist", "arnavutköy", "transit"] },
+      { title: "İzmir Saatlik Oteller", subtitle: "Alsancak, Bornova, Konak, Güzelyalı", url: "./hotel-searh-izmir?bolge=all", keywords: ["izmir", "alsancak", "bornova", "konak", "güzelyalı"] },
+      { title: "Ankara Saatlik Oteller", subtitle: "Çankaya, Gaziosmanpaşa, Merkez", url: "./hotel-searh-ankara?bolge=all", keywords: ["ankara", "çankaya", "cankaya", "gaziosmanpaşa", "gop"] },
+      { title: "Taksim & Şişli Bölgesi", subtitle: "İstiklal Caddesi, Bomonti, Nişantaşı", url: "./taksim-saatlik-oteller.html", keywords: ["taksim", "şişli", "sisli", "mecidiyeköy", "beyoğlu", "istiklal"] },
+      { title: "Kadıköy & Moda Bölgesi", subtitle: "Sahil Hattı, Rıhtım & Moda Konseptleri", url: "./kadikoy-saatlik-oteller.html", keywords: ["kadıköy", "kadikoy", "moda", "rıhtım"] },
+      { title: "Bakırköy & Ataköy Bölgesi", subtitle: "Sahil Hattı & Lüks Mola Noktaları", url: "./bakirkoy-saatlik-oteller.html", keywords: ["bakırköy", "bakirkoy", "ataköy", "atakoy", "zeytinlik", "florya"] },
+      { title: "Beşiktaş & Boğaz Hattı", subtitle: "Ortaköy, Levent & Lüks Mola", url: "./besiktas-saatlik-oteller.html", keywords: ["beşiktaş", "besiktas", "ortaköy", "ortakoy", "boğaz"] },
+      { title: "Ataşehir & Ümraniye Bölgesi", subtitle: "Finans Merkezi & Lüks Süitler", url: "./uskudar-saatlik-oteller.html", keywords: ["ataşehir", "atasehir", "ümraniye", "umraniye", "finans merkezi"] },
+      { title: "Hilton İstanbul Moda", subtitle: "Kadıköy • Lüks Sahil Konsepti (5 Yıldız)", url: "./hilton-moda-hotel.html", keywords: ["hilton moda", "doubletree moda", "kadıköy hilton", "5 yıldız"] },
+      { title: "216 Bosphorus Hotel", subtitle: "Üsküdar • Boğaz Manzaralı Mola", url: "./216-bosphorus.html", keywords: ["216 bosphorus", "üsküdar otel", "boğaz manzaralı"] },
+      { title: "216 Comfort Inn Suites", subtitle: "Ataşehir • Finans Merkezine Yakın", url: "./216-comfort-inn-suites.html", keywords: ["216 comfort", "ataşehir otel", "comfort inn"] },
+      { title: "216 Eagle Palace", subtitle: "Kartal • Konforlu Süitler", url: "./216-eagle-palace.html", keywords: ["216 eagle", "eagle palace", "kartal otel"] },
+      { title: "216 FB Suites", subtitle: "Kadıköy • Şehir Merkezinde Lüks Konsept", url: "./216-fb-suites.html", keywords: ["216 fb", "fb suites", "kadıköy suit"] },
+      { title: "216 Palace Hotel", subtitle: "Ataşehir • Saray Konforunda Odalar", url: "./216-palace.html", keywords: ["216 palace", "ataşehir palace"] },
+      { title: "216 Prestige Hotel", subtitle: "Ümraniye • Prestijli Hizmet Standartı", url: "./216-prestige-hotel.html", keywords: ["216 prestige", "ümraniye otel"] },
+      { title: "216 Ruby Suite", subtitle: "Ataşehir / Maltepe • Premium Jakuzili Odalar", url: "./216-ruby-suite.html", keywords: ["216 ruby", "ruby suite", "jakuzili otel", "jakuzi"] },
+      { title: "216 Silver Hotel", subtitle: "Maltepe • Güvenli & Hijyenik Odalar", url: "./216-silver.html", keywords: ["216 silver", "maltepe otel"] },
+      { title: "216 Style Suite", subtitle: "Ataşehir • Tam Ses Yalıtımlı Odalar", url: "./216-style-suite.html", keywords: ["216 style", "style suite", "ses yalıtımlı"] },
+      { title: "And Center Suit", subtitle: "Kadıköy • Merkezi Lokasyon", url: "./and-center-suit.html", keywords: ["and center", "kadıköy center"] },
+      { title: "Best Hotel Pendik", subtitle: "Pendik • En İyi Fiyat Garantisi", url: "./best-hotel-pendik.html", keywords: ["best hotel", "pendik otel", "sabiha gökçen"] },
+      { title: "Crowne Plaza Oryapark", subtitle: "Ümraniye • Kurumsal İş Konsepti (5 Yıldız)", url: "./crowne-plaza-istanbul-oryapark.html", keywords: ["crowne plaza", "oryapark", "ümraniye 5 yıldız"] },
+      { title: "Hera Suit Ataşehir", subtitle: "Ataşehir • Premium VIP Konsept", url: "./hera-suit-atasehir.html", keywords: ["hera suit", "ataşehir hera"] },
+      { title: "El Emin Istanbul Hotel", subtitle: "İkitelli / Küçükçekmece • Şehir & Konfor Mola", url: "./elemin-hotel.html", keywords: ["el emin", "elemin", "ikitelli", "küçükçekmece"] },
+      { title: "Hilton İstanbul Bakırköy", subtitle: "Bakırköy • Havuz Kullanımı Dahil (5 Yıldız)", url: "./hilton-istanbul-bakirkoy.html", keywords: ["hilton bakırköy", "bakırköy hilton", "havuzlu otel"] },
+      { title: "Sheraton Ataköy Hotel", subtitle: "Ataköy / Bakırköy • Deniz Manzaralı (5 Yıldız)", url: "./sheraton-atakoy-hotel.html", keywords: ["sheraton", "ataköy sheraton", "deniz manzaralı"] },
+      { title: "Des Suites Hotel", subtitle: "Bakırköy • Konfor Odaklı Süitler", url: "./des-suites-hotel.html", keywords: ["des suites", "bakırköy des"] },
+      { title: "Golden City İstanbul", subtitle: "Karaköy • Turistik Lokasyon", url: "./golden-city-istanbul.html", keywords: ["golden city", "karaköy otel"] },
+      { title: "Grand Mark Otel", subtitle: "Fatih • Tarihi Yarımada Mola", url: "./grand-mark-otel.html", keywords: ["grand mark", "fatih otel", "sultanahmet"] },
+      { title: "Gümüş Palace Suit", subtitle: "Bahçelievler • Premium Dinlenme Alanı", url: "./gumus-palace-suit.html", keywords: ["gümüş palace", "bahçelievler otel"] },
+      { title: "Güneş Otel Merter", subtitle: "Güngören / Merter • Ticari Merkezde Mola", url: "./gunes-otel-merter.html", keywords: ["güneş otel", "gunes otel", "merter"] },
+      { title: "Hagia Sofia Mansions", subtitle: "Sultanahmet • Özel Tarihi Konaklar (5 Yıldız)", url: "./hagia-sofia-mansions-istanbul.html", keywords: ["hagia sofia", "sultanahmet konak", "mansions"] },
+      { title: "Hilton İstanbul Bomonti", subtitle: "Şişli / Bomonti • Üst Düzey İş Oteli (5 Yıldız)", url: "./hilton-istanbul-bomonti.html", keywords: ["hilton bomonti", "şişli hilton", "bomonti"] },
+      { title: "Hotel Galata Greenland", subtitle: "Beyoğlu / Galata • Jakuzili Oda Seçenekleri", url: "./galata-greenland.html", keywords: ["galata greenland", "greenland", "beyoğlu", "jakuzili"] },
+      { title: "Linden House", subtitle: "Beşiktaş • Merkez Mola", url: "./linden-house.html", keywords: ["linden house", "beşiktaş linden"] },
+      { title: "New Falcon Palace", subtitle: "Beşiktaş • Konforlu Gündüz Odaları", url: "./new-falcon-palace.html", keywords: ["falcon palace", "beşiktaş falcon"] },
+      { title: "Pasha Palace Hotel", subtitle: "Fatih • Güvenli Giriş İmkanı", url: "./pasha-palace-hotel.html", keywords: ["pasha palace", "fatih pasha"] },
+      { title: "Restwon Suit Saatlik", subtitle: "Bakırköy • Ses Yalıtımlı Odalar", url: "./restwon-suit-saatlik.html", keywords: ["restwon", "restwon suit", "bakırköy restwon"] },
+      { title: "Richmond Taksim", subtitle: "İstiklal Caddesi • Tam Merkez Mola", url: "./richmond-taksim.html", keywords: ["richmond", "taksim richmond", "istiklal caddesi"] },
+      { title: "Royal Nest Hotel", subtitle: "Beşiktaş • Premium VIP Süitler", url: "./royal-nest.html", keywords: ["royal nest", "beşiktaş royal"] },
+      { title: "Ser Suit Apart", subtitle: "Fatih • Bağımsız Süit Odalar", url: "./ser-suit-apart.html", keywords: ["ser suit", "fatih suit"] },
+      { title: "Sky Blue İstanbul", subtitle: "Şişli • Finans Merkezinde Mola", url: "./sky-blue-istanbul.html", keywords: ["sky blue", "şişli sky blue"] },
+      { title: "The Wind Ortaköy", subtitle: "Ortaköy / Beşiktaş • Premium VIP", url: "./the-wind-ortakoy.html", keywords: ["the wind", "ortaköy otel", "wind ortaköy"] },
+      { title: "Valeron Suit Premium", subtitle: "Bakırköy / Zeytinlik • Seçkin Süitler", url: "./valeron-suit-premium.html", keywords: ["valeron", "valeron suit", "bakırköy valeron"] },
+      { title: "Weingart Hotel", subtitle: "Karaköy • Tarihi Bölgede Mola", url: "./weingart-hotel.html", keywords: ["weingart", "karaköy weingart"] },
+      { title: "DoubleTree by Hilton Avcılar", subtitle: "Avcılar • Lüks 5 Yıldız Standardı", url: "./doubletree-by-hilton-istanbul.html", keywords: ["doubletree avcılar", "avcılar hilton"] },
+      { title: "Hidden Hills Hotel", subtitle: "Arnavutköy (IST) • Transit Mola Konsepti", url: "./hidden-hills-istanbul.html", keywords: ["hidden hills", "arnavutköy", "ist airport transit"] },
+      { title: "Airport Black Sea Hotel", subtitle: "Arnavutköy • Transit Aktarma Noktası", url: "./airport-black-sea-hotel.html", keywords: ["airport black sea", "black sea otel"] },
+      { title: "Elysian Airport Hotel", subtitle: "Arnavutköy • Ses Yalıtımlı Transit Oda", url: "./elysian-airport-Hotel.html", keywords: ["elysian", "elysian airport"] },
+      { title: "Grand Özer Hotel", subtitle: "Arnavutköy • Havalimanına Kolay Ulaşım", url: "./grand-ozer-hotel.html", keywords: ["grand özer", "grand ozer"] },
+      { title: "The Great Airport Hotel", subtitle: "Arnavutköy • Modern Transit Konaklama", url: "./the-great-airport-hotel.html", keywords: ["great airport", "the great airport"] },
+      { title: "YOTELAIR City Entrance", subtitle: "Havalimanı İçi • Kara Tarafı (Landside)", url: "./yotel-air-city-entrance.html", keywords: ["yotelair city", "yotel kara tarafı", "landside"] },
+      { title: "YOTELAIR Transit Area", subtitle: "Havalimanı İçi • Hava Tarafı (Pasaport Sonrası)", url: "./yotel-air-istanbul-airport.html", keywords: ["yotelair transit", "yotel airside", "pasaport sonrası"] },
+      { title: "Green Palmiye Hotel", subtitle: "İzmir Merkez • Konforlu Mola", url: "./green-palmiye-hotel.html", keywords: ["green palmiye", "izmir merkez otel"] },
+      { title: "Meva Pansiyon İzmir", subtitle: "Konak / İzmir • Ekonomik Gündüz Odaları", url: "./meva-pansiyon-izmir.html", keywords: ["meva pansiyon", "konak otel"] },
+      { title: "Müber Otel İzmir", subtitle: "Alsancak / İzmir • Tam Merkez Mola", url: "./muber-otel-izmir.html", keywords: ["müber otel", "muber otel", "alsancak otel"] },
+      { title: "Rayal Inn Bornova", subtitle: "Bornova / İzmir • Kurumsal İş Odaları", url: "./rayalinn-bornova.html", keywords: ["rayal inn", "bornova otel"] },
+      { title: "The Port Güzelyalı", subtitle: "Güzelyalı / İzmir • Sahil Hattında Mola", url: "tr/the-port-guzelyali.html", keywords: ["the port", "güzelyalı otel"] },
+      { title: "Çankaya Suit", subtitle: "Çankaya / Ankara • İş & Mola Odaları", url: "tr/cankaya-suit.html", keywords: ["çankaya suit", "cankaya suit", "ankara otel"] },
+      { title: "Park 12 Ankara", subtitle: "Gaziosmanpaşa / Ankara • Modern Süitler", url: "tr/park-12-ankara.html", keywords: ["park 12", "ankara park 12", "gaziosmanpaşa ankara"] }
+   ];
+
+   const input = document.getElementById('hb-live-search-input');
+   const resultsBox = document.getElementById('hb-live-search-results');
+   const resultsList = document.getElementById('hb-search-list');
+   const searchTitle = document.getElementById('hb-search-title');
+
+   function renderResults(query = '') {
+      const cleanQuery = query.toLowerCase().trim();
+      resultsList.innerHTML = '';
+
+      const filtered = searchDatabase.filter(item => {
+         if (!cleanQuery) return true;
+         return item.title.toLowerCase().includes(cleanQuery) || 
+                item.subtitle.toLowerCase().includes(cleanQuery) ||
+                item.keywords.some(kw => kw.toLowerCase().includes(cleanQuery));
+      });
+
+      if (filtered.length === 0) {
+         resultsList.innerHTML = `<li style="padding: 12px; text-align: left !important; color: #94a3b8; font-size: 13px;">Aramanızla eşleşen otel bulunamadı.</li>`;
+         return;
+      }
+
+      filtered.forEach(item => {
+         const li = document.createElement('li');
+         li.style.textAlign = 'left';
+         li.innerHTML = `
+            <a href="${item.url}">
+               <div class="hb-item-text">
+                  <span style="font-weight: 600; font-size: 13.5px; color: #0f172a; display: block; text-align: left !important;">${item.title}</span>
+                  <span style="font-size: 11px; color: #64748b; text-align: left !important;">${item.subtitle}</span>
+               </div>
+               <span style="color: #ff4a22; font-size: 14px; font-weight: bold; margin-left: 8px;">→</span>
+            </a>
+         `;
+         resultsList.appendChild(li);
+      });
+   }
+
+   if (input) {
+      input.addEventListener('focus', function() {
+         searchTitle.innerText = "Önerilen Lokasyonlar & Oteller";
+         renderResults('');
+         resultsBox.style.display = 'block';
+      });
+
+      input.addEventListener('input', function(e) {
+         const val = e.target.value;
+         if (val.length > 0) {
+            searchTitle.innerText = "Arama Sonuçları";
+         } else {
+            searchTitle.innerText = "Önerilen Lokasyonlar & Oteller";
+         }
+         renderResults(val);
+         resultsBox.style.display = 'block';
+      });
+   }
+
+   document.addEventListener('click', function(e) {
+      if (!e.target.closest('.hb-search-wrapper')) {
+         if (resultsBox) resultsBox.style.display = 'none';
+      }
+   });
+
+});
+</script>
 
 <div class="fix">
          <div class="tp-hero-area p-relative z-index-2 d-flex align-items-center" 
@@ -337,74 +576,337 @@
                         <h1 class="text-white fw-700 mb-20" style="font-size: 45px; letter-spacing: -1.5px; line-height: 1.2;">
                            Konaklaman<br> Tamamen <span style="color: #ff4a22;">Esnek!</span>
                         </h1>
-                        
-                        <p class="mb-40" style="font-size: 19px; color: #e2e8f0; font-weight: 400; max-width: 650px; margin: 0 auto;">
-                           Premium Saatlik Odaları ve Lüks Süitleri Keşfedin. Sadece kaldığınız süre kadar güvenle ödeyin.
-                        </p>
 
-<!-- Arama ve Açılır Liste Kapsayıcısı -->
-<div class="tp-booking-wrap tp-marker-tab p-relative" style="position: relative !important; z-index: 9999 !important;">
-   <form action="#">
-      <div class="tp-booking-location tp-booking-col-1 p-relative" style="display: flex; align-items: center; background: #ffffff; border-radius: 30px; padding: 0 20px; height: 46px; width: 100%; max-width: 420px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative !important; z-index: 9999 !important;">
+<!-- ================================================================= -->
+<!-- 🎯 HOURLYBEDS PREMİUM CANLI ARAMA ALANI (HTML + CSS + JAVASCRIPT) -->
+<!-- ================================================================= -->
+
+<style>
+  /* 🎯 Arama Alanı Z-Index ve Katman Ayarları */
+  .hb-search-wrapper {
+    position: relative !important;
+    z-index: 99999 !important;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+    font-family: inherit;
+  }
+
+  .hb-search-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 35px;
+    padding: 4px 6px 4px 18px;
+    height: 50px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    position: relative !important;
+    z-index: 99999 !important;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-sizing: border-box;
+    text-align: left !important;
+  }
+
+  .hb-search-input-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .hb-search-input-group input {
+    color: #0f172a !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    border: none !important;
+    background: transparent !important;
+    width: 100%;
+    height: 100%;
+    outline: none !important;
+    padding: 0;
+  }
+
+  .hb-search-btn {
+    background: #ff4a22;
+    border: none;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255,74,34,0.3);
+    transition: transform 0.2s ease;
+  }
+
+  .hb-search-btn:hover {
+    transform: scale(1.05);
+  }
+
+  /* 🚀 Canlı Süzülen Pop-up Liste */
+  .hb-results-dropdown {
+    display: none;
+    position: absolute !important;
+    top: 58px !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    border-radius: 20px !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18) !important;
+    z-index: 999999 !important;
+    padding: 15px !important;
+    box-sizing: border-box !important;
+    border: 1px solid #f1f5f9;
+    max-height: 360px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+  }
+
+  .hb-results-dropdown::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .hb-results-dropdown::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+
+  .hb-results-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+
+  .hb-results-title {
+    font-weight: 700;
+    font-size: 11px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .hb-results-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hb-results-list a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none !important;
+    padding: 10px 12px;
+    border-radius: 12px;
+    background: #f8fafc;
+    transition: background 0.2s ease, transform 0.1s ease;
+  }
+
+  .hb-results-list a:hover {
+    background: #f1f5f9;
+    transform: translateX(2px);
+  }
+</style>
+
+<!-- 🎯 HTML KISMI -->
+<div class="hb-search-wrapper">
+   <form action="#" onsubmit="return false;" style="margin: 0; padding: 0;">
+      
+      <div class="hb-search-box">
          
-         <!-- Input ve İkon Alanı -->
-         <div class="tp-booking-location-input tp-booking-toggle p-relative" style="display: flex; align-items: center; width: 100%; height: 100%;">
-            <span class="tp-booking-input-icon" style="display: inline-flex; align-items: center; margin-right: 12px;">
-               <svg width="15" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11.7 6.22727C11.7 10.6818 6.1 14.5 6.1 14.5C6.1 14.5 0.5 10.6818 0.5 6.22727C0.5 4.70831 1.09 3.25155 2.1402 2.17748C3.19041 1.10341 4.61479 0.5 6.1 0.5C7.58521 0.5 9.00959 1.10341 10.0598 2.17748C11.11 3.25155 11.7 4.70831 11.7 6.22727Z" stroke="#ff385c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
-                  <path d="M6.09714 8.13583C7.12807 8.13583 7.9638 7.28124 7.9638 6.22705C7.9638 5.17286 7.12807 4.31827 6.09714 4.31827C5.0662 4.31827 4.23047 5.17286 4.23047 6.22705C4.23047 7.28124 5.0662 8.13583 6.09714 8.13583Z" stroke="#ff385c" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+         <!-- Input ve Lokasyon İkonu -->
+         <div class="hb-search-input-group">
+            <span style="display: inline-flex; align-items: center; margin-right: 10px;">
+               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/>
+                  <circle cx="12" cy="10" r="3"/>
                </svg>
             </span>
-            <input class="tp-input" type="text" placeholder="Otel veya Bölge Ara" style="color: #0f172a !important; font-weight: 700 !important; font-size: 15px !important; border: none !important; background: transparent !important; width: 100%; height: 100%; outline: none;">
+            <input id="hb-live-search-input" autocomplete="off" type="text" placeholder="Otel veya Bölge Ara">
          </div>
 
-         <!-- Tıklayınca Açılan Liste (Pop-up) -->
-         <div class="tp-booking-location-list tp-booking-toggle-active" style="position: absolute !important; top: 52px !important; left: 0 !important; width: 100% !important; background: #ffffff !important; border-radius: 16px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important; z-index: 999999 !important; padding: 15px !important; box-sizing: border-box !important;">
-            <div class="tp-booking-location-inner">
-               <span class="tp-booking-location-suggested" style="display: block; font-weight: 700; margin-bottom: 10px; color: #1e293b;">Popüler Saatlik Otel Bölgeleri</span>
-               
-               <ul style="list-style: none; padding: 0; margin: 0;">
-                  <li>
-                     <a href="./otel-sonuc.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-                           <img src="/../../assets/img/booking-form/02.png" alt="booking" onerror="this.style.display='none'">
-                        </div>
-                        <div class="tp-booking-location-content" style="margin-left: 12px;">
-                           <span style="font-weight: 600; display: block;">İstanbul Avrupa Yakası</span>
-                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;"></p>
-                        </div>
-                     </a>
-                  </li>
+         <!-- Sağ Arama Büyüteç Butonu -->
+         <button type="button" class="hb-search-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+               <circle cx="11" cy="11" r="8"/>
+               <path d="m21 21-4.3-4.3"/>
+            </svg>
+         </button>
 
-                  <li>
-                     <a href="./otel-sonuc.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-                           <img src="/../../assets/img/booking-form/03.png" alt="booking" onerror="this.style.display='none'">
-                        </div>
-                        <div class="tp-booking-location-content" style="margin-left: 12px;">
-                           <span style="font-weight: 600; display: block;">İstanbul Anadolu Yakası</span>
-                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;"></p>
-                        </div>
-                     </a>
-                  </li>
-
-                  <li>
-                     <a href="./besiktas-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
-                        <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
-                           <img src="/../../assets/img/booking-form/04.png" alt="booking" onerror="this.style.display='none'">
-                        </div>
-                        <div class="tp-booking-location-content" style="margin-left: 12px;">
-                           <span style="font-weight: 600; display: block;">Havalimanına Yakın Oteller</span>
-                           <p style="margin: 0; font-size: 13px; color: #6a6a6a;"></p>
-                        </div>
-                     </a>
-                  </li>
-
-
+         <!-- Açılır Canlı Sonuç Paneli -->
+         <div id="hb-live-search-results" class="hb-results-dropdown">
+            <div class="hb-results-header">
+               <span id="hb-search-title" class="hb-results-title"></span>
+            </div>
+            <ul id="hb-search-list" class="hb-results-list">
+               <!-- JavaScript Otomatik Dolduracak -->
+            </ul>
+         </div>
 
       </div>
+
    </form>
 </div>
+
+<!-- 🧠 JAVASCRIPT CANLI ARAMA MOTORU -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+   
+   // 📌 DEV ARAMA VERİTABANI (Tüm Bölgeler, İlçeler ve Oteller)
+   const searchDatabase = [
+      
+      // === 1. BÖLGE VE İLÇE KATEGORİLERİ ===
+      { title: "İstanbul Avrupa Yakası", subtitle: "Taksim, Beşiktaş, Bakırköy, Şişli • Saatlik Oteller", url: "./otel-sonuc.html?bolge=ist-avrupa", keywords: ["avrupa", "istanbul avrupa", "avrupa yakasi", "merkez"] },
+      { title: "İstanbul Anadolu Yakası", subtitle: "Kadıköy, Ataşehir, Üsküdar, Ümraniye • Saatlik Oteller", url: "./otel-sonuc.html?bolge=ist-anadolu", keywords: ["anadolu", "istanbul anadolu", "anadolu yakasi", "216"] },
+      { title: "İstanbul Airport & Transit Zone", subtitle: "Havalimanı İçi ve Yakını Transit Konaklama", url: "./otel-sonuc.html?bolge=ist-airport", keywords: ["airport", "havalimanı", "havalimani", "ist", "arnavutköy", "transit"] },
+      { title: "İzmir Saatlik Oteller", subtitle: "Alsancak, Bornova, Konak, Güzelyalı", url: "./otel-sonuc.html?bolge=izmir", keywords: ["izmir", "alsancak", "bornova", "konak", "güzelyalı"] },
+      { title: "Ankara Saatlik Oteller", subtitle: "Çankaya, Gaziosmanpaşa, Merkez", url: "./otel-sonuc.html?bolge=ankara", keywords: ["ankara", "çankaya", "cankaya", "gaziosmanpaşa", "gop"] },
+      { title: "Taksim & Şişli Bölgesi", subtitle: "İstiklal Caddesi, Bomonti, Nişantaşı", url: "./otel-sonuc.html?bolge=taksim-sisli", keywords: ["taksim", "şişli", "sisli", "mecidiyeköy", "beyoğlu", "istiklal"] },
+      { title: "Kadıköy & Moda Bölgesi", subtitle: "Sahil Hattı, Rıhtım & Moda Konseptleri", url: "./otel-sonuc.html?bolge=kadikoy-moda", keywords: ["kadıköy", "kadikoy", "moda", "rıhtım"] },
+      { title: "Bakırköy & Ataköy Bölgesi", subtitle: "Sahil Hattı & Lüks Mola Noktaları", url: "./otel-sonuc.html?bolge=bakirkoy-atakoy", keywords: ["bakırköy", "bakirkoy", "ataköy", "atakoy", "zeytinlik", "florya"] },
+      { title: "Beşiktaş & Boğaz Hattı", subtitle: "Ortaköy, Levent & Lüks Mola", url: "./otel-sonuc.html?bolge=besiktas-bogaz", keywords: ["beşiktaş", "besiktas", "ortaköy", "ortakoy", "boğaz"] },
+      { title: "Ataşehir & Ümraniye Bölgesi", subtitle: "Finans Merkezi & Lüks Süitler", url: "./otel-sonuc.html?bolge=atasehir-umraniye", keywords: ["ataşehir", "atasehir", "ümraniye", "umraniye", "finans merkezi"] },
+
+      // === 2. İSTANBUL ANADOLU OTELLERİ ===
+      { title: "Hilton İstanbul Moda", subtitle: "Kadıköy • Lüks Sahil Konsepti (5 Yıldız)", url: "./hilton-moda-hotel.html", keywords: ["hilton moda", "doubletree moda", "kadıköy hilton", "5 yıldız"] },
+      { title: "216 Bosphorus Hotel", subtitle: "Üsküdar • Boğaz Manzaralı Mola", url: "./216-bosphorus.html", keywords: ["216 bosphorus", "üsküdar otel", "boğaz manzaralı"] },
+      { title: "216 Comfort Inn Suites", subtitle: "Ataşehir • Finans Merkezine Yakın", url: "./216-comfort-inn-suites.html", keywords: ["216 comfort", "ataşehir otel", "comfort inn"] },
+      { title: "216 Eagle Palace", subtitle: "Kartal • Konforlu Süitler", url: "./216-eagle-palace.html", keywords: ["216 eagle", "eagle palace", "kartal otel"] },
+      { title: "216 FB Suites", subtitle: "Kadıköy • Şehir Merkezinde Lüks Konsept", url: "./216-fb-suites.html", keywords: ["216 fb", "fb suites", "kadıköy suit"] },
+      { title: "216 Palace Hotel", subtitle: "Ataşehir • Saray Konforunda Odalar", url: "./216-palace.html", keywords: ["216 palace", "ataşehir palace"] },
+      { title: "216 Prestige Hotel", subtitle: "Ümraniye • Prestijli Hizmet Standartı", url: "./216-prestige-hotel.html", keywords: ["216 prestige", "ümraniye otel"] },
+      { title: "216 Ruby Suite", subtitle: "Ataşehir / Maltepe • Premium Jakuzili Odalar", url: "./216-ruby-suite.html", keywords: ["216 ruby", "ruby suite", "jakuzili otel", "jakuzi"] },
+      { title: "216 Silver Hotel", subtitle: "Maltepe • Güvenli & Hijyenik Odalar", url: "./216-silver.html", keywords: ["216 silver", "maltepe otel"] },
+      { title: "216 Style Suite", subtitle: "Ataşehir • Tam Ses Yalıtımlı Odalar", url: "./216-style-suite.html", keywords: ["216 style", "style suite", "ses yalıtımlı"] },
+      { title: "And Center Suit", subtitle: "Kadıköy • Merkezi Lokasyon", url: "./and-center-suit.html", keywords: ["and center", "kadıköy center"] },
+      { title: "Best Hotel Pendik", subtitle: "Pendik • En İyi Fiyat Garantisi", url: "./best-hotel-pendik.html", keywords: ["best hotel", "pendik otel", "sabiha gökçen"] },
+      { title: "Crowne Plaza Oryapark", subtitle: "Ümraniye • Kurumsal İş Konsepti (5 Yıldız)", url: "./crowne-plaza-istanbul-oryapark.html", keywords: ["crowne plaza", "oryapark", "ümraniye 5 yıldız"] },
+      { title: "Hera Suit Ataşehir", subtitle: "Ataşehir • Premium VIP Konsept", url: "./hera-suit-atasehir.html", keywords: ["hera suit", "ataşehir hera"] },
+
+      // === 3. İSTANBUL AVRUPA OTELLERİ ===
+      { title: "El Emin Istanbul Hotel", subtitle: "İkitelli / Küçükçekmece • Şehir & Konfor Mola", url: "./elemin-hotel.html", keywords: ["el emin", "elemin", "ikitelli", "küçükçekmece"] },
+      { title: "Hilton İstanbul Bakırköy", subtitle: "Bakırköy • Havuz Kullanımı Dahil (5 Yıldız)", url: "./hilton-istanbul-bakirkoy.html", keywords: ["hilton bakırköy", "bakırköy hilton", "havuzlu otel"] },
+      { title: "Sheraton Ataköy Hotel", subtitle: "Ataköy / Bakırköy • Deniz Manzaralı (5 Yıldız)", url: "./sheraton-atakoy-hotel.html", keywords: ["sheraton", "ataköy sheraton", "deniz manzaralı"] },
+      { title: "Des Suites Hotel", subtitle: "Bakırköy • Konfor Odaklı Süitler", url: "./des-suites-hotel.html", keywords: ["des suites", "bakırköy des"] },
+      { title: "Golden City İstanbul", subtitle: "Karaköy • Turistik Lokasyon", url: "./golden-city-istanbul.html", keywords: ["golden city", "karaköy otel"] },
+      { title: "Grand Mark Otel", subtitle: "Fatih • Tarihi Yarımada Mola", url: "./grand-mark-otel.html", keywords: ["grand mark", "fatih otel", "sultanahmet"] },
+      { title: "Gümüş Palace Suit", subtitle: "Bahçelievler • Premium Dinlenme Alanı", url: "./gumus-palace-suit.html", keywords: ["gümüş palace", "bahçelievler otel"] },
+      { title: "Güneş Otel Merter", subtitle: "Güngören / Merter • Ticari Merkezde Mola", url: "./gunes-otel-merter.html", keywords: ["güneş otel", "gunes otel", "merter"] },
+      { title: "Hagia Sofia Mansions", subtitle: "Sultanahmet • Özel Tarihi Konaklar (5 Yıldız)", url: "./hagia-sofia-mansions-istanbul.html", keywords: ["hagia sofia", "sultanahmet konak", "mansions"] },
+      { title: "Hilton İstanbul Bomonti", subtitle: "Şişli / Bomonti • Üst Düzey İş Oteli (5 Yıldız)", url: "./hilton-istanbul-bomonti.html", keywords: ["hilton bomonti", "şişli hilton", "bomonti"] },
+      { title: "Hotel Galata Greenland", subtitle: "Beyoğlu / Galata • Jakuzili Oda Seçenekleri", url: "./galata-greenland.html", keywords: ["galata greenland", "greenland", "beyoğlu", "jakuzili"] },
+      { title: "Linden House", subtitle: "Beşiktaş • Merkez Mola", url: "./linden-house.html", keywords: ["linden house", "beşiktaş linden"] },
+      { title: "New Falcon Palace", subtitle: "Beşiktaş • Konforlu Gündüz Odaları", url: "./new-falcon-palace.html", keywords: ["falcon palace", "beşiktaş falcon"] },
+      { title: "Pasha Palace Hotel", subtitle: "Fatih • Güvenli Giriş İmkanı", url: "./pasha-palace-hotel.html", keywords: ["pasha palace", "fatih pasha"] },
+      { title: "Restwon Suit Saatlik", subtitle: "Bakırköy • Ses Yalıtımlı Odalar", url: "./restwon-suit-saatlik.html", keywords: ["restwon", "restwon suit", "bakırköy restwon"] },
+      { title: "Richmond Taksim", subtitle: "İstiklal Caddesi • Tam Merkez Mola", url: "./richmond-taksim.html", keywords: ["richmond", "taksim richmond", "istiklal caddesi"] },
+      { title: "Royal Nest Hotel", subtitle: "Beşiktaş • Premium VIP Süitler", url: "./royal-nest.html", keywords: ["royal nest", "beşiktaş royal"] },
+      { title: "Ser Suit Apart", subtitle: "Fatih • Bağımsız Süit Odalar", url: "./ser-suit-apart.html", keywords: ["ser suit", "fatih suit"] },
+      { title: "Sky Blue İstanbul", subtitle: "Şişli • Finans Merkezinde Mola", url: "./sky-blue-istanbul.html", keywords: ["sky blue", "şişli sky blue"] },
+      { title: "The Wind Ortaköy", subtitle: "Ortaköy / Beşiktaş • Premium VIP", url: "./the-wind-ortakoy.html", keywords: ["the wind", "ortaköy otel", "wind ortaköy"] },
+      { title: "Valeron Suit Premium", subtitle: "Bakırköy / Zeytinlik • Seçkin Süitler", url: "./valeron-suit-premium.html", keywords: ["valeron", "valeron suit", "bakırköy valeron"] },
+      { title: "Weingart Hotel", subtitle: "Karaköy • Tarihi Bölgede Mola", url: "./weingart-hotel.html", keywords: ["weingart", "karaköy weingart"] },
+      { title: "DoubleTree by Hilton Avcılar", subtitle: "Avcılar • Lüks 5 Yıldız Standardı", url: "./doubletree-by-hilton-istanbul.html", keywords: ["doubletree avcılar", "avcılar hilton"] },
+
+      // === 4. İSTANBUL AIRPORT OTELLERİ ===
+      { title: "Hidden Hills Hotel", subtitle: "Arnavutköy (IST) • Transit Mola Konsepti", url: "./hidden-hills-istanbul.html", keywords: ["hidden hills", "arnavutköy", "ist airport transit"] },
+      { title: "Airport Black Sea Hotel", subtitle: "Arnavutköy • Transit Aktarma Noktası", url: "./airport-black-sea-hotel.html", keywords: ["airport black sea", "black sea otel"] },
+      { title: "Elysian Airport Hotel", subtitle: "Arnavutköy • Ses Yalıtımlı Transit Oda", url: "./elysian-airport-Hotel.html", keywords: ["elysian", "elysian airport"] },
+      { title: "Grand Özer Hotel", subtitle: "Arnavutköy • Havalimanına Kolay Ulaşım", url: "./grand-ozer-hotel.html", keywords: ["grand özer", "grand ozer"] },
+      { title: "The Great Airport Hotel", subtitle: "Arnavutköy • Modern Transit Konaklama", url: "./the-great-airport-hotel.html", keywords: ["great airport", "the great airport"] },
+      { title: "YOTELAIR City Entrance", subtitle: "Havalimanı İçi • Kara Tarafı (Landside)", url: "./yotel-air-city-entrance.html", keywords: ["yotelair city", "yotel kara tarafı", "landside"] },
+      { title: "YOTELAIR Transit Area", subtitle: "Havalimanı İçi • Hava Tarafı (Airside Pasaport Sonrası)", url: "./yotel-air-istanbul-airport.html", keywords: ["yotelair transit", "yotel airside", "pasaport sonrası"] },
+
+      // === 5. İZMİR OTELLERİ ===
+      { title: "Green Palmiye Hotel", subtitle: "İzmir Merkez • Konforlu Mola", url: "./green-palmiye-hotel.html", keywords: ["green palmiye", "izmir merkez otel"] },
+      { title: "Meva Pansiyon İzmir", subtitle: "Konak / İzmir • Ekonomik Gündüz Odaları", url: "./meva-pansiyon-izmir.html", keywords: ["meva pansiyon", "konak otel"] },
+      { title: "Müber Otel İzmir", subtitle: "Alsancak / İzmir • Tam Merkez Mola", url: "./muber-otel-izmir.html", keywords: ["müber otel", "muber otel", "alsancak otel"] },
+      { title: "Rayal Inn Bornova", subtitle: "Bornova / İzmir • Kurumsal İş Odaları", url: "./rayalinn-bornova.html", keywords: ["rayal inn", "bornova otel"] },
+      { title: "The Port Güzelyalı", subtitle: "Güzelyalı / İzmir • Sahil Hattında Mola", url: "tr/the-port-guzelyali.html", keywords: ["the port", "güzelyalı otel"] },
+
+      // === 6. ANKARA OTELLERİ ===
+      { title: "Çankaya Suit", subtitle: "Çankaya / Ankara • İş & Mola Odaları", url: "tr/cankaya-suit.html", keywords: ["çankaya suit", "cankaya suit", "ankara otel"] },
+      { title: "Park 12 Ankara", subtitle: "Gaziosmanpaşa / Ankara • Modern Süitler", url: "tr/park-12-ankara.html", keywords: ["park 12", "ankara park 12", "gaziosmanpaşa ankara"] }
+
+   ];
+
+   const input = document.getElementById('hb-live-search-input');
+   const resultsBox = document.getElementById('hb-live-search-results');
+   const resultsList = document.getElementById('hb-search-list');
+   const searchTitle = document.getElementById('hb-search-title');
+
+   // 🔍 ARAMA & SÜZME FONKSİYONU
+   function renderResults(query = '') {
+      const cleanQuery = query.toLowerCase().trim();
+      resultsList.innerHTML = '';
+
+      const filtered = searchDatabase.filter(item => {
+         if (!cleanQuery) return true; // Boşsa tüm önerileri göster
+         return item.title.toLowerCase().includes(cleanQuery) || 
+                item.subtitle.toLowerCase().includes(cleanQuery) ||
+                item.keywords.some(kw => kw.toLowerCase().includes(cleanQuery));
+      });
+
+      if (filtered.length === 0) {
+         resultsList.innerHTML = `<li style="padding: 14px; text-align: center; color: #94a3b8; font-size: 13px;">Aramanızla eşleşen otel veya bölge bulunamadı.</li>`;
+         return;
+      }
+
+      filtered.forEach(item => {
+         const li = document.createElement('li');
+         li.innerHTML = `
+            <a href="${item.url}">
+               <div>
+                  <span style="font-weight: 600; font-size: 13.5px; color: #0f172a; display: block;">${item.title}</span>
+                  <span style="font-size: 11px; color: #64748b;">${item.subtitle}</span>
+               </div>
+               <span style="color: #ff4a22; font-size: 14px; font-weight: bold; margin-left: 8px;">→</span>
+            </a>
+         `;
+         resultsList.appendChild(li);
+      });
+   }
+
+   // ⌨️ INPUT DİNLEYİCİLERİ
+   if (input) {
+      input.addEventListener('focus', function() {
+         searchTitle.innerText = "Önerilen Lokasyonlar & Oteller";
+         renderResults('');
+         resultsBox.style.display = 'block';
+      });
+
+      input.addEventListener('input', function(e) {
+         const val = e.target.value;
+         if (val.length > 0) {
+            searchTitle.innerText = "Arama Sonuçları";
+         } else {
+            searchTitle.innerText = "Önerilen Lokasyonlar & Oteller";
+         }
+         renderResults(val);
+         resultsBox.style.display = 'block';
+      });
+   }
+
+   // 🖱️ DIŞARI TIKLANINCA KAPANMA
+   document.addEventListener('click', function(e) {
+      if (!e.target.closest('.hb-search-wrapper')) {
+         if (resultsBox) resultsBox.style.display = 'none';
+      }
+   });
+
+});
+
+</script>
                                  </div>
                               </div>
                            </form>
@@ -416,7 +918,7 @@
                         </div>
                      </div>
                      
- </div>                        </p>
+            </p>
                      </div>
                      
                   </div>
@@ -427,352 +929,10 @@
          <!-- tp-hero-area-end -->
    
 <style>
-/* 🎯 Güven Panelini Arama Kutusunun Altına Ezilmeyecek Şekilde Sabitleme */
-.tq-features-panel-wrapper {
-  position: relative !important;
-  z-index: 1 !important; /* Arama kutusunun (z-index: 9999) KESİNLİKLE arkasında kalır */
-  width: 100%;
-  max-width: 1100px;
-  margin: 15px auto 25px auto;
-  padding: 0 10px;
-  box-sizing: border-box;
-}
 
-.tq-features-inside-box {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.tq-feature-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #f8fafc;
-  border: 1px solid #e2e8f0;
-  padding: 8px 14px;
-  border-radius: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-}
-
-.tq-feature-icon-box svg {
-  width: 18px;
-  height: 18px;
-  display: block;
-}
-
-.tq-feature-text-box h3 {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: #1e293b !important;
-  margin: 0 !important;
-  white-space: nowrap;
-}
-
-/* Açıklama yazılarını mobilde kalabalık etmesin diye gizleyip rozetleştirdik */
-.tq-feature-text-box p {
-  display: none !important; 
-}
-
-/* 📱 MOBİL ÖZEL: Tek satırda kayan kibar rozetler */
-@media (max-width: 768px) {
-  .tq-features-panel-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding: 5px 15px;
-  }
-  
-  .tq-features-panel-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .tq-features-inside-box {
-    flex-wrap: nowrap !important;
-    justify-content: flex-start !important;
-    width: max-content;
-  }
-
-  .tq-feature-item {
-    padding: 6px 12px;
-    background: #ffffff;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-}
 </style>
 
-<!-- ================= DAYUSE STİLİ MOBİL OPTİMİZE GÜVEN PANELİ ================= -->
-<style>
-/* 🎯 Güven Paneli Ana Kapsayıcısı */
-.tq-features-panel-wrapper {
-  position: relative !important;
-  z-index: 1 !important; /* Arama kutusunun arka planında kalmasını garantiler */
-  width: 100% !important;
-  max-width: 1100px !important;
-  margin: 35px auto 20px auto !important; /* Üstten 35px boşluk bırakarak arama kutusundan uzaklaştırdık */
-  padding: 0 15px !important;
-  box-sizing: border-box !important;
-  clear: both !important;
-}
 
-.tq-features-inside-box {
-  display: flex !important;
-  gap: 12px !important;
-  justify-content: center !important; /* Masaüstünde tam ortalar */
-  align-items: center !important;
-  flex-wrap: wrap !important;
-  width: 100% !important;
-  margin: 0 auto !important;
-}
-
-.tq-feature-item {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  background: #ffffff !important;
-  border: 1px solid #e2e8f0 !important;
-  padding: 8px 16px !important;
-  border-radius: 20px !important;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
-}
-
-.tq-feature-icon-box svg {
-  width: 18px !important;
-  height: 18px !important;
-  display: block !important;
-}
-
-.tq-feature-text-box h3 {
-  font-size: 13px !important;
-  font-weight: 600 !important;
-  color: #1e293b !important;
-  margin: 0 !important;
-  white-space: nowrap !important;
-}
-
-/* Kalabalık yapmasın diye p etiketlerini gizledik */
-.tq-feature-text-box p {
-  display: none !important;
-}
-
-/* 📱 MOBİL ÖZEL: Tam Ekran Ortalanmış Rozet Düzeni */
-@media (max-width: 768px) {
-  .tq-features-panel-wrapper {
-    margin-top: 40px !important; /* Mobilde arama kutusundan daha da aşağıya iter */
-    padding: 0 10px !important;
-  }
-  
-  .tq-features-inside-box {
-    display: flex !important;
-    flex-wrap: wrap !important; /* Mobilde 2'li 2'li alt alta dizip tam ortalar */
-    justify-content: center !important; 
-    gap: 10px !important;
-  }
-
-  .tq-feature-item {
-    padding: 8px 12px !important;
-    flex: 0 1 auto !important; /* Kendi içeriği kadar genişleyip ortalanır */
-  }
-}
-</style>
-
-<div class="tq-features-panel-wrapper">
-   <div class="tq-features-inside-box">
-      
-      <!-- 1. MADDE: ÜCRETSİZ İPTAL -->
-      <div class="tq-feature-item">
-         <div class="tq-feature-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-               <path d="m9 12 2 2 4-4"/>
-            </svg>
-         </div>
-         <div class="tq-feature-text-box">
-            <h3>Ücretsiz İptal</h3>
-         </div>
-      </div>
-
-      <!-- 2. MADDE: OTELDE ÖDEME -->
-      <div class="tq-feature-item">
-         <div class="tq-feature-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-               <rect width="20" height="14" x="2" y="5" rx="2"/>
-               <line x1="2" x2="22" y1="10" y2="10"/>
-            </svg>
-         </div>
-         <div class="tq-feature-text-box">
-            <h3>Otelde Ödeme</h3>
-         </div>
-      </div>
-
-      <!-- 3. MADDE: %75'E VARAN AVANTAJ -->
-      <div class="tq-feature-item">
-         <div class="tq-feature-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-               <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/>
-               <line x1="7" y1="7" x2="7.01" y2="7"/>
-            </svg>
-         </div>
-         <div class="tq-feature-text-box">
-            <h3>%75'e Varan İndirim</h3>
-         </div>
-      </div>
-
-      <!-- 4. MADDE: NETWORK LİDERİ -->
-      <div class="tq-feature-item">
-         <div class="tq-feature-icon-box">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#ff4a22" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-               <circle cx="12" cy="8" r="7"/>
-               <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
-            </svg>
-         </div>
-         <div class="tq-feature-text-box">
-            <h3>Saatlik Oda Networkü</h3>
-         </div>
-      </div>
-
-   </div>
-</div>
-<!-- MASAÜSTÜ VE MOBİL KIRILIMLARINI ÇÖZEN ÖZEL CSS MİMARİSİ -->
-<style>
-.tq-features-panel-wrapper {
-   width: 100%;
-   max-width: 1200px;
-   margin: 30px auto;
-   padding: 0 15px;
-   font-family: inherit;
-}
-
-/* ================= MASAÜSTÜ GÖRÜNÜMÜ ================= */
-@media (min-width: 769px) {
-   .tq-features-inside-box {
-      background: #f8f9fa;
-      border-radius: 16px;
-      padding: 40px 20px;
-      display: flex;
-      justify-content: space-around;
-      align-items: flex-start;
-      gap: 20px;
-   }
-   .tq-feature-item {
-      flex: 1;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   }
-   .tq-feature-icon-box {
-      width: 44px;
-      height: 44px;
-      margin-bottom: 12px;
-   }
-   .tq-feature-icon-box svg {
-      width: 100%;
-      height: 100%;
-   }
-   .tq-feature-item h3 {
-      font-size: 16px;
-      font-weight: 700;
-      color: #1a1a1a;
-      margin: 0 0 6px 0;
-   }
-   .tq-feature-item p {
-      font-size: 13px;
-      color: #718096;
-      margin: 0;
-      line-height: 1.4;
-      max-width: 200px;
-   }
-}
-
-/* ================= MOBİL GÖRÜNÜMÜ (KUSURSUZ İNCE ŞERİT) ================= */
-/* ================= SADECE MOBİL GÖRÜNÜMÜNÜ DÜZENLİYORUZ ================= */
-@media (max-width: 768px) {
-   .tq-features-inside-box {
-      display: grid !important;
-      /* Ekranı tam ortadan ikiye bölerek 2 sütun yapar */
-      grid-template-columns: repeat(2, 1fr) !important; 
-      /* Toplam 4 madde olduğu için otomatikman 2 üstte 2 altta konumlanır kanka */
-      grid-template-rows: auto auto !important;
-      gap: 10px !important; /* Kapsüllerin birbirine olan kibar mesafesi */
-      padding: 0 5px !important;
-      background: transparent !important;
-   }
-   
-   .tq-feature-item {
-      display: flex !important;
-      flex-direction: row !important; /* İkon solda, yazı sağda yatay düzen */
-      align-items: center !important;
-      gap: 8px !important;
-      background: #f8f9fa !important; /* Sevdiğin o soft hafif arka plan */
-      padding: 10px 12px !important;
-      border-radius: 30px !important; /* Beğendiğin o jilet gibi oval kapsül yapısı */
-      box-sizing: border-box !important;
-      width: 100% !important;
-   }
-   
-   .tq-feature-icon-box {
-      width: 22px !important; /* Kibar mini ikon boyutu */
-      height: 22px !important;
-      flex-shrink: 0 !important;
-   }
-   
-   .tq-feature-icon-box svg {
-      width: 100%;
-      height: 100%;
-   }
-   
-   .tq-feature-text-box {
-      text-align: left !important;
-   }
-   
-   .tq-feature-item h3 {
-      font-size: 11px !important; /* Küçük ekranlarda yan yana sığması için ideal punto */
-      font-weight: 700;
-      color: #1a1a1a;
-      margin: 0 !important;
-      white-space: nowrap !important;
-   }
-   
-   .tq-feature-item p {
-      font-size: 9px !important; /* Altındaki kısa açıklama */
-      color: #718096;
-      margin: 1px 0 0 0 !important;
-      line-height: 1.1;
-   }
-}
-</style>
-<!-- ================= END OF OPTIMIZED FEATURES PANEL ================= -->
-<style>
-/* Kartların üzerine gelindiğinde sitenizin ana rengiyle şık bir odak efekti oluşturur */
-.tp-rev-feature-item {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-}
-.tp-rev-feature-item:hover {
-    border-color: #ff4a22 !important;
-    box-shadow: 0 10px 25px rgba(255, 74, 34, 0.06) !important;
-    transform: translateY(-2px);
-}
-</style>
-   
-         <!-- tp-tour-area-start -->
-<style>
-  /* Masaüstünde Tam Ortala */
-  .tp-horizontal-scroll-container {
-    justify-content: center;
-    width: 100%;
-  }
-
-  /* Mobilde En Baştan Başlat (Sola Yasla) */
-  @media (max-width: 768px) {
-    .tp-horizontal-scroll-container {
-      justify-content: flex-start !important;
-      width: max-content !important;
-    }
-  }
-</style>
 
 <div class="tp-horizontal-scroll-wrapper" style="margin-top: 20px; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; padding: 10px 15px; box-sizing: border-box;">
    <div class="tp-horizontal-scroll-container" style="display: flex; gap: 10px;">
@@ -800,7 +960,107 @@
 
    <div class="tq-hotel-scroll-container" style="display: flex !important; gap: 20px !important; overflow-x: auto !important; overflow-y: hidden !important; white-space: nowrap !important; -webkit-overflow-scrolling: touch !important; padding: 10px 5px 20px 5px !important; scroll-snap-type: x mandatory;">
       
+<!-- ================= 1. HIDDEN HILLS HOTEL ================= -->
+<a href="tr/hidden-hills-istanbul.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa airport-transit" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
+   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 200px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.03); padding-bottom: 12px;">
+      
+      <div style="display: flex; flex-direction: column; width: 100%;">
+         <div class="tp-hotel-img-box" style="position: relative; width: 100%; height: 160px; overflow: hidden;">
+            <img src="https://lh3.googleusercontent.com/gps-cs-s/AHRPTWnQ0nzQCG379KcfnqELgUnrkGtqVTIYj_KVDVMVnqBfHgKjkZXhXN-dvzBI39nICInMFl9n2AzEE66seGV5eLeHscfNq_pL234WX7bd64Gpj0xnrg87PzpFHxEqP4lJVXfgyPT1TVCCuVk=s680-w680-h510-rw" alt="Hidden Hills Hotel" style="width:100%; height:160px; object-fit:cover;">
+            
+            <div style="position: absolute; top: 10px; left: 10px; background: rgba(0, 91, 150, 0.9) !important; color: #ffffff !important; font-size: 11px !important; font-weight: 700 !important; padding: 4px 10px !important; border-radius: 6px !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 2; pointer-events: none; display: flex; align-items: center; gap: 4px;">
+               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17.8 19.2 16 11l3.5-3.5C21 6 21.5 4 21 3c-1-.5-3 0-4.5 1.5L13 8 4.8 6.2c-.5-.1-.9.1-1.1.5l-.3.5c-.2.5-.1 1 .3 1.3L9 12l-2 3H4l-1 1 3 2 2 3 1-1v-3l3-2 3.7 5.2c.3.4.8.5 1.3.3l.5-.3c.4-.2.6-.6.5-1.1z"/></svg>
+               Havalimanı Transit
+            </div>
+         </div>
+         
+         <div class="tp-hotel-info" style="padding: 12px 12px 0 8px; text-align: left !important;">
+            <div class="tp-hotel-rating" style="color:#ffb100; font-size: 12px;">★★★★★</div>
+            <h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:8px 0; color: #1a1a1a; white-space: normal !important;">Hidden Hills Hotel</h4>
+            <p style="color:#718096; font-size:13px; margin:0 0 8px 0;">Arnavutköy, İstanbul</p>
+            
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">12 Saat</span>
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">24 Saat</span>
+            </div>
+         </div>
+      </div>
 
+      <div class="tp-hotel-price" style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding-right: 12px; margin-top: 2px;">
+         <span class="from-text" style="font-size:11px; color:#718096; line-height: 1;">başlayan</span>
+         <span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; line-height: 1.2; margin-top: 2px;">65,00&euro;</span>
+      </div>
+
+   </div>
+</a>
+
+<!-- ================= 2. EL EMİN İSTANBUL HOTEL ================= -->
+<a href="tr/elemin-hotel.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa ikitelli-center" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
+   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 200px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.03); padding-bottom: 12px;">
+      
+      <div style="display: flex; flex-direction: column; width: 100%;">
+         <div class="tp-hotel-img-box" style="position: relative; width: 100%; height: 160px; overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?auto=format&fit=crop&w=800&q=80" alt="El Emin Istanbul Hotel" style="width:100%; height:160px; object-fit:cover;">
+            
+            <div style="position: absolute; top: 10px; left: 10px; background: rgba(0, 91, 150, 0.9) !important; color: #ffffff !important; font-size: 11px !important; font-weight: 700 !important; padding: 4px 10px !important; border-radius: 6px !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 2; pointer-events: none; display: flex; align-items: center; gap: 4px;">
+               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+               Konforlu Mola
+            </div>
+         </div>
+         
+         <div class="tp-hotel-info" style="padding: 12px 12px 0 8px; text-align: left !important;">
+            <div class="tp-hotel-rating" style="color:#ffb100; font-size: 12px;">★★★★</div>
+            <h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:8px 0; color: #1a1a1a; white-space: normal !important;">El Emin Istanbul</h4>
+            <p style="color:#718096; font-size:13px; margin:0 0 8px 0;">Küçükçekmece, İST</p>
+            
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">5 Saat</span>
+            </div>
+         </div>
+      </div>
+
+      <div class="tp-hotel-price" style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding-right: 12px; margin-top: 2px;">
+         <span class="from-text" style="font-size:11px; color:#718096; line-height: 1;">başlayan</span>
+         <span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; line-height: 1.2; margin-top: 2px;">52,00&euro;</span>
+      </div>
+
+   </div>
+</a>
+
+<!-- ================= 3. HOTEL GALATA GREENLAND ================= -->
+<a href="tr/galata-greenland.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa jakuzili oda" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
+   <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 200px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.03); padding-bottom: 12px;">
+      
+      <div style="display: flex; flex-direction: column; width: 100%;">
+         <div class="tp-hotel-img-box" style="position: relative; width: 100%; height: 160px; overflow: hidden;">
+            <img src="https://imgcy.trivago.com/c_fill,d_dummy.jpeg,e_sharpen:60,f_auto,h_267,q_40,w_400/partner-images/a1/e2/b3880b981bab152e8b4c6666d2ef98069c7ceac2daa6e3f5b12082ed820b.jpeg" alt="Hotel Galata Greenland" style="width:100%; height:160px; object-fit:cover;">
+            
+            <div style="position: absolute; top: 10px; left: 10px; background: rgba(0, 91, 150, 0.9) !important; color: #ffffff !important; font-size: 11px !important; font-weight: 700 !important; padding: 4px 10px !important; border-radius: 6px !important; text-transform: uppercase !important; letter-spacing: 0.5px !important; box-shadow: 0 2px 6px rgba(0,0,0,0.15); z-index: 2; pointer-events: none; display: flex; align-items: center; gap: 4px;">
+               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+               Jakuzili Oda
+            </div>
+         </div>
+         
+         <div class="tp-hotel-info" style="padding: 12px 12px 0 8px; text-align: left !important;">
+            <div class="tp-hotel-rating" style="color:#ffb100; font-size: 12px;">★★★</div>
+            <h4 class="tp-hotel-name" style="font-size:16px; font-weight:600; margin:8px 0; color: #1a1a1a; white-space: normal !important;">Galata Greenland</h4>
+            <p style="color:#718096; font-size:13px; margin:0 0 8px 0;">Beyoğlu, İstanbul</p>
+            
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">3 Saat</span>
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">6 Saat</span>
+               <span style="font-size: 11px; font-weight: 600; color: #ff4a22; background: rgba(255, 74, 34, 0.08); padding: 3px 8px; border-radius: 12px; white-space: nowrap;">9 Saat</span>
+            </div>
+         </div>
+      </div>
+
+      <div class="tp-hotel-price" style="display: flex; flex-direction: column; align-items: flex-end; text-align: right; padding-right: 12px; margin-top: 2px;">
+         <span class="from-text" style="font-size:11px; color:#718096; line-height: 1;">başlayan</span>
+         <span class="price-value" style="color: #ff4a22 !important; font-weight: 700; font-size:19px; line-height: 1.2; margin-top: 2px;">42,00&euro;</span>
+      </div>
+
+   </div>
+</a>
 <a href="
 tr/hilton-istanbul-bakirkoy.html" target="_blank" class="tp-hotel-card-wrapper" data-city="ist-avrupa bakirkoy business-suit" style="text-decoration: none !important; display: inline-block !important; flex-shrink: 0 !important; vertical-align: top;">
    <div class="tp-hotel-card" style="border: 1.5px solid #ff4a22 !important; border-radius: 12px !important; background: #ffffff !important; width: 200px; height: 380px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; box-sizing: border-box; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
