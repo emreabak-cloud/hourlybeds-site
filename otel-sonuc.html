@@ -422,10 +422,78 @@
     </head>
 <body>
 
-<!-- YATAY KAYAN YENİ NESİL KATEGORİ VE İLÇE BUTONLARI -->
+<style>
+/* 🎯 1. YATAY KAYAN LOKASYON BUTONLARI VE SCROLLBAR GİZLEME */
+.tp-horizontal-scroll-wrapper {
+  margin-top: 20px;
+  width: 100%;
+  overflow-x: auto !important;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch !important;
+  box-sizing: border-box;
+  scrollbar-width: none !important; /* Firefox */
+}
+.tp-horizontal-scroll-wrapper::-webkit-scrollbar {
+  display: none !important; /* Chrome, Safari, Edge */
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* Masaüstünde Butonları Tam Ortala */
+.tp-horizontal-scroll-wrapper .tp-horizontal-scroll-container {
+  display: inline-flex !important;
+  gap: 8px !important;
+  justify-content: center !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+/* Mobilde Butonları Sola Yasla (Sola Taşmayı Ve Kesilmeyi Önler) */
+@media (max-width: 768px) {
+  .tp-horizontal-scroll-wrapper {
+    padding: 10px 15px !important;
+    text-align: left !important;
+  }
+  .tp-horizontal-scroll-wrapper .tp-horizontal-scroll-container {
+    justify-content: flex-start !important;
+    width: max-content !important;
+    padding-left: 0 !important;
+    padding-right: 15px !important;
+  }
+}
+
+/* 🎯 2. OTEL KARTLARINI SAYFAYA JİLET GİBİ YAYAN GRID YAPISI */
+.tp-hotel-list-container {
+  display: grid !important;
+  /* Ekran genişliğine göre kartları eşit parçalar halinde sayfaya yayar */
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)) !important;
+  gap: 25px !important; /* Kartlar arası boşluk */
+  width: 100% !important;
+  max-width: 1400px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+/* Kartların sabit genişliklerini ve esneme engellerini tamamen kaldırma */
+.tp-hotel-card-wrapper {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  text-decoration: none !important;
+  flex-shrink: 1 !important;
+}
+
+.tp-hotel-card {
+  width: 100% !important; /* Sabit 300px iptal edildi, ızgarayı tam kaplar */
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+</style>
+
 <!-- ORTALANMIŞ POPÜLER LOKASYONLAR ŞERİDİ -->
-<div class="tp-horizontal-scroll-wrapper" style="margin-top: 20px; width: 100%; overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; padding: 10px 5px; text-align: center !important;">
-   <div class="tp-horizontal-scroll-container" style="display: inline-flex; gap: 8px; padding-left: 10px; padding-right: 10px; justify-content: center !important; margin: 0 auto;">
+<div class="tp-horizontal-scroll-wrapper">
+   <div class="tp-horizontal-scroll-container">
       
       <!-- Ana Bölgeler -->
       <a href="?bolge=all" class="tp-scroll-item" data-target="all" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Tümü</a>
@@ -435,19 +503,17 @@
       <a href="?bolge=izmir" class="tp-scroll-item" data-target="izmir" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">İzmir</a>
       <a href="?bolge=ankara" class="tp-scroll-item" data-target="ankara" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Ankara</a>
       
-      <!-- Yeni Eklenen Popüler İlçeler / JS Engelini Aşan Harici Sayfa Linkleri -->
-      <a href="hotel-searh-london?bolge=all" onclick="window.open(this.href, '_blank'); return false;" class="tp-scroll-link-item" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Londra</a>
-      <a href="hotel-searh-manchester?bolge=all" onclick="window.open(this.href, '_blank'); return false;" class="tp-scroll-link-item" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Manchester</a>    
+      <!-- Popüler İlçeler -->
+      <a href="hotel-searh-london.html" onclick="window.open(this.href, '_blank'); return false;" class="tp-scroll-link-item" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Londra</a>
+      <a href="hotel-searh-manchester.html" onclick="window.open(this.href, '_blank'); return false;" class="tp-scroll-link-item" style="text-decoration: none !important; display: inline-block; border: 1.5px solid #ff4a22 !important; background-color: transparent; color: #ff4a22; border-radius: 20px !important; padding: 6px 18px !important; font-weight: 500 !important; cursor: pointer; white-space: nowrap;">Manchester</a>    
       
    </div>
 </div>
 
- <div style="max-width: 1600px; margin: 40px auto; padding: 0 15px;">
-   <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;" id="hotel-grid">
-      
-      <!-- ================= İSTANBUL ANADOLU OTELLERİ ================= -->
-<!-- DOUBLETREE HILTON MODA - SAĞA HİZALI FİYAT & HOOK ETİKETLİ KART -->
-<div class="tp-hotel-list-container" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+<!-- OTEL KARTLARI ALANI -->
+<div style="width: 100%; margin: 30px auto; padding: 0 15px; box-sizing: border-box;">
+   
+   <div class="tp-hotel-list-container" id="hotel-grid">
 
    <!-- ================= İSTANBUL ANADOLU OTELLERİ ================= -->
 

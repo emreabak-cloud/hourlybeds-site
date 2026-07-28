@@ -342,9 +342,12 @@
                            Premium Saatlik Odaları ve Lüks Süitleri Keşfedin. Sadece kaldığınız süre kadar güvenle ödeyin.
                         </p>
 
- <form action="#">
-   <div class="tp-booking-wrap tp-marker-tab p-relative">
-      <div class="tp-booking-location tp-booking-col-1 p-relative" style="display: flex; align-items: center; background: #ffffff; border-radius: 30px; padding: 0 20px; height: 46px; width: 100%; max-width: 420px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+
+<form action="#">
+   <div class="tp-booking-wrap tp-marker-tab p-relative" style="position: relative !important; z-index: 99999 !important;">
+      
+      <!-- 🎯 Dış Kutu (Overflow kaldırıldı, z-index yükseltildi) -->
+      <div class="tp-booking-location tp-booking-col-1 p-relative" style="display: flex; align-items: center; background: #ffffff; border-radius: 30px; padding: 0 20px; height: 46px; width: 100%; max-width: 420px; margin: 0 auto; box-shadow: 0 4px 15px rgba(0,0,0,0.1); position: relative !important; z-index: 99999 !important;">
          
          <div class="tp-booking-location-input tp-booking-toggle p-relative" style="display: flex; align-items: center; width: 100%; height: 100%;">
             
@@ -355,18 +358,19 @@
                </svg>
             </span>
 
-            <input class="tp-input" type="text" placeholder="        Otel veya Bölge Ara" style="color: #0f172a !important; font-weight: 700 !important; font-size: 15px !important; border: none !important; background: transparent !important; width: 100%; height: 100%; outline: none;">
+            <input class="tp-input" type="text" placeholder="Otel veya Bölge Ara" style="color: #0f172a !important; font-weight: 700 !important; font-size: 15px !important; border: none !important; background: transparent !important; width: 100%; height: 100%; outline: none; padding-left: 5px;">
          
          </div>
 
-         <div class="tp-booking-location-list tp-booking-toggle-active">
+         <!-- 🚀 AÇILAN POPUP LİSTESİ (En üst katmana fırlatıldı) -->
+         <div class="tp-booking-location-list tp-booking-toggle-active" style="position: absolute !important; top: 52px !important; left: 0 !important; width: 100% !important; background: #ffffff !important; border-radius: 16px !important; box-shadow: 0 10px 30px rgba(0,0,0,0.15) !important; z-index: 999999 !important; padding: 15px !important; box-sizing: border-box !important;">
             <div class="tp-booking-location-inner">
-               <span class="tp-booking-location-suggested">Popüler Saatlik Otel Bölgeleri</span>
+               <span class="tp-booking-location-suggested" style="display: block; font-weight: 700; margin-bottom: 10px; color: #1e293b;">Popüler Saatlik Otel Bölgeleri</span>
                
                <ul style="list-style: none; padding: 0; margin: 0;">
                   
                   <li>
-                     <a href="./taksim-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                     <a href="./taksim-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
                         <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
                            <img src="/../../assets/img/booking-form/02.png" alt="booking" onerror="this.style.display='none'">
                         </div>
@@ -378,7 +382,7 @@
                   </li>
 
                   <li>
-                     <a href="./kadikoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                     <a href="./kadikoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
                         <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
                            <img src="/../../assets/img/booking-form/03.png" alt="booking" onerror="this.style.display='none'">
                         </div>
@@ -390,7 +394,7 @@
                   </li>
 
                   <li>
-                     <a href="./besiktas-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                     <a href="./besiktas-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
                         <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
                            <img src="/../../assets/img/booking-form/04.png" alt="booking" onerror="this.style.display='none'">
                         </div>
@@ -402,7 +406,7 @@
                   </li>
 
                   <li>
-                     <a href="./bakirkoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                     <a href="./bakirkoy-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
                         <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
                            <img src="/../../assets/img/booking-form/05.png" alt="booking" onerror="this.style.display='none'">
                         </div>
@@ -414,7 +418,7 @@
                   </li>
 
                   <li>
-                     <a href="./uskudar-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 10px 0;">
+                     <a href="./uskudar-saatlik-oteller.html" target="_blank" rel="noopener noreferrer" style="display: flex; align-items: center; text-decoration: none; color: inherit; width: 100%; padding: 8px 0;">
                         <div class="tp-booking-location-icon" style="display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; min-width: 40px;">
                            <img src="/../../assets/img/booking-form/06.png" alt="booking" onerror="this.style.display='none'">
                         </div>
@@ -431,27 +435,7 @@
 
       </div>
    </div>
-   
-</form></li>                                    </div>
-                                 </div>
-                              </div>
-                           </form>
-                        </div>
-                        
-                        <div class="tp-hero-3-best-search wow fadeInUp" data-wow-duration=".1s" data-wow-delay=".1s">
-                           <span class="fw-500 text-white"></span>
-                 
-                        </div>
-                     </div>
-                     
- </div>                        </p>
-                     </div>
-                     
-                  </div>
-               </div>
-            </div>
-         </div>
-         </div>
+</form>
          <!-- tp-hero-area-end -->
    
 <!-- ================= DAYUSE STİLİ MOBİL OPTİMİZE GÜVEN PANELİ ================= -->

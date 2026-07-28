@@ -2501,27 +2501,26 @@ input[type=color] {
 .tp-sidemenu-close i {
   transition: 0.3s;
 }
-
-/*----------------------------------------*/
-/*  4.4 offcanvas
-/*----------------------------------------*/
+/* 4.4 offcanvas - Daraltılmış ve Şıklaştırılmış Sürüm */
 .tp-offcanvas {
   position: fixed;
   right: 0;
   z-index: 99;
   top: 0;
-  width: 400px;
+  width: 310px; /* 👈 400px yerine 310px yaparak daralttık */
   background: var(--tp-common-white);
-  padding: 50px 40px;
+  padding: 35px 25px; /* 👈 İç boşlukları derli toplu yaptık */
   height: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   -webkit-transform: translateX(100%);
   -moz-transform: translateX(100%);
   -ms-transform: translateX(100%);
   -o-transform: translateX(100%);
   transform: translateX(100%);
   transition: all 0.3s ease-out 0s;
+  box-shadow: -5px 0 25px rgba(0,0,0,0.1);
 }
+
 .tp-offcanvas-open {
   -webkit-transform: translateX(0);
   -moz-transform: translateX(0);
@@ -2529,97 +2528,87 @@ input[type=color] {
   -o-transform: translateX(0);
   transform: translateX(0);
 }
+
+/* Küçük Ekranlarda (Mobil) Ekranı Komple Kaplamasın, Dar Kalsın */
 @media (max-width: 574.98px) {
   .tp-offcanvas {
-    width: 100%;
+    width: 310px; /* 👈 Cep telefonlarında ekranın %80'ini kaplar, arkası hafif görünür */
+    padding: 30px 20px;
   }
 }
+
 @media only screen and (min-width: 576px) and (max-width: 767px) {
   .tp-offcanvas {
-    width: 400px;
+    width: 310px;
   }
 }
+
+/* 🎯 Kapatma Butonunu (X) Sağ Üste Sabitleme */
+.tp-offcanvas-close-button {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  font-size: 22px !important;
+  color: var(--tp-common-black) !important;
+  width: 36px !important;
+  height: 36px !important;
+  background-color: #f1f5f9 !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  z-index: 999 !important;
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+.tp-offcanvas-close-button:hover {
+  background-color: var(--tp-theme-1, #ff4a22) !important;
+  color: #ffffff !important;
+}
+/*----------------------------------------*/
+/* 🎯 Sol Taraftaki Şeffaf / Siyah Arka Plan (Overlay) */
 .tp-offcanvas-overlay {
   position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
-  background: #000;
-  z-index: 15;
+  background: rgba(0, 0, 0, 0.6); /* Yarı şeffaf siyah zemin */
+  z-index: 90; /* Menünün hemen arkası */
   opacity: 0;
-  transition: 0.3s;
   visibility: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
-.tp-offcanvas-overlay-open {
-  opacity: 0.4;
-  visibility: visible;
-}
-.tp-offcanvas-overlay.apply {
-  opacity: 0.4;
-  visibility: visible;
-}
+
+/* Menü Açıldığında Şeffaf Alan Görünsün */
+.tp-offcanvas-overlay-open,
+.tp-offcanvas-overlay.apply,
 .tp-offcanvas-overlay.opened {
-  opacity: 0.4;
-  visibility: visible;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
-.tp-offcanvas-overlay:hover {
-  cursor: url(../img/cross-out.png), pointer;
-}
-.tp-offcanvas-header {
+
+/* 🎯 Şeffaf Alanın Sol Üstüne Kapatma (X) İkonu Koyma */
+.tp-offcanvas-overlay::before {
+  content: '✕';
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: #ffffff;
+  font-size: 24px;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
-.tp-offcanvas .tp-header-search .tp-input {
-  width: 100%;
-}
-.tp-offcanvas-close-button {
-  font-size: 28px;
-  color: var(--tp-common-black);
-}
-.tp-offcanvas-close-button:hover {
-  color: var(--tp-theme-1);
-}
-.tp-offcanvas-gallery {
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: auto auto auto auto;
-}
-.tp-offcanvas-gallery img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-}
-@media (max-width: 574.98px) {
-  .tp-offcanvas-gallery img {
-    width: 60px;
-    height: 60px;
-  }
-}
-.tp-offcanvas-title {
-  font-size: 28px;
-}
-.tp-offcanvas-info span {
-  display: block;
-  margin-bottom: 4px;
-  font-size: 16px;
-}
-.tp-offcanvas-info span a:hover {
-  color: var(--tp-theme-1);
-}
-.tp-offcanvas-social a {
-  height: 44px;
-  width: 44px;
-  border: 1px solid rgba(7, 21, 22, 0.1);
-  border-radius: 100%;
-  display: inline-block;
-  text-align: center;
-  line-height: 42px;
-  margin-right: 2px;
-  color: var(--tp-common-black);
-}
-.tp-offcanvas-social a:hover {
-  background: var(--tp-theme-1);
-  color: var(--tp-common-white);
+  justify-content: center;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
 /*----------------------------------------*/
@@ -14632,4 +14621,41 @@ div[class*="counter"] {
         -webkit-overflow-scrolling: touch !important; /* iOS (iPhone) cihazlarda kaydırma yağ gibi aksın */
         padding-bottom: 15px !important; /* Kaydırma çubuğu kartı kapatmasın diye alt boşluk */
     }
+}
+/* 🎯 Arama kutusunu tutan dış kapsayıcının taşmasına izin ver ve öne al */
+.tp-hero-area,
+.tp-hero-bottom-search,
+.hero-search-wrapper,
+section[class*="hero"] {
+  overflow: visible !important;
+  z-index: 99 !important;
+  position: relative !important;
+}
+
+/* 🎯 Arama input alanının ve açılır dropdown panelinin z-index'ini zirveye çıkar */
+.tp-hero-search-box,
+.tp-search-input,
+.tp-search-box {
+  position: relative !important;
+  z-index: 999 !important;
+  overflow: visible !important;
+}
+
+/* 🎯 Açılan "Popüler Saatlik Otel Bölgeleri" listesi */
+.tp-search-autocomplete,
+.search-popup,
+.tp-search-dropdown-result {
+  position: absolute !important;
+  z-index: 99999 !important;
+  top: 100% !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
+/* 🎯 Alttaki 4'lü Ücretsiz İptal / Otelde Ödeme kutularının katmanını alta çek */
+.tp-feature-area,
+.tp-hero-feature,
+.tp-features-box {
+  position: relative !important;
+  z-index: 1 !important;
 }
