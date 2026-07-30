@@ -876,7 +876,7 @@ window.addEventListener('DOMContentLoaded', () => {
                               <div class="tp-booking-quantity-content">
                                  <span class="fw-500 mb-10 d-block">Konaklama Süresi:</span>
                                  <div class="tp-booking-extra-payment-item d-flex align-items-center flex-wrap gap-2">
-                                    <div class="tp-booking-extra-payment-input"><input type="radio" id="duration-9h" name="hotel_duration" value="9"><label for="duration-9h" id="label-duration-9h">9 Saat</label></div>
+                                    <div class="tp-booking-extra-payment-input"><input type="radio" id="duration-12h" name="hotel_duration" value="12"><label for="duration-12h" id="label-duration-12h">12 Saat</label></div>
                                     <div class="tp-booking-extra-payment-input"><input type="radio" id="duration-24h" name="hotel_duration" value="24"><label for="duration-24h" id="label-duration-24h">24 Saat</label></div>
                                  </div>
                               </div>
@@ -902,7 +902,7 @@ window.addEventListener('DOMContentLoaded', () => {
                               </label>
                            </div>
                            <div class="tp-booking-extra-payment-input w-100">
-                              <input type="radio" id="room-suite" name="hotel_room_type" value="Suite" data-price="65">
+                              <input type="radio" id="room-suite" name="hotel_room_type" value="Suite" data-price="45">
                               <label for="room-suite" class="w-100 d-flex justify-content-between">
                                  <span><i class="fa-solid fa-crown me-2"></i> King Süit Oda</span>
                                  <span class="fw-bold text-success">+€45.00</span>
@@ -960,7 +960,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <script>
-const BASE_24H_PRICE = 70; 
+const BASE_24H_PRICE = 59; 
 
 function setupDurationLabels() {
     if(document.getElementById('label-duration-3h')) document.getElementById('label-duration-3h').innerText = `3 Saat (€${(BASE_24H_PRICE * 0.50).toFixed(2)})`;
