@@ -19,14 +19,12 @@
 
   gtag('config', 'G-HBPRSG7FSH');
 </script>
-   <meta charset="utf-8">
-   <meta http-equiv="x-ua-compatible" content="ie=edge">
- <title>HourlyBeds by TourQuaz | Lüks Saatlik Oda ve Premium Konaklama</title>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="Otellerde esnek saatlik konaklama ve lüks oda deneyiminde konforu seçin. HourlyBeds by TourQuaz, 7/24 güvenli, tam izole ve kişiselleştirilmiş premium otel hizmetleri sunar. Hemen odanızı rezerve edin.">
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>Elemin Hotel Saatlik Oda & Transit Konaklama | HourlyBeds</title>
+<meta name="description" content="Elemin Hotel otelinde 3, 6 veya 12 saatlik esnek konaklama. İstanbul Anadolu bölgesinde %100 gizlilik ve en iyi fiyat garantisiyle saatlik oda rezervasyonu yapın.">
    <!-- Place favicon.ico in the root directory -->
    <link rel="shortcut icon" type="image/x-icon" href="/../../assets/img/logo/favicon.png">
 
@@ -876,7 +874,7 @@ window.addEventListener('DOMContentLoaded', () => {
                               <div class="tp-booking-quantity-content">
                                  <span class="fw-500 mb-10 d-block">Konaklama Süresi:</span>
                                  <div class="tp-booking-extra-payment-item d-flex align-items-center flex-wrap gap-2">
-                                    <div class="tp-booking-extra-payment-input"><input type="radio" id="duration-9h" name="hotel_duration" value="9"><label for="duration-9h" id="label-duration-9h">9 Saat</label></div>
+                                    <div class="tp-booking-extra-payment-input"><input type="radio" id="duration-12h" name="hotel_duration" value="12"><label for="duration-12h" id="label-duration-12h">12 Saat</label></div>
                                     <div class="tp-booking-extra-payment-input"><input type="radio" id="duration-24h" name="hotel_duration" value="24"><label for="duration-24h" id="label-duration-24h">24 Saat</label></div>
                                  </div>
                               </div>
@@ -902,7 +900,7 @@ window.addEventListener('DOMContentLoaded', () => {
                               </label>
                            </div>
                            <div class="tp-booking-extra-payment-input w-100">
-                              <input type="radio" id="room-suite" name="hotel_room_type" value="Suite" data-price="65">
+                              <input type="radio" id="room-suite" name="hotel_room_type" value="Suite" data-price="45">
                               <label for="room-suite" class="w-100 d-flex justify-content-between">
                                  <span><i class="fa-solid fa-crown me-2"></i> King Süit Oda</span>
                                  <span class="fw-bold text-success">+€45.00</span>
@@ -960,7 +958,7 @@ window.addEventListener('DOMContentLoaded', () => {
 </div>
 
 <script>
-const BASE_24H_PRICE = 70; 
+const BASE_24H_PRICE = 59; 
 
 function setupDurationLabels() {
     if(document.getElementById('label-duration-3h')) document.getElementById('label-duration-3h').innerText = `3 Saat (€${(BASE_24H_PRICE * 0.50).toFixed(2)})`;
@@ -2054,7 +2052,7 @@ function redirectToHub() {
     const queryParams = `?hotel_name=${encodeURIComponent(hotelName)}&pre_date=${encodeURIComponent(preDate)}&pre_time=${encodeURIComponent(preTime)}&pre_duration=${encodeURIComponent(preDuration)}&pre_price=${encodeURIComponent(prePrice)}&room_type=${encodeURIComponent(roomType)}&hotel_email=${encodeURIComponent(hotelEmail)}`;
 
     // 4. Rezervasyon (Checkout) Sayfasına Yönlendiriyoruz
-    window.location.href = "./hourlybeds-rezervasyon.html" + queryParams;
+    window.location.href = "rezervasyon.html" + queryParams;
 }
 </script>
 <!-- ========================================== -->

@@ -19,16 +19,15 @@
 
   gtag('config', 'G-HBPRSG7FSH');
 </script>
-   <meta charset="utf-8">
-   <meta http-equiv="x-ua-compatible" content="ie=edge">
- <title>HourlyBeds by TourQuaz | Galata Greenland Hotel - Lüks Saatlik Oda ve Premium Konaklama</title>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta name="description" content="Galata Greenland Hotel'de esnek saatlik konaklama ve lüks oda deneyiminde konforu seçin. HourlyBeds by TourQuaz, 7/24 güvenli, tam izole ve kişiselleştirilmiş premium otel hizmetleri sunar. Hemen odanızı rezerve edin.">
-
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-
+<title>Galata Greenland Hotel Saatlik Oda & Transit Konaklama | HourlyBeds</title>
+<meta name="description" content="Galata Greenland Hotel otelinde 3, 6 veya 12 saatlik esnek konaklama. İstanbul Anadolu bölgesinde %100 gizlilik ve en iyi fiyat garantisiyle saatlik oda rezervasyonu yapın.">
    <!-- Place favicon.ico in the root directory -->
    <link rel="shortcut icon" type="image/x-icon" href="/../../assets/img/logo/favicon.png">
+
 
    <!-- CSS here -->
    <link rel="stylesheet" href="/assets/css/bootstrap.css">
@@ -911,9 +910,9 @@ window.addEventListener('DOMContentLoaded', () => {
    <span class="tp-booking-6-check-date-title mb-10 fw-600" style="color: #1a1a1a;">Oda Kategorisi Seçimi:</span>
    <div class="tp-booking-extra-payment-item d-flex flex-column gap-2" style="width: 100%;">
       <div class="tp-booking-extra-payment-input w-100">
-         <input type="radio" id="room-standard" name="hotel_room_type" value="Standart Oda" data-price="0" checked required>
+         <input type="radio" id="room-standard" name="hotel_room_type" value="Standart Annex Oda" data-price="0" checked required>
          <label for="room-standard" class="w-100 d-flex justify-content-between">
-            <span><i class="fa-solid fa-bed me-2"></i> Standart Oda</span>
+            <span><i class="fa-solid fa-bed me-2"></i> Standart Annex Oda</span>
             <span class="fw-bold text-muted">Dahil</span>
          </label>
       </div>
@@ -925,10 +924,10 @@ window.addEventListener('DOMContentLoaded', () => {
          </label>
       </div>
       <div class="tp-booking-extra-payment-input w-100">
-         <input type="radio" id="room-jacuzzi" name="hotel_room_type" value="Jakuzili Oda" data-price="45">
+         <input type="radio" id="room-jacuzzi" name="hotel_room_type" value="Jakuzili Oda" data-price="25">
          <label for="room-jacuzzi" class="w-100 d-flex justify-content-between">
             <span><i class="fa-solid fa-hot-tub-person me-2"></i> Jakuzili Süit Oda</span>
-            <span class="fw-bold text-success">+€45.00</span>
+            <span class="fw-bold text-success">+€25.00</span>
          </label>
       </div>
    </div>
@@ -968,7 +967,7 @@ window.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <span class="tp-booking-extra-payment-price price-tag" data-usd="40">€40</span>
                      </div>
-<input type="hidden" id="hotel_email" name="hotel_email" value="gm@galatagreenlandhotel.com,info@galatagreenlandhotel.com">
+<input type="hidden" id="hotel_email" name="hotel_email" value="gm@galatagreenlandhotel.com">
                      <button type="button" class="tp-btn tp-btn-xl w-100" onclick="redirectToHub()" style="padding: 15px; font-weight: 600; display: block; text-align: center;">
                         Şimdi Rezervasyon Yap
                      </button>
@@ -984,7 +983,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 <script>
 // ANA FİYAT TANIMI (24 Saatlik Paket Ücreti - ZenHotels referansına göre 50 Euro yapıldı)
-const BASE_24H_PRICE = 50; 
+const BASE_24H_PRICE = 70; 
 
 function setupDurationLabels() {
     if(document.getElementById('label-duration-3h')) document.getElementById('label-duration-3h').innerText = `3 Saat (€${(BASE_24H_PRICE * 0.50).toFixed(2)})`;
@@ -1888,8 +1887,17 @@ div[class*="sticky-wrapper"],
 <img src="https://flagcdn.com/w80/gb.png" alt="English" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
 </div>
 <!-- ========================================== -->
+<!-- ======================================================= -->
+<!-- ======================================================= -->
+<!-- ======================================================= -->
+<!-- HOURLYBEDS FIREBASE, ÜYE YÖNETİMİ & REZERVASYON MOTORU -->
+<!-- ======================================================= -->
 
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 
+<
+ <!-- ======================================================= -->
 <!-- HOURLYBEDS FIREBASE, ÜYE YÖNETİMİ & REZERVASYON MOTORU -->
 <!-- ======================================================= -->
 
@@ -1914,7 +1922,11 @@ div[class*="sticky-wrapper"],
   }
   const auth = firebase.auth();
 
-  // Üst menü profil dinamik kontrolü
+  // Dinamik Menü Yolu (Klasör Seviyesini Otomatik Algılar)
+  const isSubFolder = window.location.pathname.includes('/tr/') || window.location.pathname.includes('/en/');
+  const loginPath = isSubFolder ? "../login.html" : "./login.html";
+  const registerPath = isSubFolder ? "../register.html" : "./register.html";
+
   auth.onAuthStateChanged((user) => {
       const menuList = document.getElementById('tq-user-menu-list');
       if (!menuList) return;
@@ -1933,18 +1945,18 @@ div[class*="sticky-wrapper"],
       } else {
           menuList.innerHTML = `
              <li>
-                <a href="./login.html"><i class="icon far fa-user"></i> Giriş Yap</a>
+                <a href="${loginPath}"><i class="icon far fa-user"></i> Giriş Yap</a>
              </li>
              <li>
-                <a href="./register.html"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
+                <a href="${registerPath}"><i class="icon fas fa-user-plus"></i> Kayıt Ol</a>
              </li>
           `;
       }
   });
 
-  // 2. REZERVASYON YÖNLENDİRME MOTORU (ÇOK DİLLİ VE ÇOK KLASÖRLÜ TAM UYUMLU)
+// 2. REZERVASYON YÖNLENDİRME MOTORU
   function redirectToHub() {
-      // 1. Otel Maillerini Al (Yoksa info@tourquaz.com)
+      // Otel Maillerini Al
       // Otel Maillerini Al ve Temizle
 const hotelEmailInput = document.getElementById('hotel_email');
 let hotelEmail = (hotelEmailInput && hotelEmailInput.value.trim() !== "") 
@@ -1962,21 +1974,21 @@ const queryParams = new URLSearchParams({
     hotel_email: hotelEmail // Artık sorunsuz şekilde URL'e eklenecek
 });
 
-      // 2. Otel Adını Akıllı Yakala
+      // Otel Adını Akıllı Yakala
       let hotelName = document.getElementById('hotel_name')?.innerText.trim();
       if (!hotelName || hotelName.includes("Hakkında") || hotelName.includes("Bu Otel") || hotelName.includes("About")) {
           const mainTitle = document.querySelector('.tp-tour-details-title') || document.querySelector('h1');
           hotelName = mainTitle ? mainTitle.innerText.replace(/Bu Otel Hakkında|About This Hotel/gi, '').trim() : document.title.split('-')[0].trim();
       }
 
-      // 3. Form Verilerini Al
+      // Form Verilerini Al
       const preDate     = document.getElementById('select_date')?.value || '';
       const preTime     = document.getElementById('select_time')?.value || '';
       const preDuration = document.getElementById('select_duration')?.value || '3';
       const prePrice    = document.getElementById('total_price')?.innerText || document.querySelector('.price-value')?.innerText || '0';
       const roomType    = document.getElementById('select_room')?.value || 'Standart Oda';
 
-      // 4. URL Parametrelerini Oluştur
+      // URL Parametrelerini Oluştur
       const queryParams = new URLSearchParams({
           hotel_name: hotelName,
           pre_date: preDate,
@@ -1993,9 +2005,10 @@ const queryParams = new URLSearchParams({
 
       window.location.href = target + "?" + queryParams.toString();
   }
-</script>
 <!-- ======================================================= -->
 
+<!-- ========================================== -->
 </body>
 
 </html>
+
