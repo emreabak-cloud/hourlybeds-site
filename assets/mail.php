@@ -60,10 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
         // Server Ayarları
         $mail->isSMTP();
-        $mail->Host       = 'mail.kurumsaleposta.com'; 
+        $mail->Host       = 'mail.kurumsaleposta.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'info@tourquaz.com'; 
-        $mail->Password   = 'GGgg040310059&@'; 
+        $mail->Username   = 'info@tourquaz.com';
+        $mail->Password   = getenv('SMTP_PASSWORD');
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465; 
         $mail->CharSet    = 'UTF-8'; 
