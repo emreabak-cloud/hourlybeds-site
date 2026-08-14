@@ -460,7 +460,7 @@
                         <h2 class="tp-section-title fs-32 fw-600 mb-20">Destek Almak İster misiniz?</h2>
                         
                         <div class="tp-contact-form tp-tour-review-form">
-                           <form id="contact-form" action="/assets/mail.php" method="POST">
+                           <form id="contact-form">
                               <div class="row">
                                  <!-- İsim Soyisim -->
                                  <div class="col-lg-12">
@@ -493,7 +493,7 @@
                                  <!-- Gönder Butonu -->
                                  <div class="col-lg-12">
                                     <div class="tp-contact-form-btn">
-                                       <button class="tp-btn tp-btn-xl w-100 text-center" type="submit">Şimdi Gönder
+                                       <button class="tp-btn tp-btn-xl w-100 text-center" type="submit"><i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
                                           <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                              <path d="M9.39844 4.82629H0.750259" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                              <path d="M5.87516 8.90262C5.87516 8.90262 9.71874 5.90043 9.71875 4.82626C9.71876 3.75209 5.8751 0.75 5.8751 0.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -940,6 +940,43 @@ const queryParams = new URLSearchParams({
 </script>
 <!-- ======================================================= -->
 <!-- ========================================== -->
+
+<script>
+   // CONTACT FORM - redirect to WhatsApp
+   const CONTACT_WHATSAPP_NUMBER = "902129999642";
+
+   const contactForm = document.getElementById('contact-form');
+   if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+         e.preventDefault();
+
+         const nameEl    = document.getElementById('name');
+         const emailEl   = document.getElementById('email');
+         const subjectEl = document.getElementById('subject');
+         const messageEl = document.getElementById('textarea');
+         const responseEl = contactForm.querySelector('.ajax-response');
+
+         const name    = nameEl ? nameEl.value.trim() : '';
+         const email   = emailEl ? emailEl.value.trim() : '';
+         const subject = subjectEl ? subjectEl.value.trim() : '';
+         const message = messageEl ? messageEl.value.trim() : '';
+
+         if (!name || !email || !subject || !message) {
+            if (responseEl) responseEl.innerText = "Please fill in all fields.";
+            return;
+         }
+
+         const waText = "Hello, I'm writing from the contact form.\n"
+            + "Name: " + name + "\n"
+            + "Email: " + email + "\n"
+            + "Subject: " + subject + "\n"
+            + "Message: " + message;
+
+         if (responseEl) responseEl.innerText = "Opening WhatsApp...";
+         window.open("https://wa.me/" + CONTACT_WHATSAPP_NUMBER + "?text=" + encodeURIComponent(waText), "_blank");
+      });
+   }
+</script>
 </body>
 
 </html>
