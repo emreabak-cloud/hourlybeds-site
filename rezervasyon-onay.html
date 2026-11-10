@@ -211,8 +211,22 @@ const templateParams = {
 };
 
         // 🚀 2. ŞABLON TETİKLENİYOR
+        // Aynı onay linki tekrar açılırsa mailler ikinci kez gitmesin
+        const sentKey = 'hb_sent_' + window.location.search;
+        let alreadySent = false;
+        try { alreadySent = localStorage.getItem(sentKey) === '1'; } catch (e) {}
+        if (alreadySent) return;
+
+        // Her rezervasyonun bir kopyası HourlyBeds'e (ADMIN_EMAIL) de gitsin
+        const ADMIN_EMAIL = 'info@tourquaz.com';
+        if (templateParams.to_email.toLowerCase().indexOf(ADMIN_EMAIL) === -1) {
+            emailjs.send('service_1c8kjjh', 'template_itrq18q', Object.assign({}, templateParams, { to_email: ADMIN_EMAIL }))
+                .catch(function(err) { console.error('ADMIN COPY ERROR:', err); });
+        }
+
         emailjs.send('service_1c8kjjh', 'template_itrq18q', templateParams)
             .then(function(response) {
+                try { localStorage.setItem(sentKey, '1'); } catch (e) {}
                 alert("🎉 BAŞARILI! Otele Rezervasyon Detaylari Mail olarak Gönderilmistir!");
                 console.log("SUCCESS:", response);
             }, function(error) {

@@ -1041,7 +1041,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 function redirectToHub() {
     const titleEl = document.querySelector('.tp-breadcrumb-title') || document.querySelector('h2') || document.querySelector('h1');
-    const otelAdi = titleEl ? titleEl.innerText.trim() : 'Galata Greenland Hotel'; 
+    const otelAdi = titleEl ? titleEl.innerText.trim() : document.title.split(/[|\u2013-]/)[0].trim(); 
 
     const dateEl = document.getElementById('hotel-date');
     const selectedTimeEl = document.querySelector('input[name="hotel_time"]:checked');
@@ -1058,7 +1058,7 @@ function redirectToHub() {
     const hesaplananOdaFiyati = document.getElementById('hotel-summary-total-price').innerText;
     
     // 🚀 URL Paketinin içine room_type parametresini de ekliyoruz
-    const queryParams = `?hotel_name=${encodeURIComponent(otelAdi)}&pre_date=${encodeURIComponent(dateEl.value)}&pre_time=${encodeURIComponent(selectedTimeEl.value)}&pre_duration=${encodeURIComponent(selectedDurationEl.value)}&pre_price=${encodeURIComponent(hesaplananOdaFiyati)}&room_type=${encodeURIComponent(selectedRoomEl.value)}`;
+    const queryParams = `?hotel_name=${encodeURIComponent(otelAdi)}&pre_date=${encodeURIComponent(dateEl.value)}&pre_time=${encodeURIComponent(selectedTimeEl.value)}&pre_duration=${encodeURIComponent(selectedDurationEl.value)}&pre_price=${encodeURIComponent(hesaplananOdaFiyati)}&room_type=${encodeURIComponent(selectedRoomEl.value)}` + (function () { const el = document.getElementById('hotel_email'); const v = el ? el.value.trim() : ''; return v ? '&hotel_email=' + encodeURIComponent(v) : ''; })();
     
     window.location.href = "hourlybeds-rezervasyon.html" + queryParams;
 }</script>
